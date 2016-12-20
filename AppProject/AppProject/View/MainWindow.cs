@@ -55,4 +55,73 @@ public partial class MainWindow : Gtk.Window
 	{
 		var dodajKorisnikaWin = new WindowDodajKorisnika();
 	}
+
+	protected void dodajAktivnost(object sender, EventArgs e)
+	{
+		var dodajAktivnostWin = new WindowDodajAktivnost();
+	}
+
+	protected void dodajTip(object sender, EventArgs e)
+	{
+		var dodajTipWin = new WindowDodajTip();
+	}
+
+	protected void mijenjajKorisnika(object sender, EventArgs e)
+	{
+		var mijenjajKorisnikaWin = new WindowMijenjajKorisnika();
+	}
+
+	protected void mijenjajAktivnost(object sender, EventArgs e)
+	{
+		var mijenjajAktivnostWin = new WindowMijenjajAktivnost();
+	}
+
+	protected void mijenjajTip(object sender, EventArgs e)
+	{
+		var mijenjajTipWin = new WindowMijenjajTip();
+	}
+
+	protected void showQuestionKorisnik(object sender, EventArgs e)
+	{
+		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati korisnika?");
+
+		d.AddButton("Da", Gtk.ResponseType.Yes);
+		d.AddButton("Ne", Gtk.ResponseType.No);
+
+		var odgovor = (Gtk.ResponseType)d.Run();
+		d.Destroy();
+	}
+
+	protected void showQuestionAktivnost(object sender, EventArgs e)
+	{
+		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati aktivnost?");
+
+		d.AddButton("Da", Gtk.ResponseType.Yes);
+		d.AddButton("Ne", Gtk.ResponseType.No);
+
+		var odgovor = (Gtk.ResponseType)d.Run();
+		d.Destroy();
+	}
+
+	protected void showQuestionTip(object sender, EventArgs e)
+	{
+		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati tip aktivnosti?");
+
+		d.AddButton("Da", Gtk.ResponseType.Yes);
+		d.AddButton("Ne", Gtk.ResponseType.No);
+
+		var odgovor = (Gtk.ResponseType)d.Run();
+		d.Destroy();
+	}
+
+	protected void showQuestionIzlaz(object sender, EventArgs e)
+	{
+		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite izaći iz programa?");
+
+		d.AddButton("Da", Gtk.ResponseType.Yes);
+		d.AddButton("Ne", Gtk.ResponseType.No);
+
+		var odgovor = (Gtk.ResponseType)d.Run();
+		d.Destroy();
+	}
 }

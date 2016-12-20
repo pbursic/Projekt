@@ -6,11 +6,7 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="AppProject\View\MainWindow.cs">
     <Files>
-      <File FileName="AppProject\Presenter\KorisnikNode.cs" Line="1" Column="1" />
-      <File FileName="AppProject\Presenter\AktKorisnikaNode.cs" Line="10" Column="1" />
-      <File FileName="AppProject\Presenter\TipAktivnostiNode.cs" Line="6" Column="10" />
-      <File FileName="AppProject\View\WindowDodajKorisnika.cs" Line="8" Column="17" />
-      <File FileName="AppProject\View\MainWindow.cs" Line="56" Column="54" />
+      <File FileName="AppProject\View\MainWindow.cs" Line="81" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.AppProject PreferredExecutionTarget="MonoDevelop.Default" />

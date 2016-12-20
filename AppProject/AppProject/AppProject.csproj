@@ -70,6 +70,16 @@
     <Compile Include="Presenter\TipAktivnostiNodeStore.cs" />
     <Compile Include="View\WindowDodajKorisnika.cs" />
     <Compile Include="gtk-gui\AppProject.WindowDodajKorisnika.cs" />
+    <Compile Include="View\WindowDodajAktivnost.cs" />
+    <Compile Include="gtk-gui\AppProject.WindowDodajAktivnost.cs" />
+    <Compile Include="View\WindowDodajTip.cs" />
+    <Compile Include="gtk-gui\AppProject.WindowDodajTip.cs" />
+    <Compile Include="View\WindowMijenjajKorisnika.cs" />
+    <Compile Include="gtk-gui\AppProject.WindowMijenjajKorisnika.cs" />
+    <Compile Include="View\WindowMijenjajAktivnost.cs" />
+    <Compile Include="gtk-gui\AppProject.WindowMijenjajAktivnost.cs" />
+    <Compile Include="View\WindowMijenjajTip.cs" />
+    <Compile Include="gtk-gui\AppProject.WindowMijenjajTip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
