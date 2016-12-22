@@ -53,6 +53,8 @@ public partial class MainWindow
 
 	private global::Gtk.VBox vbox2;
 
+	private global::Gtk.EventBox eventbox1;
+
 	private global::Gtk.Notebook notebook4;
 
 	private global::Gtk.Label label1;
@@ -164,7 +166,7 @@ public partial class MainWindow
 		this.notebook1.WidthRequest = 300;
 		this.notebook1.CanFocus = true;
 		this.notebook1.Name = "notebook1";
-		this.notebook1.CurrentPage = 2;
+		this.notebook1.CurrentPage = 0;
 		this.notebook1.TabPos = ((global::Gtk.PositionType)(0));
 		// Container child notebook1.Gtk.Notebook+NotebookChild
 		this.vbox16 = new global::Gtk.VBox();
@@ -276,7 +278,6 @@ public partial class MainWindow
 		this.labelTipAktivnosti.ShowAll();
 		// Container child notebook1.Gtk.Notebook+NotebookChild
 		this.vbox1 = new global::Gtk.VBox();
-		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox2 = new global::Gtk.HBox();
@@ -377,6 +378,9 @@ public partial class MainWindow
 		this.vbox2.Name = "vbox2";
 		this.vbox2.Spacing = 6;
 		// Container child vbox2.Gtk.Box+BoxChild
+		this.eventbox1 = new global::Gtk.EventBox();
+		this.eventbox1.Name = "eventbox1";
+		// Container child eventbox1.Gtk.Container+ContainerChild
 		this.notebook4 = new global::Gtk.Notebook();
 		this.notebook4.CanFocus = true;
 		this.notebook4.Name = "notebook4";
@@ -781,12 +785,13 @@ public partial class MainWindow
 		this.labelStatistika.LabelProp = global::Mono.Unix.Catalog.GetString("Statistika");
 		this.notebook4.SetTabLabel(w63, this.labelStatistika);
 		this.labelStatistika.ShowAll();
-		this.vbox2.Add(this.notebook4);
-		global::Gtk.Box.BoxChild w64 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.notebook4]));
-		w64.Position = 0;
+		this.eventbox1.Add(this.notebook4);
+		this.vbox2.Add(this.eventbox1);
+		global::Gtk.Box.BoxChild w65 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.eventbox1]));
+		w65.Position = 0;
 		this.hbox1.Add(this.vbox2);
-		global::Gtk.Box.BoxChild w65 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox2]));
-		w65.Position = 1;
+		global::Gtk.Box.BoxChild w66 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox2]));
+		w66.Position = 1;
 		this.Add(this.hbox1);
 		if ((this.Child != null))
 		{

@@ -25,7 +25,7 @@ namespace AppProject
 			this.korisnik = k;
 			this.ime = k.Ime;
 			this.prezime = k.Prezime;
-			this.dob = k.Dob.ToString();
+			this.dob = k.Datum_rodjenja.ToString();
 			this.visina = k.Visina.ToString();
 			this.tezina = k.Tezina.ToString();
 		}
