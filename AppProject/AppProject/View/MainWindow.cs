@@ -26,6 +26,8 @@ public partial class MainWindow : Gtk.Window
 		nodeviewKorisnici.AppendColumn("Visina", new Gtk.CellRendererText(), "text", 3);
 		nodeviewKorisnici.AppendColumn("Težina", new Gtk.CellRendererText(), "text", 4);
 
+		korisnikPresenter.Dodaj(Baza.DbUcitajKorisnike());
+
 		nodeviewKorisnici.NodeSelection.Changed += this.RowSelected;
 
 		nodeviewAktivnostiKorisnika.AppendColumn("Naziv", new Gtk.CellRendererText(), "text", 0);
@@ -123,5 +125,20 @@ public partial class MainWindow : Gtk.Window
 
 		var odgovor = (Gtk.ResponseType)d.Run();
 		d.Destroy();
+		if (odgovor == ResponseType.Yes)
+		{
+			Application.Quit();
+		}
+	}
+
+	protected void ShowKorisnici(object sender, EventArgs e)
+	{
+		notebookGlavni.CurrentPage = 1;
+		notebookMenu.CurrentPage = 2;
+	}
+
+	protected void ShowTipAktivnosti(object sender, EventArgs e)
+	{
+		notebookGlavni.CurrentPage = 3;
 	}
 }

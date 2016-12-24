@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace AppProject
@@ -7,24 +8,61 @@ namespace AppProject
 	{
 		static SQLiteConnection konekcija = new SQLiteConnection("Data Source=baza.db");
 
-		//Skripta za stvaranje tablice sa korisnicima
+		//Skripta za stvaranje tablice sa korisnicima, tipovima aktivnosti
 		public static void Db()
 		{
 			konekcija.Open();
-			string kreiraj = "CREATE TABLE IF NOT EXISTS korisnici (id integer primary key autoincrement, " +
+
+			//Tablica korisnici
+			string korisnici = "CREATE TABLE IF NOT EXISTS korisnici (id integer primary key autoincrement, " +
 				"ime nvarchar(20), prezime nvarchar(30), datum_rodjenja datetime, visina integer, tezina integer)";
-			SQLiteCommand createcmd = new SQLiteCommand(kreiraj, konekcija);
-			createcmd.ExecuteNonQuery();
+			SQLiteCommand korisnicicreate = new SQLiteCommand(korisnici, konekcija);
+			korisnicicreate.ExecuteNonQuery();
+
+			//Tablica tipoviaktivnosti
+			string tipakt= "CREATE TABLE IF NOT EXISTS tipoviaktivnosti (id integer primary key autoincrement," +
+				"naziv nvarchar(35), jedinica_mjere nvarchar(10), potrosnja float)";
+			SQLiteCommand tipaktcreate = new SQLiteCommand(tipakt, konekcija);
+			tipaktcreate.ExecuteNonQuery();
+
 			konekcija.Close();
 		}
 
 		//Spremi novog korisnika u bazu
-		public static void DbSpremiKorisnik(string ime, string prezime, DateTime datum_rodjenja, int visina, int tezina)
+		public static void DbSpremiKorisnik(Korisnik k)
 		{
 			konekcija.Open();
-			string unesiKorisnika = @"INSERT INTO korisnici (ime,prezime,datum_rodjenja,visina,tezina) VALUES ('" + ime +
-				"','" + prezime + "'," + datum_rodjenja.ToFileTime() + "," + visina + "," + tezina + ")";
+			string unesiKorisnika = @"INSERT INTO korisnici (ime,prezime,datum_rodjenja,visina,tezina) VALUES ('" +
+				k.Ime +"','" + k.Prezime + "'," + k.Datum_rodjenja.ToFileTime() + "," + k.Visina + "," + k.Tezina + ")";
 			SQLiteCommand createcmd = new SQLiteCommand(unesiKorisnika, konekcija);
+			createcmd.ExecuteNonQuery();
+			konekcija.Close();
+		}
+
+		//Učitavanje korisnika sa baze
+		public static List<Korisnik> DbUcitajKorisnike()
+		{
+			konekcija.Open();
+			string ucitajKorisnike = "SELECT * FROM korisnici";
+			SQLiteCommand createcmd = new SQLiteCommand(ucitajKorisnike, konekcija);
+			SQLiteDataReader reader = createcmd.ExecuteReader();
+			List<Korisnik> listaKorisnika = new List<Korisnik>();
+			while (reader.Read())
+			{
+				Korisnik k = new Korisnik(reader.GetString(1), reader.GetString(2), DateTime.FromFileTime(reader.GetInt64(3)),reader.GetDouble(4),reader.GetDouble(5));
+				listaKorisnika.Add(k);
+			}
+			konekcija.Close();
+			return listaKorisnika;
+		}
+
+		//Spremi novi tip aktivnosti u bazu
+		public static void DbSpremiTipAktivnosti(TipAktivnosti ta)
+		{
+			konekcija.Open();
+			string unesiTipAktivnosti = @"INSERT INTO tipoviaktivnosti (naziv,jedinica_mjere, potrosnja) VALUES ('" +
+				ta.Naziv + "','" + ta.JedinicaMjere + "'," + ta.KcalPoJediniciMjere + ")";
+			SQLiteCommand createcmd = new SQLiteCommand(unesiTipAktivnosti, konekcija);
 			createcmd.ExecuteNonQuery();
 			konekcija.Close();
 		}

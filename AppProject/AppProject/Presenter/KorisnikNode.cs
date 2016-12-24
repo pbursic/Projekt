@@ -12,7 +12,7 @@ namespace AppProject
 		public String prezime;
 
 		[Gtk.TreeNodeValue(Column = 2)]
-		public String dob;
+		public String datum_rodjenja;
 
 		[Gtk.TreeNodeValue(Column = 3)]
 		public String visina;
@@ -25,7 +25,7 @@ namespace AppProject
 			this.korisnik = k;
 			this.ime = k.Ime;
 			this.prezime = k.Prezime;
-			this.dob = k.Datum_rodjenja.ToString();
+			this.datum_rodjenja = k.Datum_rodjenja.ToString("d");
 			this.visina = k.Visina.ToString();
 			this.tezina = k.Tezina.ToString();
 		}

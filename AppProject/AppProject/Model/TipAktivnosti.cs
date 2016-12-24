@@ -4,8 +4,8 @@ namespace AppProject
 	public class TipAktivnosti
 	{
 		private String naziv;
-		private String tip;
-		private double kalorijeJedinica;
+		private String jedinicaMjere;
+		private double kcalPoJediniciMjere;
 
 		public string Naziv
 		{
@@ -20,37 +20,37 @@ namespace AppProject
 			}
 		}
 
-		public string Tip
+		public string JedinicaMjere
 		{
 			get
 			{
-				return tip;
+				return jedinicaMjere;
 			}
 
 			set
 			{
-				tip = value;
+				jedinicaMjere = value;
 			}
 		}
 
-		public double KalorijeJedinica
+		public double KcalPoJediniciMjere
 		{
 			get
 			{
-				return kalorijeJedinica;
+				return kcalPoJediniciMjere;
 			}
 
 			set
 			{
-				kalorijeJedinica = value;
+				kcalPoJediniciMjere = value;
 			}
 		}
 
-		public TipAktivnosti(string naziv, string tip, double kalorijeJedinica)
+		public TipAktivnosti(string naziv, string jedinicaMjere, double kcalPoJediniciMjere)
 		{
 			this.Naziv = naziv;
-			this.Tip = tip;
-			this.KalorijeJedinica = kalorijeJedinica;
+			this.JedinicaMjere = jedinicaMjere;
+			this.KcalPoJediniciMjere = kcalPoJediniciMjere;
 		}
 	}
 }
