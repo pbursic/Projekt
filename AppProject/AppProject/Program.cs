@@ -10,6 +10,7 @@ namespace AppProject
 			Application.Init();
 			MainWindow win = new MainWindow();
 			win.Show();
+			Baza.Db();
 			Application.Run();
 		}
 	}

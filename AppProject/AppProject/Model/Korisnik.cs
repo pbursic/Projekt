@@ -5,7 +5,7 @@ namespace AppProject
 	{
 		private String ime;
 		private String prezime;
-		private int dob;
+		private DateTime datum_rodjenja;
 		private double visina;
 		private double tezina;
 
@@ -35,19 +35,6 @@ namespace AppProject
 			}
 		}
 
-		public int Dob
-		{
-			get
-			{
-				return dob;
-			}
-
-			set
-			{
-				dob = value;
-			}
-		}
-
 		public double Visina
 		{
 			get
@@ -74,11 +61,24 @@ namespace AppProject
 			}
 		}
 
-		public Korisnik(string ime, string prezime, int dob, double visina, double tezina)
+		public DateTime Datum_rodjenja
+		{
+			get
+			{
+				return datum_rodjenja;
+			}
+
+			set
+			{
+				datum_rodjenja = value;
+			}
+		}
+
+		public Korisnik(string ime, string prezime, DateTime datum_rodjenja, double visina, double tezina)
 		{
 			this.Ime = ime;
 			this.Prezime = prezime;
-			this.Dob = dob;
+			this.Datum_rodjenja = datum_rodjenja;
 			this.Visina = visina;
 			this.Tezina = tezina;
 		}
