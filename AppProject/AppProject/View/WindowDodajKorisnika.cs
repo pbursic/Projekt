@@ -72,8 +72,21 @@ namespace AppProject
 			}
 			//Spremi podatke u bazu i zatvori prozor
 			else{
-				Baza.DbSpremiKorisnik(entryIme.Text, entryPrezime.Text, datum , (int)spinbuttonVisina.Value, (int)spinbuttonTezina.Value);
-				this.Destroy();
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Ime: " + entryIme.Text + "\nPrezime: " 
+				                                 + entryPrezime.Text + "\nDatum rodjenja: " + datum.Date.ToString("d") + "\nVisina: " + spinbuttonVisina.Value 
+				                                 + "\nTežina: " + spinbuttonTezina.Value + "\n\nŽelite li spremiti korisnika?");
+				var response = (ResponseType)d.Run();
+				if (response == ResponseType.Ok)
+				{
+					Korisnik noviKorisnik = new Korisnik(entryIme.Text, entryPrezime.Text, datum, spinbuttonVisina.ValueAsInt, spinbuttonTezina.ValueAsInt);
+					Baza.DbSpremiKorisnik(noviKorisnik);
+					d.Destroy();
+					this.Destroy();
+				}
+				else
+				{
+					d.Destroy();
+				}
 			}
 		}
 
@@ -81,7 +94,7 @@ namespace AppProject
 		{
 			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.YesNo, 
 			                                 "Jeste li sigurni? Promjene neće biti spremljene.");
-			ResponseType response = (ResponseType) d.Run();
+			var response = (ResponseType) d.Run();
 			if (response == ResponseType.Yes)
 			{
 				d.Destroy();

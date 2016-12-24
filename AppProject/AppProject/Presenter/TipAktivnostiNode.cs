@@ -18,8 +18,8 @@ namespace AppProject
 		{
 			this.aktivnostiTip = aktTip;
 			this.naziv = aktTip.Naziv;
-			this.tip = aktTip.Tip;
-			this.kalorijeJedinica = aktTip.KalorijeJedinica.ToString();
+			this.tip = aktTip.JedinicaMjere;
+			this.kalorijeJedinica = aktTip.KcalPoJediniciMjere.ToString();
 		}
 	}
 }
