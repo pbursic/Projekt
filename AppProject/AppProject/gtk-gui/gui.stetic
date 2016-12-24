@@ -1009,7 +1009,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entry4">
+              <widget class="Gtk.Entry" id="entryIme">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -1045,7 +1045,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entry5">
+              <widget class="Gtk.Entry" id="entryPrezime">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -1201,15 +1201,34 @@ prosinac</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entry7">
+              <widget class="Gtk.SpinButton" id="spinbuttonVisina">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="InvisibleChar">●</property>
+                <property name="Lower">100</property>
+                <property name="Upper">250</property>
+                <property name="PageIncrement">10</property>
+                <property name="StepIncrement">1</property>
+                <property name="ClimbRate">1</property>
+                <property name="Numeric">True</property>
+                <property name="Value">170</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="labelCm">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">cm</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -1237,15 +1256,34 @@ prosinac</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entry8">
+              <widget class="Gtk.SpinButton" id="spinbuttonTezina">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="InvisibleChar">●</property>
+                <property name="Lower">20</property>
+                <property name="Upper">300</property>
+                <property name="PageIncrement">10</property>
+                <property name="StepIncrement">1</property>
+                <property name="ClimbRate">1</property>
+                <property name="Numeric">True</property>
+                <property name="Value">65</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="labelKg">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">kg</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -1267,6 +1305,7 @@ prosinac</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Spremi</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="SpremiKorisnika" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -1285,6 +1324,7 @@ prosinac</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Odustani</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OdustaniClicked" />
               </widget>
               <packing>
                 <property name="Position">2</property>

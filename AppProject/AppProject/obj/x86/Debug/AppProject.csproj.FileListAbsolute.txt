@@ -83,3 +83,31 @@ C:\Users\Maurizio\Documents\Projects\Projekt Aplikacija\AppProject\AppProject\bi
 C:\Users\Maurizio\Documents\Projects\Projekt Aplikacija\AppProject\AppProject\bin\Debug\normnfd.nlp
 C:\Users\Maurizio\Documents\Projects\Projekt Aplikacija\AppProject\AppProject\bin\Debug\normnfkc.nlp
 C:\Users\Maurizio\Documents\Projects\Projekt Aplikacija\AppProject\AppProject\bin\Debug\normnfkd.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\AppProject.exe
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\AppProject.exe.config
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\atk-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\gdk-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\glade-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\glib-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\gtk-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\Mono.Posix.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\mscorlib.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\pango-sharp.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.xml
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\gdk-sharp.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\glib-sharp.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\pango-sharp.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\atk-sharp.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\glade-sharp.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\normidna.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfc.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfd.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfkc.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfkd.nlp
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.exe
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\bin\Debug\AppProject.pdb
+C:\Users\Maurizio\Documents\Projects\AppProject\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.csprojResolveAssemblyReference.cache

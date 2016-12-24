@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Gtk;
 
 namespace AppProject
@@ -8,9 +9,12 @@ namespace AppProject
 		public WindowDodajKorisnika() : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
+			//Prvo popunjavanje comboboxeva pri otvaranju prozora
 			PopuniDatum();
 		}
 
+
+		//Postavljanje liste u comboboxevima te odabran datum s kalendara (danas)
 		public void PopuniDatum()
 		{
 			ListStore clearListDani = new ListStore(typeof(string), typeof(string));
@@ -38,17 +42,55 @@ namespace AppProject
 			comboboxGodina.Active = calendarDatumRodjenja.Date.Year - calendarDatumRodjenja.Date.Year;
 		}
 
-		protected void UpdateCalendar(object sender, EventArgs e)
-		{
-			/*TODO:
-			 * Implementirati metodu koja ucitava dan, mjesec i godinu sa combobox-eva i postavlja taj datum u kalendar
-			 * 
-			 */
-		}
 
+		//Prikazi datum s kalendara u comboboxevima
 		protected void UpdateDate(object sender, EventArgs e)
 		{
 			PopuniDatum();
+		}
+
+
+		//Klikom na Spremi, korisnik se sprema u bazu podataka
+		protected void SpremiKorisnika(object sender, EventArgs e)
+		{
+			
+			DateTime datum = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active+1), Int32.Parse(comboboxDan.ActiveText));
+
+			//Ime ne smije biti prazno
+			if (entryIme.Text == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Ime ne može biti prazno.");
+				d.Run();
+				d.Destroy();
+			}
+			//Prezime ne smije biti prazno
+			else if (entryPrezime.Text == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Prezime ne može biti prazno.");
+				d.Run();
+				d.Destroy();
+			}
+			//Spremi podatke u bazu i zatvori prozor
+			else{
+				Baza.DbSpremiKorisnik(entryIme.Text, entryPrezime.Text, datum , (int)spinbuttonVisina.Value, (int)spinbuttonTezina.Value);
+				this.Destroy();
+			}
+		}
+
+		protected void OdustaniClicked(object sender, EventArgs e)
+		{
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.YesNo, 
+			                                 "Jeste li sigurni? Promjene neće biti spremljene.");
+			ResponseType response = (ResponseType) d.Run();
+			if (response == ResponseType.Yes)
+			{
+				d.Destroy();
+				this.Destroy();
+			}
+			else 
+			{
+				d.Destroy();
+			}
 		}
 	}
 }

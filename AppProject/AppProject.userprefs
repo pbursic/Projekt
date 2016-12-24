@@ -6,8 +6,8 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="AppProject Status">
     <Files>
-      <File FileName="AppProject\Model\Korisnik.cs" Line="19" Column="7" />
-      <File FileName="AppProject\View\WindowDodajKorisnika.cs" Line="11" Column="18" />
+      <File FileName="AppProject\Baza\Baza.cs" Line="10" Column="48" />
+      <File FileName="AppProject\View\WindowDodajKorisnika.cs" Line="19" Column="4" />
       <File FileName="AppProject Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
