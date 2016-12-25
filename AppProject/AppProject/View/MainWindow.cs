@@ -12,6 +12,26 @@ public partial class MainWindow : Gtk.Window
 	{
 		Build();
 
+		Gdk.Color colorMain = new Gdk.Color();
+		Gdk.Color.Parse("#031A26", ref colorMain);
+		eventboxMain.ModifyBg(StateType.Normal, colorMain);
+		Add(eventboxMain);
+
+		Gdk.Color colorPage = new Gdk.Color();
+		Gdk.Color.Parse("#14A4EF", ref colorPage);
+		eventboxKorisniciUp.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxKorisniciUp);
+		eventboxKorisniciDown.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxKorisniciDown);
+		eventboxAktivnostiUp.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxAktivnostiUp);
+		eventboxAktivnostiDown.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxAktivnostiDown);
+		eventboxTipUp.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxTipUp);
+		eventboxTipDown.ModifyBg(StateType.Normal, colorPage);
+		Add(eventboxTipDown);
+
 		korisnikPresenter = new KorisnikNodeStore();
 		aktKorisnikPresenter = new AktKorisnikaNodeStore();
 		tipPresenter = new TipAktivnostiNodeStore();

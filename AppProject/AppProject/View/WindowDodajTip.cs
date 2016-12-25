@@ -9,6 +9,11 @@ namespace AppProject
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
+
+			Gdk.Color colorLightBlue = new Gdk.Color();
+			Gdk.Color.Parse("#3FB2F0", ref colorLightBlue);
+			eventboxDodajTip.ModifyBg(StateType.Normal, colorLightBlue);
+			Add(eventboxDodajTip);
 		}
 
 		protected void PromjeniLabel(object sender, EventArgs e)

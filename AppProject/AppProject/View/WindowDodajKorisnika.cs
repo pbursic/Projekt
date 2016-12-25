@@ -9,6 +9,12 @@ namespace AppProject
 		public WindowDodajKorisnika() : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
+
+			Gdk.Color colorLightBlue = new Gdk.Color();
+			Gdk.Color.Parse("#3FB2F0", ref colorLightBlue);
+			eventboxDodajKorisnika.ModifyBg(StateType.Normal, colorLightBlue);
+			Add(eventboxDodajKorisnika);
+
 			//Prvo popunjavanje comboboxeva pri otvaranju prozora
 			PopuniDatum();
 		}
