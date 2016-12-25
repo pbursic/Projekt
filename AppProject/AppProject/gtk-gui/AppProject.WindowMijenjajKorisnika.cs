@@ -4,6 +4,8 @@ namespace AppProject
 {
 	public partial class WindowMijenjajKorisnika
 	{
+		private global::Gtk.EventBox eventboxMijenjajKorisnika;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -11,6 +13,10 @@ namespace AppProject
 			this.Name = "AppProject.WindowMijenjajKorisnika";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajKorisnika");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			// Container child AppProject.WindowMijenjajKorisnika.Gtk.Container+ContainerChild
+			this.eventboxMijenjajKorisnika = new global::Gtk.EventBox();
+			this.eventboxMijenjajKorisnika.Name = "eventboxMijenjajKorisnika";
+			this.Add(this.eventboxMijenjajKorisnika);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

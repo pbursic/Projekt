@@ -4,6 +4,8 @@ namespace AppProject
 {
 	public partial class WindowMijenjajTip
 	{
+		private global::Gtk.EventBox eventboxMijenjajTip;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -11,6 +13,10 @@ namespace AppProject
 			this.Name = "AppProject.WindowMijenjajTip";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajTip");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			// Container child AppProject.WindowMijenjajTip.Gtk.Container+ContainerChild
+			this.eventboxMijenjajTip = new global::Gtk.EventBox();
+			this.eventboxMijenjajTip.Name = "eventboxMijenjajTip";
+			this.Add(this.eventboxMijenjajTip);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

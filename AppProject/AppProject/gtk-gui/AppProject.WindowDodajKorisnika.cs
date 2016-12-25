@@ -4,6 +4,8 @@ namespace AppProject
 {
 	public partial class WindowDodajKorisnika
 	{
+		private global::Gtk.EventBox eventboxDodajKorisnika;
+
 		private global::Gtk.VBox vbox1;
 
 		private global::Gtk.HBox hbox1;
@@ -66,6 +68,9 @@ namespace AppProject
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajKorisnika");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child AppProject.WindowDodajKorisnika.Gtk.Container+ContainerChild
+			this.eventboxDodajKorisnika = new global::Gtk.EventBox();
+			this.eventboxDodajKorisnika.Name = "eventboxDodajKorisnika";
+			// Container child eventboxDodajKorisnika.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
@@ -316,7 +321,8 @@ namespace AppProject
 			w26.Position = 6;
 			w26.Expand = false;
 			w26.Fill = false;
-			this.Add(this.vbox1);
+			this.eventboxDodajKorisnika.Add(this.vbox1);
+			this.Add(this.eventboxDodajKorisnika);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

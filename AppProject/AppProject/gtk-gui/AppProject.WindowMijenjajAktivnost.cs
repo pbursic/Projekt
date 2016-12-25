@@ -4,6 +4,8 @@ namespace AppProject
 {
 	public partial class WindowMijenjajAktivnost
 	{
+		private global::Gtk.EventBox eventboxMijenjajAktivnost;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -11,6 +13,10 @@ namespace AppProject
 			this.Name = "AppProject.WindowMijenjajAktivnost";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajAktivnost");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			// Container child AppProject.WindowMijenjajAktivnost.Gtk.Container+ContainerChild
+			this.eventboxMijenjajAktivnost = new global::Gtk.EventBox();
+			this.eventboxMijenjajAktivnost.Name = "eventboxMijenjajAktivnost";
+			this.Add(this.eventboxMijenjajAktivnost);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

@@ -4,6 +4,8 @@ namespace AppProject
 {
 	public partial class WindowDodajTip
 	{
+		private global::Gtk.EventBox eventboxDodajTip;
+
 		private global::Gtk.VBox vbox1;
 
 		private global::Gtk.Label labelTitle;
@@ -42,6 +44,9 @@ namespace AppProject
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajTip");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child AppProject.WindowDodajTip.Gtk.Container+ContainerChild
+			this.eventboxDodajTip = new global::Gtk.EventBox();
+			this.eventboxDodajTip.Name = "eventboxDodajTip";
+			// Container child eventboxDodajTip.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
@@ -176,7 +181,8 @@ namespace AppProject
 			w14.Position = 5;
 			w14.Expand = false;
 			w14.Fill = false;
-			this.Add(this.vbox1);
+			this.eventboxDodajTip.Add(this.vbox1);
+			this.Add(this.eventboxDodajTip);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
