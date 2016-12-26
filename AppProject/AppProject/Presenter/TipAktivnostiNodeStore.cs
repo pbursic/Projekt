@@ -5,7 +5,7 @@ namespace AppProject
 {
 	public class TipAktivnostiNodeStore : Gtk.NodeStore
 	{
-		public TipAktivnostiNodeStore() : base(typeof(AktKorisnikaNode))
+		public TipAktivnostiNodeStore() : base(typeof(TipAktivnostiNode))
 		{
 		}
 

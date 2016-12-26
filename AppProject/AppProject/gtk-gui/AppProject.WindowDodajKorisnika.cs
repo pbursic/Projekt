@@ -67,6 +67,7 @@ namespace AppProject
 			this.Name = "AppProject.WindowDodajKorisnika";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajKorisnika");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.Modal = true;
 			// Container child AppProject.WindowDodajKorisnika.Gtk.Container+ContainerChild
 			this.eventboxDodajKorisnika = new global::Gtk.EventBox();
 			this.eventboxDodajKorisnika.Name = "eventboxDodajKorisnika";

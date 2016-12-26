@@ -10,9 +10,11 @@
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="1049 578">
     <property name="MemberName" />
+    <property name="CanFocus">True</property>
     <property name="Title" translatable="yes">Tjelesna Aktivnost</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <signal name="SetFocus" handler="UpdateLists" />
     <child>
       <widget class="Gtk.EventBox" id="eventboxMain">
         <property name="MemberName" />
@@ -25,7 +27,7 @@
                 <property name="MemberName" />
                 <property name="WidthRequest">300</property>
                 <property name="CanFocus">True</property>
-                <property name="CurrentPage">1</property>
+                <property name="CurrentPage">2</property>
                 <property name="TabPos">Left</property>
                 <child>
                   <widget class="Gtk.VBox" id="vbox16">
@@ -346,6 +348,7 @@
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="CurrentPage">3</property>
+                    <signal name="FocusTab" handler="UpdateLists" />
                     <child>
                       <placeholder />
                     </child>
@@ -1019,6 +1022,7 @@
     <property name="MemberName" />
     <property name="Title" translatable="yes">WindowDodajKorisnika</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="Modal">True</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxDodajKorisnika">
         <property name="MemberName" />

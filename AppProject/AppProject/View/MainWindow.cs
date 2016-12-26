@@ -55,9 +55,12 @@ public partial class MainWindow : Gtk.Window
 		nodeviewAktivnostiKorisnika.AppendColumn("Vrijeme", new Gtk.CellRendererText(), "text", 2);
 		nodeviewAktivnostiKorisnika.AppendColumn("Potrošnja", new Gtk.CellRendererText(), "text", 3);
 
-		nodeviewTip.AppendColumn("Naziv", new Gtk.CellRendererText(), "text", 0);
+		nodeviewTip.AppendColumn("Naziv Tipa", new Gtk.CellRendererText(), "text", 0);
 		nodeviewTip.AppendColumn("Tip", new Gtk.CellRendererText(), "text", 1);
 		nodeviewTip.AppendColumn("Jedinica", new Gtk.CellRendererText(), "text", 2);
+
+		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
+		nodeviewTip.NodeSelection.Changed += this.RowSelected;
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -69,8 +72,7 @@ public partial class MainWindow : Gtk.Window
 	protected void RowSelected(object o, EventArgs args)
 	{
 		var selectedKontakt = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
-		labelKorisnici.Text = selectedKontakt.ime + " " + selectedKontakt.prezime;
-
+		var selectedTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
 	}
 
 	protected void dodajKorisnika(object sender, EventArgs e)
@@ -160,5 +162,13 @@ public partial class MainWindow : Gtk.Window
 	protected void ShowTipAktivnosti(object sender, EventArgs e)
 	{
 		notebookGlavni.CurrentPage = 3;
+	}
+
+	protected void UpdateLists(object sender, EventArgs e)
+	{
+		korisnikPresenter.Clear();
+		korisnikPresenter.Dodaj(Baza.DbUcitajKorisnike());
+		tipPresenter.Clear();
+		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
 	}
 }

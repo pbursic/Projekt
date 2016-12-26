@@ -26,6 +26,9 @@ namespace AppProject
 			tipaktcreate.ExecuteNonQuery();
 
 			konekcija.Close();
+
+			korisnicicreate.Dispose();
+			tipaktcreate.Dispose();
 		}
 
 		//Spremi novog korisnika u bazu
@@ -37,6 +40,7 @@ namespace AppProject
 			SQLiteCommand createcmd = new SQLiteCommand(unesiKorisnika, konekcija);
 			createcmd.ExecuteNonQuery();
 			konekcija.Close();
+			createcmd.Dispose();
 		}
 
 		//Učitavanje korisnika sa baze
@@ -53,6 +57,9 @@ namespace AppProject
 				listaKorisnika.Add(k);
 			}
 			konekcija.Close();
+
+			createcmd.Dispose();
+
 			return listaKorisnika;
 		}
 
@@ -65,6 +72,28 @@ namespace AppProject
 			SQLiteCommand createcmd = new SQLiteCommand(unesiTipAktivnosti, konekcija);
 			createcmd.ExecuteNonQuery();
 			konekcija.Close();
+
+			createcmd.Dispose();
+		}
+
+		//Učitavanje korisnika sa baze
+		public static List<TipAktivnosti> DbUcitajTipAktivnosti()
+		{
+			konekcija.Open();
+			string ucitajKorisnike = "SELECT * FROM tipoviaktivnosti";
+			SQLiteCommand createcmd = new SQLiteCommand(ucitajKorisnike, konekcija);
+			SQLiteDataReader reader = createcmd.ExecuteReader();
+			List<TipAktivnosti> listaTipovaAktivnosti = new List<TipAktivnosti>();
+			while (reader.Read())
+			{
+				TipAktivnosti ta = new TipAktivnosti(reader.GetString(1),reader.GetString(2),reader.GetDouble(3));
+				listaTipovaAktivnosti.Add(ta);
+			}
+			konekcija.Close();
+
+			createcmd.Dispose();
+
+			return listaTipovaAktivnosti;
 		}
 	}
 }

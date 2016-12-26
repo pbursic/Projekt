@@ -55,7 +55,7 @@ namespace AppProject
 			else {
 				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Naziv: " + entryNazivTipAktivnosti.Text
 				                                 +"\nPotrosnja: "+ entryPotrosnja.Text + " kcal/" + comboboxJedinicaMjereTipaAktivnosti.ActiveText 
-				                                 +"\n\nŽelite li spremiti korisnika?");
+				                                 +"\n\nŽelite li spremiti tip aktivnosti?");
 				var response = (ResponseType)d.Run();
 				if (response == ResponseType.Ok)
 				{

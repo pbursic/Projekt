@@ -165,6 +165,7 @@ public partial class MainWindow
 	{
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
+		this.CanFocus = true;
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("Tjelesna Aktivnost");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
@@ -180,7 +181,7 @@ public partial class MainWindow
 		this.notebookMenu.WidthRequest = 300;
 		this.notebookMenu.CanFocus = true;
 		this.notebookMenu.Name = "notebookMenu";
-		this.notebookMenu.CurrentPage = 1;
+		this.notebookMenu.CurrentPage = 2;
 		this.notebookMenu.TabPos = ((global::Gtk.PositionType)(0));
 		// Container child notebookMenu.Gtk.Notebook+NotebookChild
 		this.vbox16 = new global::Gtk.VBox();
@@ -837,11 +838,13 @@ public partial class MainWindow
 		this.DefaultHeight = 578;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.SetFocus += new global::Gtk.SetFocusHandler(this.UpdateLists);
 		this.buttonMenuKorisnici.Clicked += new global::System.EventHandler(this.ShowKorisnici);
 		this.buttonMenuTipAktivnosti.Clicked += new global::System.EventHandler(this.ShowTipAktivnosti);
 		this.buttonIzlaz.Clicked += new global::System.EventHandler(this.showQuestionIzlaz);
 		this.buttonIzlaz1.Clicked += new global::System.EventHandler(this.showQuestionIzlaz);
 		this.buttonIzlaz2.Clicked += new global::System.EventHandler(this.showQuestionIzlaz);
+		this.notebookGlavni.FocusTab += new global::Gtk.FocusTabHandler(this.UpdateLists);
 		this.buttonNoviKorisnik.Clicked += new global::System.EventHandler(this.dodajKorisnika);
 		this.buttonMijenjajKorisnika.Clicked += new global::System.EventHandler(this.mijenjajKorisnika);
 		this.buttonObrisiKorisnika.Clicked += new global::System.EventHandler(this.showQuestionKorisnik);

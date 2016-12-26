@@ -8,9 +8,9 @@ namespace AppProject
 		public static void Main(string[] args)
 		{
 			Application.Init();
+			Baza.Db();
 			MainWindow win = new MainWindow();
 			win.Show();
-			Baza.Db();
 			Application.Run();
 		}
 	}
