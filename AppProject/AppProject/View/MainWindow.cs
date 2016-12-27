@@ -88,12 +88,14 @@ public partial class MainWindow : Gtk.Window
 	{
 		var dodajTipWin = new WindowDodajTip();
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void mijenjajKorisnika(object sender, EventArgs e)
 	{
-		var mijenjajKorisnikaWin = new WindowMijenjajKorisnika();
+		var selectedNodeKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
+		if (selectedNodeKorisnik != null)
+		{
+			var mijenjajKorisnikaWin = new WindowMijenjajKorisnika(selectedNodeKorisnik);
+		}
 	}
 	/*TODO:
 				Implementirati!!!
@@ -114,18 +116,22 @@ public partial class MainWindow : Gtk.Window
 	*/
 	protected void showQuestionKorisnik(object sender, EventArgs e)
 	{
-		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati korisnika?");
-
-		d.AddButton("Da", Gtk.ResponseType.Yes);
-		d.AddButton("Ne", Gtk.ResponseType.No);
-
-		var odgovor = (Gtk.ResponseType)d.Run();
-
-		if (odgovor == ResponseType.Yes)
+		var selectedNodeKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
+		if (selectedNodeKorisnik != null)
 		{
-			korisnikPresenter.Brisi((KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode);
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati korisnika?");
+
+			d.AddButton("Da", Gtk.ResponseType.Yes);
+			d.AddButton("Ne", Gtk.ResponseType.No);
+
+			var odgovor = (Gtk.ResponseType)d.Run();
+
+			if (odgovor == ResponseType.Yes)
+			{
+				korisnikPresenter.Brisi(selectedNodeKorisnik);
+			}
+			d.Destroy();
 		}
-		d.Destroy();
 	}
 	/*TODO:
 				Implementirati!!!

@@ -492,6 +492,7 @@ public partial class MainWindow
 		this.buttonMijenjajKorisnika.CanFocus = true;
 		this.buttonMijenjajKorisnika.Name = "buttonMijenjajKorisnika";
 		this.buttonMijenjajKorisnika.UseUnderline = true;
+		this.buttonMijenjajKorisnika.FocusOnClick = false;
 		this.buttonMijenjajKorisnika.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Korisnika");
 		this.vbox10.Add(this.buttonMijenjajKorisnika);
 		global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.vbox10[this.buttonMijenjajKorisnika]));
@@ -512,6 +513,7 @@ public partial class MainWindow
 		this.buttonObrisiKorisnika.CanFocus = true;
 		this.buttonObrisiKorisnika.Name = "buttonObrisiKorisnika";
 		this.buttonObrisiKorisnika.UseUnderline = true;
+		this.buttonObrisiKorisnika.FocusOnClick = false;
 		this.buttonObrisiKorisnika.Label = global::Mono.Unix.Catalog.GetString("Obriši Korisnika");
 		this.vbox11.Add(this.buttonObrisiKorisnika);
 		global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.vbox11[this.buttonObrisiKorisnika]));

@@ -481,6 +481,7 @@
                                         <property name="Type">TextOnly</property>
                                         <property name="Label" translatable="yes">Mijenjaj Korisnika</property>
                                         <property name="UseUnderline">True</property>
+                                        <property name="FocusOnClick">False</property>
                                         <signal name="Clicked" handler="mijenjajKorisnika" />
                                       </widget>
                                       <packing>
@@ -515,6 +516,7 @@
                                         <property name="Type">TextOnly</property>
                                         <property name="Label" translatable="yes">Obriši Korisnika</property>
                                         <property name="UseUnderline">True</property>
+                                        <property name="FocusOnClick">False</property>
                                         <signal name="Clicked" handler="showQuestionKorisnik" />
                                       </widget>
                                       <packing>

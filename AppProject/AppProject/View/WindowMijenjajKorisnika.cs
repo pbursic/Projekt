@@ -5,7 +5,7 @@ namespace AppProject
 {
 	public partial class WindowMijenjajKorisnika : Gtk.Window
 	{
-		public WindowMijenjajKorisnika() :
+		public WindowMijenjajKorisnika(KorisnikNode k) :
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
@@ -15,7 +15,11 @@ namespace AppProject
 			eventboxMijenjajKorisnika.ModifyBg(Gtk.StateType.Normal, colorLightBlue);
 			Add(eventboxMijenjajKorisnika);
 
-
+			entryIme.Text = k.ime;
+			entryPrezime.Text = k.prezime;
+			calendarDatumRodjenja.Date = Convert.ToDateTime(k.datum_rodjenja);
+			spinbuttonVisina.Value = double.Parse(k.visina);
+			spinbuttonTezina.Value = double.Parse(k.tezina);
 		}
 
 		public void PopuniDatum()
