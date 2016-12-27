@@ -21,5 +21,9 @@ namespace AppProject
 				this.Add(k);
 			}
 		}
+		public void Brisi(KorisnikNode korisnik)
+		{
+			this.RemoveNode(korisnik);
+		}
 	}
 }

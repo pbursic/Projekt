@@ -1,4 +1,6 @@
 ﻿using System;
+using Gtk;
+
 namespace AppProject
 {
 	public partial class WindowMijenjajKorisnika : Gtk.Window
@@ -12,6 +14,35 @@ namespace AppProject
 			Gdk.Color.Parse("#3FB2F0", ref colorLightBlue);
 			eventboxMijenjajKorisnika.ModifyBg(Gtk.StateType.Normal, colorLightBlue);
 			Add(eventboxMijenjajKorisnika);
+
+
+		}
+
+		public void PopuniDatum()
+		{
+			ListStore clearListDani = new ListStore(typeof(string), typeof(string));
+			ListStore clearListGod = new ListStore(typeof(string), typeof(string));
+			comboboxDan.Model = clearListDani;
+			comboboxGodina.Model = clearListGod;
+
+			//Postavljanje comboboxa s danima da pokazuje broj dana u odabranom mjesecu određene godine
+			var daniuMjesecu = DateTime.DaysInMonth(calendarDatumRodjenja.Date.Year, calendarDatumRodjenja.Date.Month);
+
+			for (int i = 1; i <= daniuMjesecu; i++)
+			{
+				comboboxDan.AppendText(i.ToString());
+			}
+			comboboxDan.Active = calendarDatumRodjenja.Date.Day - 1;
+
+			//Postavljanje odabranog mjeseca
+			comboboxMjesec.Active = calendarDatumRodjenja.Date.Month - 1;
+
+			//Postavljanje odabrane godine
+			for (int i = DateTime.Now.Year; i >= 1920; i--)
+			{
+				comboboxGodina.AppendText(i.ToString());
+			}
+			comboboxGodina.Active = calendarDatumRodjenja.Date.Year - calendarDatumRodjenja.Date.Year;
 		}
 	}
 }

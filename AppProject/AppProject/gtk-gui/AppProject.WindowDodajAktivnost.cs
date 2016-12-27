@@ -36,7 +36,7 @@ namespace AppProject
 
 		private global::Gtk.Label labelTip;
 
-		private global::Gtk.ComboBox combobox4;
+		private global::Gtk.ComboBox comboboxTipovi;
 
 		private global::Gtk.HBox hbox8;
 
@@ -52,7 +52,7 @@ namespace AppProject
 
 		private global::Gtk.Label label7;
 
-		private global::Gtk.Label label6;
+		private global::Gtk.Label labelJedinicaMjere;
 
 		private global::Gtk.HBox hbox10;
 
@@ -95,6 +95,18 @@ namespace AppProject
 			w2.Position = 1;
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.comboboxMjesec = global::Gtk.ComboBox.NewText();
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("sječanj"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("veljača"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("ožujak"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("travanj"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("svibanj"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("lipanj"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("srpanj"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("kolovoz"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("rujan"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("listopad"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("studeni"));
+			this.comboboxMjesec.AppendText(global::Mono.Unix.Catalog.GetString("prosinac"));
 			this.comboboxMjesec.Name = "comboboxMjesec";
 			this.hbox2.Add(this.comboboxMjesec);
 			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.comboboxMjesec]));
@@ -184,10 +196,10 @@ namespace AppProject
 			w13.Expand = false;
 			w13.Fill = false;
 			// Container child hbox7.Gtk.Box+BoxChild
-			this.combobox4 = global::Gtk.ComboBox.NewText();
-			this.combobox4.Name = "combobox4";
-			this.hbox7.Add(this.combobox4);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.combobox4]));
+			this.comboboxTipovi = global::Gtk.ComboBox.NewText();
+			this.comboboxTipovi.Name = "comboboxTipovi";
+			this.hbox7.Add(this.comboboxTipovi);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.comboboxTipovi]));
 			w14.Position = 1;
 			this.vbox5.Add(this.hbox7);
 			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox7]));
@@ -262,11 +274,10 @@ namespace AppProject
 			w21.Expand = false;
 			w21.Fill = false;
 			// Container child hbox9.Gtk.Box+BoxChild
-			this.label6 = new global::Gtk.Label();
-			this.label6.Name = "label6";
-			this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Trebala bi se jedinica sama mijenjati s obzirom na odabrani tip");
-			this.hbox9.Add(this.label6);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.label6]));
+			this.labelJedinicaMjere = new global::Gtk.Label();
+			this.labelJedinicaMjere.Name = "labelJedinicaMjere";
+			this.hbox9.Add(this.labelJedinicaMjere);
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.labelJedinicaMjere]));
 			w22.Position = 1;
 			w22.Expand = false;
 			w22.Fill = false;
@@ -321,6 +332,7 @@ namespace AppProject
 			this.calendarAktivnosti.MonthChanged += new global::System.EventHandler(this.UpdateDate);
 			this.calendarAktivnosti.DaySelected += new global::System.EventHandler(this.UpdateDate);
 			this.calendarAktivnosti.NextMonth += new global::System.EventHandler(this.UpdateDate);
+			this.comboboxTipovi.Changed += new global::System.EventHandler(this.JedinicaMjere);
 			this.buttonOdustani.Clicked += new global::System.EventHandler(this.OdustaniClicked);
 		}
 	}

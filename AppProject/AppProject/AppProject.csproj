@@ -66,7 +66,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\MainWindow.cs" />
-    <Compile Include="Model\TipAktivnosti_1.cs" />
     <Compile Include="Model\AktivnostKorisnika.cs" />
     <Compile Include="Model\TipAktivnosti.cs" />
     <Compile Include="Presenter\KorisnikNode.cs" />
@@ -88,6 +87,7 @@
     <Compile Include="View\WindowMijenjajTip.cs" />
     <Compile Include="gtk-gui\AppProject.WindowMijenjajTip.cs" />
     <Compile Include="Baza\Baza.cs" />
+    <Compile Include="Model\Korisnik.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

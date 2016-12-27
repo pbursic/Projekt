@@ -6,8 +6,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="AppProject Status">
     <Files>
-      <File FileName="AppProject\View\MainWindow.cs" Line="175" Column="1" />
-      <File FileName="AppProject\Baza\Baza.cs" Line="89" Column="98" />
       <File FileName="AppProject Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

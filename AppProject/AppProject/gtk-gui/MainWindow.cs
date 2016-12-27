@@ -397,7 +397,7 @@ public partial class MainWindow
 		this.notebookGlavni = new global::Gtk.Notebook();
 		this.notebookGlavni.CanFocus = true;
 		this.notebookGlavni.Name = "notebookGlavni";
-		this.notebookGlavni.CurrentPage = 3;
+		this.notebookGlavni.CurrentPage = 1;
 		// Notebook tab
 		global::Gtk.Label w21 = new global::Gtk.Label();
 		w21.Visible = true;
