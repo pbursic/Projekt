@@ -1950,7 +1950,7 @@ h</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="AppProject.WindowMijenjajKorisnika" design-size="400 351">
+  <widget class="Gtk.Window" id="AppProject.WindowMijenjajKorisnika" design-size="431 398">
     <property name="MemberName" />
     <property name="Title" translatable="yes">WindowMijenjajKorisnika</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -2271,6 +2271,7 @@ prosinac</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Spremi</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="SpremiPromjene" />
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -2280,7 +2281,15 @@ prosinac</property>
                       </packing>
                     </child>
                     <child>
-                      <placeholder />
+                      <widget class="Gtk.Label" id="labelID">
+                        <property name="MemberName" />
+                        <property name="Visible">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
                     </child>
                     <child>
                       <widget class="Gtk.Button" id="buttonOdustani">
@@ -2289,6 +2298,7 @@ prosinac</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Odustani</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OdustaniClicked" />
                       </widget>
                       <packing>
                         <property name="Position">2</property>

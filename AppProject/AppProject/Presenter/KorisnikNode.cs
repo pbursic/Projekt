@@ -5,6 +5,8 @@ namespace AppProject
 	{
 		public Korisnik korisnik = null;
 
+		public int id;
+
 		[Gtk.TreeNodeValue(Column = 0)]
 		public String ime;
 
@@ -23,6 +25,7 @@ namespace AppProject
 		public KorisnikNode(Korisnik k)
 		{
 			this.korisnik = k;
+			this.id = k.Id;
 			this.ime = k.Ime;
 			this.prezime = k.Prezime;
 			this.datum_rodjenja = k.Datum_rodjenja.ToString("d");

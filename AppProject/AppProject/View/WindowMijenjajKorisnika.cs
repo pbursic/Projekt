@@ -15,11 +15,13 @@ namespace AppProject
 			eventboxMijenjajKorisnika.ModifyBg(Gtk.StateType.Normal, colorLightBlue);
 			Add(eventboxMijenjajKorisnika);
 
+			labelID.Text = k.id.ToString();
 			entryIme.Text = k.ime;
 			entryPrezime.Text = k.prezime;
 			calendarDatumRodjenja.Date = Convert.ToDateTime(k.datum_rodjenja);
 			spinbuttonVisina.Value = double.Parse(k.visina);
 			spinbuttonTezina.Value = double.Parse(k.tezina);
+			PopuniDatum();
 		}
 
 		public void PopuniDatum()
@@ -46,7 +48,61 @@ namespace AppProject
 			{
 				comboboxGodina.AppendText(i.ToString());
 			}
-			comboboxGodina.Active = calendarDatumRodjenja.Date.Year - calendarDatumRodjenja.Date.Year;
+			comboboxGodina.Active = DateTime.Now.Year - calendarDatumRodjenja.Date.Year  ;
+		}
+
+		protected void SpremiPromjene(object sender, EventArgs e)
+		{
+			DateTime datum = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText));
+
+			//Ime ne smije biti prazno
+			if (entryIme.Text == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Ime ne može biti prazno.");
+				d.Run();
+				d.Destroy();
+			}
+			//Prezime ne smije biti prazno
+			else if (entryPrezime.Text == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Prezime ne može biti prazno.");
+				d.Run();
+				d.Destroy();
+			}
+			//Spremi podatke u bazu i zatvori prozor
+			else {
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Ime: " + entryIme.Text + "\nPrezime: "
+												 + entryPrezime.Text + "\nDatum rodjenja: " + datum.Date.ToString("d") + "\nVisina: " + spinbuttonVisina.Value
+												 + "\nTežina: " + spinbuttonTezina.Value + "\n\nŽelite li spremiti promjene?");
+				var response = (ResponseType)d.Run();
+				if (response == ResponseType.Ok)
+				{
+					Korisnik updateKorisnik = new Korisnik(Int32.Parse(labelID.Text), entryIme.Text, entryPrezime.Text, datum, spinbuttonVisina.ValueAsInt, spinbuttonTezina.ValueAsInt);
+					Baza.UpdateKorisnika(updateKorisnik);
+					d.Destroy();
+					this.Destroy();
+				}
+				else
+				{
+					d.Destroy();
+				}
+			}
+		}
+
+		protected void OdustaniClicked(object sender, EventArgs e)
+		{
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.YesNo,
+											 "Jeste li sigurni? Promjene neće biti spremljene.");
+			var response = (ResponseType)d.Run();
+			if (response == ResponseType.Yes)
+			{
+				d.Destroy();
+				this.Destroy();
+			}
+			else
+			{
+				d.Destroy();
+			}
 		}
 	}
 }

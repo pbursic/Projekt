@@ -3,6 +3,7 @@ namespace AppProject
 {
 	public class TipAktivnosti
 	{
+		private int id;
 		private String naziv;
 		private String jedinicaMjere;
 		private double kcalPoJediniciMjere;

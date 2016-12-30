@@ -39,6 +39,10 @@ namespace AppProject
 				k.Ime +"','" + k.Prezime + "'," + k.Datum_rodjenja.ToFileTime() + "," + k.Visina + "," + k.Tezina + ")";
 			SQLiteCommand createcmd = new SQLiteCommand(unesiKorisnika, konekcija);
 			createcmd.ExecuteNonQuery();
+			string getId = @"SELECT last_insert_rowid() as id FROM korisnici";
+			SQLiteCommand cmdId = new SQLiteCommand(getId, konekcija);
+			var id = cmdId.ExecuteScalar();
+			k.Id = Int32.Parse(id.ToString());
 			konekcija.Close();
 			createcmd.Dispose();
 		}
@@ -53,7 +57,7 @@ namespace AppProject
 			List<Korisnik> listaKorisnika = new List<Korisnik>();
 			while (reader.Read())
 			{
-				Korisnik k = new Korisnik(reader.GetString(1), reader.GetString(2), DateTime.FromFileTime(reader.GetInt64(3)),reader.GetDouble(4),reader.GetDouble(5));
+				Korisnik k = new Korisnik(reader.GetInt32(0),reader.GetString(1), reader.GetString(2), DateTime.FromFileTime(reader.GetInt64(3)),reader.GetDouble(4),reader.GetDouble(5));
 				listaKorisnika.Add(k);
 			}
 			konekcija.Close();
@@ -61,6 +65,49 @@ namespace AppProject
 			createcmd.Dispose();
 
 			return listaKorisnika;
+		}
+
+		//Provjera postojanja korisnika u bazi po Id-u
+		public static bool DbProvjeriIdKorisnika(int id)
+		{
+			konekcija.Open();
+			string provjeraIdKorisnika = @"SELECT COUNT(*) FROM korisnici WHERE id = " + id;
+			SQLiteCommand cmd = new SQLiteCommand(provjeraIdKorisnika, konekcija);
+			int x = Int32.Parse(cmd.ExecuteScalar().ToString());
+			if (x > 0)
+			{
+				konekcija.Close();
+				cmd.Dispose();
+				return true;
+			}
+			else
+			{
+				konekcija.Close();
+				cmd.Dispose();
+				return false;
+			}
+		}
+
+		public static void UpdateKorisnika(Korisnik k)
+		{
+			konekcija.Open();
+			string updateKorisnika = @"UPDATE korisnici SET ime='" + k.Ime + "', prezime='" + k.Prezime + "', datum_rodjenja= " + 
+			                                                         k.Datum_rodjenja.ToFileTime() + ", visina=" + k.Visina +
+			                                                          ", tezina=" + k.Tezina + " WHERE id=" + k.Id;
+			SQLiteCommand cmd = new SQLiteCommand(updateKorisnika, konekcija);
+			cmd.ExecuteNonQuery();
+			konekcija.Close();
+			cmd.Dispose();
+		}
+
+		public static void BrisiKorisnika(int id)
+		{
+			konekcija.Open();
+			string brisiKorisnika = @"DELETE FROM korisnici WHERE id = " + id;
+			SQLiteCommand cmd = new SQLiteCommand(brisiKorisnika, konekcija);
+			cmd.ExecuteNonQuery();
+			konekcija.Close();
+			cmd.Dispose();
 		}
 
 		//Spremi novi tip aktivnosti u bazu

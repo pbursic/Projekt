@@ -45,7 +45,7 @@ namespace AppProject
 			{
 				comboboxGodina.AppendText(i.ToString());
 			}
-			comboboxGodina.Active = calendarDatumRodjenja.Date.Year - calendarDatumRodjenja.Date.Year;
+			comboboxGodina.Active = DateTime.Now.Year - calendarDatumRodjenja.Date.Year;
 		}
 
 
@@ -84,7 +84,7 @@ namespace AppProject
 				var response = (ResponseType)d.Run();
 				if (response == ResponseType.Ok)
 				{
-					Korisnik noviKorisnik = new Korisnik(entryIme.Text, entryPrezime.Text, datum, spinbuttonVisina.ValueAsInt, spinbuttonTezina.ValueAsInt);
+					Korisnik noviKorisnik = new Korisnik(0, entryIme.Text, entryPrezime.Text, datum, spinbuttonVisina.ValueAsInt, spinbuttonTezina.ValueAsInt);
 					Baza.DbSpremiKorisnik(noviKorisnik);
 					d.Destroy();
 					this.Destroy();

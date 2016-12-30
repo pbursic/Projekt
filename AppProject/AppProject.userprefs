@@ -6,8 +6,11 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="AppProject Status">
     <Files>
-      <File FileName="AppProject\View\WindowMijenjajKorisnika.cs" Line="1" Column="1" />
-      <File FileName="AppProject\View\MainWindow.cs" Line="131" Column="51" />
+      <File FileName="AppProject\View\MainWindow.cs" Line="62" Column="57" />
+      <File FileName="AppProject\View\WindowMijenjajKorisnika.cs" Line="54" Column="32" />
+      <File FileName="AppProject\Presenter\KorisnikNode.cs" Line="27" Column="22" />
+      <File FileName="AppProject\Baza\Baza.cs" Line="100" Column="18" />
+      <File FileName="AppProject\View\WindowDodajKorisnika.cs" Line="96" Column="5" />
       <File FileName="AppProject Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

@@ -3,6 +3,7 @@ namespace AppProject
 {
 	public class Korisnik
 	{
+		private int id;
 		private String ime;
 		private String prezime;
 		private DateTime datum_rodjenja;
@@ -74,8 +75,22 @@ namespace AppProject
 			}
 		}
 
-		public Korisnik(string ime, string prezime, DateTime datum_rodjenja, double visina, double tezina)
+		public int Id
 		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
+			}
+		}
+
+		public Korisnik(int id, string ime, string prezime, DateTime datum_rodjenja, double visina, double tezina)
+		{
+			this.Id = id;
 			this.Ime = ime;
 			this.Prezime = prezime;
 			this.Datum_rodjenja = datum_rodjenja;

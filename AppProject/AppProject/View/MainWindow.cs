@@ -111,9 +111,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		var mijenjajTipWin = new WindowMijenjajTip();
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void showQuestionKorisnik(object sender, EventArgs e)
 	{
 		var selectedNodeKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
@@ -128,7 +126,11 @@ public partial class MainWindow : Gtk.Window
 
 			if (odgovor == ResponseType.Yes)
 			{
-				korisnikPresenter.Brisi(selectedNodeKorisnik);
+				if (Baza.DbProvjeriIdKorisnika(selectedNodeKorisnik.id))
+				{
+					Baza.BrisiKorisnika(selectedNodeKorisnik.id);
+					korisnikPresenter.Brisi(selectedNodeKorisnik);
+				}
 			}
 			d.Destroy();
 		}
@@ -160,7 +162,6 @@ public partial class MainWindow : Gtk.Window
 		d.Destroy();
 	}
 
-	/* DONE */
 	protected void showQuestionIzlaz(object sender, EventArgs e)
 	{
 		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite izaći iz programa?");

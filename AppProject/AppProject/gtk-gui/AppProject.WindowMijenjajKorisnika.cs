@@ -60,6 +60,8 @@ namespace AppProject
 
 		private global::Gtk.Button buttonSpremi;
 
+		private global::Gtk.Label labelID;
+
 		private global::Gtk.Button buttonOdustani;
 
 		protected virtual void Build()
@@ -311,21 +313,28 @@ namespace AppProject
 			w24.Expand = false;
 			w24.Fill = false;
 			// Container child hbox6.Gtk.Box+BoxChild
+			this.labelID = new global::Gtk.Label();
+			this.labelID.Name = "labelID";
+			this.hbox6.Add(this.labelID);
+			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.labelID]));
+			w25.Position = 1;
+			w25.Fill = false;
+			// Container child hbox6.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.CanFocus = true;
 			this.buttonOdustani.Name = "buttonOdustani";
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox6.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.buttonOdustani]));
-			w25.Position = 2;
-			w25.Expand = false;
-			w25.Fill = false;
-			this.vbox1.Add(this.hbox6);
-			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox6]));
-			w26.Position = 6;
+			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.buttonOdustani]));
+			w26.Position = 2;
 			w26.Expand = false;
 			w26.Fill = false;
+			this.vbox1.Add(this.hbox6);
+			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox6]));
+			w27.Position = 6;
+			w27.Expand = false;
+			w27.Fill = false;
 			this.eventboxMijenjajKorisnika1.Add(this.vbox1);
 			this.eventboxMijenjajKorisnika.Add(this.eventboxMijenjajKorisnika1);
 			this.Add(this.eventboxMijenjajKorisnika);
@@ -333,9 +342,12 @@ namespace AppProject
 			{
 				this.Child.ShowAll();
 			}
-			this.DefaultWidth = 400;
-			this.DefaultHeight = 351;
+			this.DefaultWidth = 431;
+			this.DefaultHeight = 398;
+			this.labelID.Hide();
 			this.Show();
+			this.buttonSpremi.Clicked += new global::System.EventHandler(this.SpremiPromjene);
+			this.buttonOdustani.Clicked += new global::System.EventHandler(this.OdustaniClicked);
 		}
 	}
 }

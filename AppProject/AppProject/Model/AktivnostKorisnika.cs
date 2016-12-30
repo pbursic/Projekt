@@ -3,6 +3,7 @@ namespace AppProject
 {
 	public class AktivnostKorisnika
 	{
+		private int id;
 		private String naziv;
 		private DateTime datum;
 		private DateTime vrijeme;
@@ -57,6 +58,19 @@ namespace AppProject
 			set
 			{
 				potrosnja = value;
+			}
+		}
+
+		public int Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
 			}
 		}
 
