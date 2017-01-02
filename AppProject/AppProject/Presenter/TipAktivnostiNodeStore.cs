@@ -21,5 +21,10 @@ namespace AppProject
 				this.Add(t);
 			}
 		}
+
+		public void Brisi(TipAktivnostiNode tipAktNode)
+		{
+			this.RemoveNode(tipAktNode);
+		}
 	}
 }

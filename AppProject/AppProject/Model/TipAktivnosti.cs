@@ -47,8 +47,22 @@ namespace AppProject
 			}
 		}
 
-		public TipAktivnosti(string naziv, string jedinicaMjere, double kcalPoJediniciMjere)
+		public int Id
 		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
+			}
+		}
+
+		public TipAktivnosti(int id, string naziv, string jedinicaMjere, double kcalPoJediniciMjere)
+		{
+			this.Id = id;
 			this.Naziv = naziv;
 			this.JedinicaMjere = jedinicaMjere;
 			this.KcalPoJediniciMjere = kcalPoJediniciMjere;

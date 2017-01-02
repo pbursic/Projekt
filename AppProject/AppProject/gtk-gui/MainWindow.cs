@@ -623,6 +623,7 @@ public partial class MainWindow
 		this.buttonMijenjajAktivnost.CanFocus = true;
 		this.buttonMijenjajAktivnost.Name = "buttonMijenjajAktivnost";
 		this.buttonMijenjajAktivnost.UseUnderline = true;
+		this.buttonMijenjajAktivnost.FocusOnClick = false;
 		this.buttonMijenjajAktivnost.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Aktivnost");
 		this.vbox7.Add(this.buttonMijenjajAktivnost);
 		global::Gtk.Box.BoxChild w45 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.buttonMijenjajAktivnost]));
@@ -643,6 +644,7 @@ public partial class MainWindow
 		this.buttonObrisiAktivnost.CanFocus = true;
 		this.buttonObrisiAktivnost.Name = "buttonObrisiAktivnost";
 		this.buttonObrisiAktivnost.UseUnderline = true;
+		this.buttonObrisiAktivnost.FocusOnClick = false;
 		this.buttonObrisiAktivnost.Label = global::Mono.Unix.Catalog.GetString("Obriši Aktivnost");
 		this.vbox8.Add(this.buttonObrisiAktivnost);
 		global::Gtk.Box.BoxChild w47 = ((global::Gtk.Box.BoxChild)(this.vbox8[this.buttonObrisiAktivnost]));
@@ -771,6 +773,7 @@ public partial class MainWindow
 		this.buttonMijenjajTip.CanFocus = true;
 		this.buttonMijenjajTip.Name = "buttonMijenjajTip";
 		this.buttonMijenjajTip.UseUnderline = true;
+		this.buttonMijenjajTip.FocusOnClick = false;
 		this.buttonMijenjajTip.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Tip");
 		this.vbox13.Add(this.buttonMijenjajTip);
 		global::Gtk.Box.BoxChild w62 = ((global::Gtk.Box.BoxChild)(this.vbox13[this.buttonMijenjajTip]));
@@ -791,6 +794,7 @@ public partial class MainWindow
 		this.buttonObrisiTip.CanFocus = true;
 		this.buttonObrisiTip.Name = "buttonObrisiTip";
 		this.buttonObrisiTip.UseUnderline = true;
+		this.buttonObrisiTip.FocusOnClick = false;
 		this.buttonObrisiTip.Label = global::Mono.Unix.Catalog.GetString("Obriši Tip");
 		this.vbox14.Add(this.buttonObrisiTip);
 		global::Gtk.Box.BoxChild w64 = ((global::Gtk.Box.BoxChild)(this.vbox14[this.buttonObrisiTip]));

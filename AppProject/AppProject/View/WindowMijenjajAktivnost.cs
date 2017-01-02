@@ -1,4 +1,6 @@
 ﻿using System;
+using Gtk;
+
 namespace AppProject
 {
 	public partial class WindowMijenjajAktivnost : Gtk.Window

@@ -5,6 +5,8 @@ namespace AppProject
 	{
 		public TipAktivnosti aktivnostiTip = null;
 
+		public int id;
+
 		[Gtk.TreeNodeValue(Column = 0)]
 		public String naziv;
 
@@ -17,6 +19,7 @@ namespace AppProject
 		public TipAktivnostiNode(TipAktivnosti aktTip)
 		{
 			this.aktivnostiTip = aktTip;
+			this.id = aktTip.Id;
 			this.naziv = aktTip.Naziv;
 			this.tip = aktTip.JedinicaMjere;
 			this.kalorijeJedinica = aktTip.KcalPoJediniciMjere.ToString();

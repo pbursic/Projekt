@@ -104,12 +104,14 @@ public partial class MainWindow : Gtk.Window
 	{
 		var mijenjajAktivnostWin = new WindowMijenjajAktivnost();
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void mijenjajTip(object sender, EventArgs e)
 	{
-		var mijenjajTipWin = new WindowMijenjajTip();
+		var selectedNodeTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
+		if (selectedNodeTipAktivnosti != null)
+		{
+			var mijenjajTipWin = new WindowMijenjajTip(selectedNodeTipAktivnosti);
+		}
 	}
 
 	protected void showQuestionKorisnik(object sender, EventArgs e)
@@ -148,18 +150,31 @@ public partial class MainWindow : Gtk.Window
 		var odgovor = (Gtk.ResponseType)d.Run();
 		d.Destroy();
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void showQuestionTip(object sender, EventArgs e)
 	{
-		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati tip aktivnosti?");
+		var selectedNodeTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
+		if (selectedNodeTipAktivnosti != null)
+		{
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati tip aktivnosti?");
 
-		d.AddButton("Da", Gtk.ResponseType.Yes);
-		d.AddButton("Ne", Gtk.ResponseType.No);
+			d.AddButton("Da", Gtk.ResponseType.Yes);
+			d.AddButton("Ne", Gtk.ResponseType.No);
 
-		var odgovor = (Gtk.ResponseType)d.Run();
-		d.Destroy();
+			var odgovor = (Gtk.ResponseType)d.Run();
+
+			if (odgovor == ResponseType.Yes)
+			{
+				if (Baza.DbProvjeriIdTipaAktivnosti(selectedNodeTipAktivnosti.id))
+				{
+					Baza.BrisiTipAktivnosti(selectedNodeTipAktivnosti.id);
+					tipPresenter.Brisi(selectedNodeTipAktivnosti);
+				}
+			}
+			d.Destroy();
+			
+		}
+
 	}
 
 	protected void showQuestionIzlaz(object sender, EventArgs e)

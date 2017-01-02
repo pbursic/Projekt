@@ -45,6 +45,7 @@ namespace AppProject
 			k.Id = Int32.Parse(id.ToString());
 			konekcija.Close();
 			createcmd.Dispose();
+			cmdId.Dispose();
 		}
 
 		//Učitavanje korisnika sa baze
@@ -118,22 +119,27 @@ namespace AppProject
 				ta.Naziv + "','" + ta.JedinicaMjere + "'," + ta.KcalPoJediniciMjere + ")";
 			SQLiteCommand createcmd = new SQLiteCommand(unesiTipAktivnosti, konekcija);
 			createcmd.ExecuteNonQuery();
+			string getId = @"SELECT last_insert_rowid() as id FROM tipoviaktivnosti";
+			SQLiteCommand cmdId = new SQLiteCommand(getId, konekcija);
+			var id = cmdId.ExecuteScalar();
+			ta.Id = Int32.Parse(id.ToString());
 			konekcija.Close();
 
 			createcmd.Dispose();
+			cmdId.Dispose();
 		}
 
-		//Učitavanje korisnika sa baze
+		//Učitavanje tipova aktivnosti sa baze
 		public static List<TipAktivnosti> DbUcitajTipAktivnosti()
 		{
 			konekcija.Open();
-			string ucitajKorisnike = "SELECT * FROM tipoviaktivnosti";
-			SQLiteCommand createcmd = new SQLiteCommand(ucitajKorisnike, konekcija);
+			string ucitajTipoveAktivnosti = "SELECT * FROM tipoviaktivnosti";
+			SQLiteCommand createcmd = new SQLiteCommand(ucitajTipoveAktivnosti, konekcija);
 			SQLiteDataReader reader = createcmd.ExecuteReader();
 			List<TipAktivnosti> listaTipovaAktivnosti = new List<TipAktivnosti>();
 			while (reader.Read())
 			{
-				TipAktivnosti ta = new TipAktivnosti(reader.GetString(1),reader.GetString(2),reader.GetDouble(3));
+				TipAktivnosti ta = new TipAktivnosti(reader.GetInt32(0),reader.GetString(1),reader.GetString(2),reader.GetDouble(3));
 				listaTipovaAktivnosti.Add(ta);
 			}
 			konekcija.Close();
@@ -141,6 +147,48 @@ namespace AppProject
 			createcmd.Dispose();
 
 			return listaTipovaAktivnosti;
+		}
+
+		//Provjera postojanja tipa aktivnosti u bazi po Id-u
+		public static bool DbProvjeriIdTipaAktivnosti(int id)
+		{
+			konekcija.Open();
+			string provjeraIdTipaAktivnosti = @"SELECT COUNT(*) FROM tipoviaktivnosti WHERE id = " + id;
+			SQLiteCommand cmd = new SQLiteCommand(provjeraIdTipaAktivnosti, konekcija);
+			int x = Int32.Parse(cmd.ExecuteScalar().ToString());
+			if (x > 0)
+			{
+				konekcija.Close();
+				cmd.Dispose();
+				return true;
+			}
+			else
+			{
+				konekcija.Close();
+				cmd.Dispose();
+				return false;
+			}
+		}
+
+		public static void UpdateTipAktivnosti(TipAktivnosti ta)
+		{
+			konekcija.Open();
+			string updateTipAktivnosti = @"UPDATE tipoviaktivnosti SET naziv='" + ta.Naziv + "', jedinica_mjere='" + ta.JedinicaMjere + "', potrosnja= " +
+			                                                                    ta.KcalPoJediniciMjere +" WHERE id=" + ta.Id;
+			SQLiteCommand cmd = new SQLiteCommand(updateTipAktivnosti, konekcija);
+			cmd.ExecuteNonQuery();
+			konekcija.Close();
+			cmd.Dispose();
+		}
+
+		public static void BrisiTipAktivnosti(int id)
+		{
+			konekcija.Open();
+			string brisiTipAktivnosti = @"DELETE FROM tipoviaktivnosti WHERE id = " + id;
+			SQLiteCommand cmd = new SQLiteCommand(brisiTipAktivnosti, konekcija);
+			cmd.ExecuteNonQuery();
+			konekcija.Close();
+			cmd.Dispose();
 		}
 	}
 }

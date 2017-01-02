@@ -59,7 +59,7 @@ namespace AppProject
 				var response = (ResponseType)d.Run();
 				if (response == ResponseType.Ok)
 				{
-					TipAktivnosti noviTipAktivnosti = new TipAktivnosti(entryNazivTipAktivnosti.Text, comboboxJedinicaMjereTipaAktivnosti.ActiveText, Double.Parse(entryPotrosnja.Text));
+					TipAktivnosti noviTipAktivnosti = new TipAktivnosti(0,entryNazivTipAktivnosti.Text, comboboxJedinicaMjereTipaAktivnosti.ActiveText, Double.Parse(entryPotrosnja.Text));
 					Baza.DbSpremiTipAktivnosti(noviTipAktivnosti);
 					d.Destroy();
 					this.Destroy();
