@@ -6,6 +6,8 @@ namespace AppProject
 		public Korisnik korisnik = null;
 
 		public int id;
+		public string datum_rodjenja;
+		public int god;
 
 		[Gtk.TreeNodeValue(Column = 0)]
 		public String ime;
@@ -14,7 +16,7 @@ namespace AppProject
 		public String prezime;
 
 		[Gtk.TreeNodeValue(Column = 2)]
-		public String datum_rodjenja;
+		public String dob;
 
 		[Gtk.TreeNodeValue(Column = 3)]
 		public String visina;
@@ -24,11 +26,15 @@ namespace AppProject
 
 		public KorisnikNode(Korisnik k)
 		{
+			god = DateTime.Today.Year - k.Datum_rodjenja.Year;
+			if (k.Datum_rodjenja > DateTime.Now.AddYears(-god)) god--;
+
 			this.korisnik = k;
 			this.id = k.Id;
 			this.ime = k.Ime;
 			this.prezime = k.Prezime;
-			this.datum_rodjenja = k.Datum_rodjenja.ToString("d");
+			this.datum_rodjenja = k.Datum_rodjenja.ToString();
+			this.dob = god.ToString();
 			this.visina = k.Visina.ToString();
 			this.tezina = k.Tezina.ToString();
 		}

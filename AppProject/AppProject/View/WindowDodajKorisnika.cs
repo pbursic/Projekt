@@ -76,8 +76,15 @@ namespace AppProject
 				d.Run();
 				d.Destroy();
 			}
+			//Datum rodjenja ne smije biti >= danas
+			else if (datum >= DateTime.Today)
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Odaberite valjani datum rođenja.");
+				d.Run();
+				d.Destroy();
+			}
 			//Spremi podatke u bazu i zatvori prozor
-			else{
+			else {
 				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Ime: " + entryIme.Text + "\nPrezime: " 
 				                                 + entryPrezime.Text + "\nDatum rodjenja: " + datum.Date.ToString("d") + "\nVisina: " + spinbuttonVisina.Value 
 				                                 + "\nTežina: " + spinbuttonTezina.Value + "\n\nŽelite li spremiti korisnika?");

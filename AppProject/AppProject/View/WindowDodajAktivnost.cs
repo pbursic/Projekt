@@ -19,6 +19,7 @@ namespace AppProject
 
 			PopuniDatum();
 			PopuniTipove();
+			PopuniVrijeme();
 		}
 
 		//Postavljanje liste u comboboxevima te odabran datum s kalendara (danas)
@@ -46,7 +47,7 @@ namespace AppProject
 			{
 				comboboxGodina.AppendText(i.ToString());
 			}
-			comboboxGodina.Active = calendarAktivnosti.Date.Year - calendarAktivnosti.Date.Year;
+			comboboxGodina.Active = DateTime.Now.Year - calendarAktivnosti.Date.Year;
 		}
 
 		//Postavljanje liste tipova (svi unešeni tipovi)
@@ -57,15 +58,38 @@ namespace AppProject
 			comboboxTipovi.AppendText ("");
 			foreach (var x in listaTipova)
 			{
-				Console.WriteLine(x.Naziv + "\n");
 				comboboxTipovi.AppendText(x.Naziv);
 			}
 		}
 
-		/*TODO:
-				Implementirati combobox da provjerava koji je tip odabran te da sukladno prikazuje jedinicu mjere
-				Provjera po nazivu i prikazanom tekstu nije točna!!!
-		*/
+		//Postavljanje liste sa satovima, minutama i sekundama (početak i kraj)
+		public void PopuniVrijeme()
+		{
+			comboboxSatPocetak.AppendText("");
+			comboboxMinPocetak.AppendText("");
+			comboboxSecPocetak.AppendText("");
+			comboboxSatKraj.AppendText("");
+			comboboxMinKraj.AppendText("");
+			comboboxSecKraj.AppendText("");
+			for (int i = 0; i < 24; i++)
+			{
+				comboboxSatPocetak.AppendText(i.ToString("00"));
+				comboboxSatKraj.AppendText(i.ToString("00"));
+			}
+
+			for (int i = 0; i < 60; i++)
+			{
+				comboboxMinPocetak.AppendText(i.ToString("00"));
+				comboboxMinKraj.AppendText(i.ToString("00"));
+			}
+
+			for (int i = 0; i < 60; i++)
+			{
+				comboboxSecPocetak.AppendText(i.ToString("00"));
+				comboboxSecKraj.AppendText(i.ToString("00"));
+			}
+		}
+
 		public void PopuniJedinicuMjere()
 		{
 			List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
@@ -107,6 +131,10 @@ namespace AppProject
 		protected void JedinicaMjere(object sender, EventArgs e)
 		{
 			PopuniJedinicuMjere();
+		}
+
+		protected void SpremiClicked(object sender, EventArgs e)
+		{
 		}
 	}
 }

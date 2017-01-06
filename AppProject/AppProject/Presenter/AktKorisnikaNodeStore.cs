@@ -21,5 +21,10 @@ namespace AppProject
 				this.Add(a);
 			}
 		}
+
+		public void Brisi(AktKorisnikaNode aktKorisnika)
+		{
+			this.RemoveNode(aktKorisnika);
+		}
 	}
 }

@@ -40,13 +40,23 @@ namespace AppProject
 
 		private global::Gtk.HBox hbox8;
 
-		private global::Gtk.Label labelVrijeme;
+		private global::Gtk.Label labelVrijemePocetka;
 
-		private global::Gtk.SpinButton spinbutton1;
+		private global::Gtk.ComboBox comboboxSatPocetak;
 
-		private global::Gtk.SpinButton spinbutton2;
+		private global::Gtk.ComboBox comboboxMinPocetak;
 
-		private global::Gtk.SpinButton spinbutton3;
+		private global::Gtk.ComboBox comboboxSecPocetak;
+
+		private global::Gtk.HBox hbox11;
+
+		private global::Gtk.Label labelVrijemeKraja;
+
+		private global::Gtk.ComboBox comboboxSatKraj;
+
+		private global::Gtk.ComboBox comboboxMinKraj;
+
+		private global::Gtk.ComboBox comboboxSecKraj;
 
 		private global::Gtk.HBox hbox9;
 
@@ -211,47 +221,35 @@ namespace AppProject
 			this.hbox8.Name = "hbox8";
 			this.hbox8.Spacing = 6;
 			// Container child hbox8.Gtk.Box+BoxChild
-			this.labelVrijeme = new global::Gtk.Label();
-			this.labelVrijeme.Name = "labelVrijeme";
-			this.labelVrijeme.LabelProp = global::Mono.Unix.Catalog.GetString("Vrijeme:");
-			this.hbox8.Add(this.labelVrijeme);
-			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.labelVrijeme]));
+			this.labelVrijemePocetka = new global::Gtk.Label();
+			this.labelVrijemePocetka.Name = "labelVrijemePocetka";
+			this.labelVrijemePocetka.LabelProp = global::Mono.Unix.Catalog.GetString("Vrijeme Početka:");
+			this.hbox8.Add(this.labelVrijemePocetka);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.labelVrijemePocetka]));
 			w16.Position = 0;
 			w16.Expand = false;
 			w16.Fill = false;
 			// Container child hbox8.Gtk.Box+BoxChild
-			this.spinbutton1 = new global::Gtk.SpinButton(0D, 100D, 1D);
-			this.spinbutton1.CanFocus = true;
-			this.spinbutton1.Name = "spinbutton1";
-			this.spinbutton1.Adjustment.PageIncrement = 10D;
-			this.spinbutton1.ClimbRate = 1D;
-			this.spinbutton1.Numeric = true;
-			this.hbox8.Add(this.spinbutton1);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.spinbutton1]));
+			this.comboboxSatPocetak = global::Gtk.ComboBox.NewText();
+			this.comboboxSatPocetak.Name = "comboboxSatPocetak";
+			this.hbox8.Add(this.comboboxSatPocetak);
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.comboboxSatPocetak]));
 			w17.Position = 1;
 			w17.Expand = false;
 			w17.Fill = false;
 			// Container child hbox8.Gtk.Box+BoxChild
-			this.spinbutton2 = new global::Gtk.SpinButton(0D, 100D, 1D);
-			this.spinbutton2.CanFocus = true;
-			this.spinbutton2.Name = "spinbutton2";
-			this.spinbutton2.Adjustment.PageIncrement = 10D;
-			this.spinbutton2.ClimbRate = 1D;
-			this.spinbutton2.Numeric = true;
-			this.hbox8.Add(this.spinbutton2);
-			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.spinbutton2]));
+			this.comboboxMinPocetak = global::Gtk.ComboBox.NewText();
+			this.comboboxMinPocetak.Name = "comboboxMinPocetak";
+			this.hbox8.Add(this.comboboxMinPocetak);
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.comboboxMinPocetak]));
 			w18.Position = 2;
 			w18.Expand = false;
 			w18.Fill = false;
 			// Container child hbox8.Gtk.Box+BoxChild
-			this.spinbutton3 = new global::Gtk.SpinButton(0D, 100D, 1D);
-			this.spinbutton3.CanFocus = true;
-			this.spinbutton3.Name = "spinbutton3";
-			this.spinbutton3.Adjustment.PageIncrement = 10D;
-			this.spinbutton3.ClimbRate = 1D;
-			this.spinbutton3.Numeric = true;
-			this.hbox8.Add(this.spinbutton3);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.spinbutton3]));
+			this.comboboxSecPocetak = global::Gtk.ComboBox.NewText();
+			this.comboboxSecPocetak.Name = "comboboxSecPocetak";
+			this.hbox8.Add(this.comboboxSecPocetak);
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.comboboxSecPocetak]));
 			w19.Position = 3;
 			w19.Expand = false;
 			w19.Fill = false;
@@ -261,6 +259,48 @@ namespace AppProject
 			w20.Expand = false;
 			w20.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
+			this.hbox11 = new global::Gtk.HBox();
+			this.hbox11.Name = "hbox11";
+			this.hbox11.Spacing = 6;
+			// Container child hbox11.Gtk.Box+BoxChild
+			this.labelVrijemeKraja = new global::Gtk.Label();
+			this.labelVrijemeKraja.Name = "labelVrijemeKraja";
+			this.labelVrijemeKraja.LabelProp = global::Mono.Unix.Catalog.GetString("Vrijeme Kraja:");
+			this.hbox11.Add(this.labelVrijemeKraja);
+			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox11[this.labelVrijemeKraja]));
+			w21.Position = 0;
+			w21.Expand = false;
+			w21.Fill = false;
+			// Container child hbox11.Gtk.Box+BoxChild
+			this.comboboxSatKraj = global::Gtk.ComboBox.NewText();
+			this.comboboxSatKraj.Name = "comboboxSatKraj";
+			this.hbox11.Add(this.comboboxSatKraj);
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox11[this.comboboxSatKraj]));
+			w22.Position = 1;
+			w22.Expand = false;
+			w22.Fill = false;
+			// Container child hbox11.Gtk.Box+BoxChild
+			this.comboboxMinKraj = global::Gtk.ComboBox.NewText();
+			this.comboboxMinKraj.Name = "comboboxMinKraj";
+			this.hbox11.Add(this.comboboxMinKraj);
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox11[this.comboboxMinKraj]));
+			w23.Position = 2;
+			w23.Expand = false;
+			w23.Fill = false;
+			// Container child hbox11.Gtk.Box+BoxChild
+			this.comboboxSecKraj = global::Gtk.ComboBox.NewText();
+			this.comboboxSecKraj.Name = "comboboxSecKraj";
+			this.hbox11.Add(this.comboboxSecKraj);
+			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox11[this.comboboxSecKraj]));
+			w24.Position = 3;
+			w24.Expand = false;
+			w24.Fill = false;
+			this.vbox5.Add(this.hbox11);
+			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox11]));
+			w25.Position = 5;
+			w25.Expand = false;
+			w25.Fill = false;
+			// Container child vbox5.Gtk.Box+BoxChild
 			this.hbox9 = new global::Gtk.HBox();
 			this.hbox9.Name = "hbox9";
 			this.hbox9.Spacing = 6;
@@ -269,23 +309,23 @@ namespace AppProject
 			this.label7.Name = "label7";
 			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("Jedinica:");
 			this.hbox9.Add(this.label7);
-			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.label7]));
-			w21.Position = 0;
-			w21.Expand = false;
-			w21.Fill = false;
+			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.label7]));
+			w26.Position = 0;
+			w26.Expand = false;
+			w26.Fill = false;
 			// Container child hbox9.Gtk.Box+BoxChild
 			this.labelJedinicaMjere = new global::Gtk.Label();
 			this.labelJedinicaMjere.Name = "labelJedinicaMjere";
 			this.hbox9.Add(this.labelJedinicaMjere);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.labelJedinicaMjere]));
-			w22.Position = 1;
-			w22.Expand = false;
-			w22.Fill = false;
+			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.labelJedinicaMjere]));
+			w27.Position = 1;
+			w27.Expand = false;
+			w27.Fill = false;
 			this.vbox5.Add(this.hbox9);
-			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox9]));
-			w23.Position = 5;
-			w23.Expand = false;
-			w23.Fill = false;
+			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox9]));
+			w28.Position = 6;
+			w28.Expand = false;
+			w28.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
 			this.hbox10 = new global::Gtk.HBox();
 			this.hbox10.Name = "hbox10";
@@ -297,10 +337,10 @@ namespace AppProject
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbox10.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
-			w24.Position = 0;
-			w24.Expand = false;
-			w24.Fill = false;
+			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
+			w29.Position = 0;
+			w29.Expand = false;
+			w29.Fill = false;
 			// Container child hbox10.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.CanFocus = true;
@@ -308,15 +348,15 @@ namespace AppProject
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox10.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
-			w25.Position = 2;
-			w25.Expand = false;
-			w25.Fill = false;
+			global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
+			w30.Position = 2;
+			w30.Expand = false;
+			w30.Fill = false;
 			this.vbox5.Add(this.hbox10);
-			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
-			w26.Position = 6;
-			w26.Expand = false;
-			w26.Fill = false;
+			global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
+			w31.Position = 7;
+			w31.Expand = false;
+			w31.Fill = false;
 			this.eventboxDodajAktivnost.Add(this.vbox5);
 			this.Add(this.eventboxDodajAktivnost);
 			if ((this.Child != null))

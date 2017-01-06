@@ -1597,9 +1597,9 @@ prosinac</property>
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.Label" id="labelVrijeme">
+                  <widget class="Gtk.Label" id="labelVrijemePocetka">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">Vrijeme:</property>
+                    <property name="LabelProp" translatable="yes">Vrijeme Početka:</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -1609,14 +1609,10 @@ prosinac</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.SpinButton" id="spinbutton1">
+                  <widget class="Gtk.ComboBox" id="comboboxSatPocetak">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="Upper">100</property>
-                    <property name="PageIncrement">10</property>
-                    <property name="StepIncrement">1</property>
-                    <property name="ClimbRate">1</property>
-                    <property name="Numeric">True</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
@@ -1626,14 +1622,10 @@ prosinac</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.SpinButton" id="spinbutton2">
+                  <widget class="Gtk.ComboBox" id="comboboxMinPocetak">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="Upper">100</property>
-                    <property name="PageIncrement">10</property>
-                    <property name="StepIncrement">1</property>
-                    <property name="ClimbRate">1</property>
-                    <property name="Numeric">True</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
                   </widget>
                   <packing>
                     <property name="Position">2</property>
@@ -1643,14 +1635,10 @@ prosinac</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.SpinButton" id="spinbutton3">
+                  <widget class="Gtk.ComboBox" id="comboboxSecPocetak">
                     <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="Upper">100</property>
-                    <property name="PageIncrement">10</property>
-                    <property name="StepIncrement">1</property>
-                    <property name="ClimbRate">1</property>
-                    <property name="Numeric">True</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
                   </widget>
                   <packing>
                     <property name="Position">3</property>
@@ -1662,6 +1650,69 @@ prosinac</property>
               </widget>
               <packing>
                 <property name="Position">4</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.HBox" id="hbox11">
+                <property name="MemberName" />
+                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.Label" id="labelVrijemeKraja">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Vrijeme Kraja:</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBox" id="comboboxSatKraj">
+                    <property name="MemberName" />
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBox" id="comboboxMinKraj">
+                    <property name="MemberName" />
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
+                  </widget>
+                  <packing>
+                    <property name="Position">2</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBox" id="comboboxSecKraj">
+                    <property name="MemberName" />
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
+                  </widget>
+                  <packing>
+                    <property name="Position">3</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">5</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -1696,7 +1747,7 @@ prosinac</property>
                 </child>
               </widget>
               <packing>
-                <property name="Position">5</property>
+                <property name="Position">6</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -1713,6 +1764,7 @@ prosinac</property>
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Spremi</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="SpremiClicked" />
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -1742,7 +1794,7 @@ prosinac</property>
                 </child>
               </widget>
               <packing>
-                <property name="Position">6</property>
+                <property name="Position">7</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
