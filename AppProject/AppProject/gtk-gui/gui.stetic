@@ -149,6 +149,7 @@
                             <property name="Type">TextOnly</property>
                             <property name="Label" translatable="yes">Menu</property>
                             <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="MenuClicked" />
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -282,6 +283,7 @@
                             <property name="Type">TextOnly</property>
                             <property name="Label" translatable="yes">Menu</property>
                             <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="MenuClicked" />
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -307,7 +309,16 @@
                           </packing>
                         </child>
                         <child>
-                          <placeholder />
+                          <widget class="Gtk.Label" id="labelKorisnikId">
+                            <property name="MemberName" />
+                            <property name="Visible">False</property>
+                          </widget>
+                          <packing>
+                            <property name="Position">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                          </packing>
                         </child>
                       </widget>
                       <packing>
@@ -347,7 +358,7 @@
                   <widget class="Gtk.Notebook" id="notebookGlavni">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="CurrentPage">1</property>
+                    <property name="CurrentPage">0</property>
                     <signal name="FocusTab" handler="UpdateLists" />
                     <child>
                       <placeholder />
@@ -755,7 +766,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.Calendar" id="calendar">
+                                  <widget class="Gtk.Calendar" id="calendarAktivnosti">
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
                                     <property name="DisplayOptions">35</property>

@@ -50,9 +50,14 @@ public partial class MainWindow : Gtk.Window
 		nodeviewKorisnici.NodeSelection.Changed += this.RowSelected;
 
 		nodeviewAktivnostiKorisnika.AppendColumn("Naziv", new Gtk.CellRendererText(), "text", 0);
-		nodeviewAktivnostiKorisnika.AppendColumn("Datum", new Gtk.CellRendererText(), "text", 1);
-		nodeviewAktivnostiKorisnika.AppendColumn("Vrijeme", new Gtk.CellRendererText(), "text", 2);
-		nodeviewAktivnostiKorisnika.AppendColumn("Potrošnja", new Gtk.CellRendererText(), "text", 3);
+		nodeviewAktivnostiKorisnika.AppendColumn("Tip", new Gtk.CellRendererText(), "text", 1);
+		nodeviewAktivnostiKorisnika.AppendColumn("Datum", new Gtk.CellRendererText(), "text", 2);
+		nodeviewAktivnostiKorisnika.AppendColumn("Vrijeme Početka", new Gtk.CellRendererText(), "text", 3);
+		nodeviewAktivnostiKorisnika.AppendColumn("Vrijeme Kraja", new Gtk.CellRendererText(), "text", 4);
+		nodeviewAktivnostiKorisnika.AppendColumn("Potrošnja", new Gtk.CellRendererText(), "text", 5);
+
+		//aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));
+		//nodeviewAktivnostiKorisnika.NodeSelection.Changed += this.RowSelected;
 
 		nodeviewTip.AppendColumn("Naziv Tipa", new Gtk.CellRendererText(), "text", 0);
 		nodeviewTip.AppendColumn("Tip", new Gtk.CellRendererText(), "text", 1);
@@ -60,6 +65,8 @@ public partial class MainWindow : Gtk.Window
 
 		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
 		nodeviewTip.NodeSelection.Changed += this.RowSelected;
+
+		calendarAktivnosti.Date = DateTime.Today.Date;
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -72,6 +79,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		var selectedKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
 		var selectedTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
+		var selectedAktivnostKorisnika = (AktivnostKorisnika)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
 	}
 
 	protected void dodajKorisnika(object sender, EventArgs e)
@@ -137,18 +145,29 @@ public partial class MainWindow : Gtk.Window
 			d.Destroy();
 		}
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void showQuestionAktivnost(object sender, EventArgs e)
 	{
-		Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati aktivnost?");
+		var selectedNodeAktivnostKorisnika = (AktKorisnikaNode)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
+		if (selectedNodeAktivnostKorisnika != null)
+		{
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.None, "Jeste li sigurni da želite obrisati aktivnost?");
 
-		d.AddButton("Da", Gtk.ResponseType.Yes);
-		d.AddButton("Ne", Gtk.ResponseType.No);
+			d.AddButton("Da", Gtk.ResponseType.Yes);
+			d.AddButton("Ne", Gtk.ResponseType.No);
 
-		var odgovor = (Gtk.ResponseType)d.Run();
-		d.Destroy();
+			var odgovor = (Gtk.ResponseType)d.Run();
+
+			if (odgovor == ResponseType.Yes)
+			{
+				if (Baza.DbProvjeriIdAktivnostiKorisnika(selectedNodeAktivnostKorisnika.id))
+				{
+					Baza.BrisiAktivnostKorisnika(selectedNodeAktivnostKorisnika.id);
+					aktKorisnikPresenter.Brisi(selectedNodeAktivnostKorisnika);
+				}
+			}
+			d.Destroy();
+		}
 	}
 
 	protected void showQuestionTip(object sender, EventArgs e)
@@ -209,5 +228,13 @@ public partial class MainWindow : Gtk.Window
 		korisnikPresenter.Dodaj(Baza.DbUcitajKorisnike());
 		tipPresenter.Clear();
 		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
+		//aktKorisnikPresenter.Clear();
+		//aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));
+	}
+
+	protected void MenuClicked(object sender, EventArgs e)
+	{
+		notebookMenu.CurrentPage = 0;
+		notebookGlavni.CurrentPage = 0;
 	}
 }
