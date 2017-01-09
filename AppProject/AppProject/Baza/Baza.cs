@@ -119,20 +119,9 @@ namespace AppProject
 		{
 			konekcija.Open();
 
-			string getIdAktKor = @"SELECT id FROM aktivnostikorisnika WHERE k_id=" + id;
-			SQLiteCommand getIdAktKorCmd = new SQLiteCommand(getIdAktKor, konekcija);
-			var idAkt = Int32.Parse(getIdAktKorCmd.ExecuteNonQuery().ToString());
-
-			string getKId = "SELECT k_id FROM aktivnostikorisnika WHERE k_id=" + id;
-			SQLiteCommand cmd1 = new SQLiteCommand(getKId,konekcija);
-			SQLiteDataReader reader = cmd1.ExecuteReader();
-			while (reader.Read())
-			{
-				if (reader.GetInt32(0) == id)
-				{
-					BrisiAktivnostKorisnika(idAkt);
-				}
-			}
+			string brisiAktivnostKorisnika = @"DELETE FROM aktivnostikorisnika WHERE k_id = " + id;
+			SQLiteCommand cmd1 = new SQLiteCommand(brisiAktivnostKorisnika, konekcija);
+			cmd1.ExecuteNonQuery();
 
 			string brisiKorisnika = @"DELETE FROM korisnici WHERE id = " + id;
 			SQLiteCommand cmd2 = new SQLiteCommand(brisiKorisnika, konekcija);
@@ -223,20 +212,9 @@ namespace AppProject
 		{
 			konekcija.Open();
 
-			string getIdAktKor = @"SELECT id FROM aktivnostikorisnika WHERE ta_id=" + id;
-			SQLiteCommand getIdAktKorCmd = new SQLiteCommand(getIdAktKor, konekcija);
-			var idAkt = Int32.Parse(getIdAktKorCmd.ExecuteNonQuery().ToString());
-
-			string getTipAktId = "SELECT ta_id FROM aktivnostikorisnika WHERE ta_id=" + id;
-			SQLiteCommand cmd1 = new SQLiteCommand(getTipAktId, konekcija);
-			SQLiteDataReader reader = cmd1.ExecuteReader();
-			while (reader.Read())
-			{
-				if (reader.GetInt32(0) == id)
-				{
-					BrisiAktivnostKorisnika(idAkt);
-				}
-			}
+			string brisiAktivnostiKorisnika = @"DELETE FROM aktivnostikorisnika WHERE ta_id = " + id;
+			SQLiteCommand cmd1 = new SQLiteCommand(brisiAktivnostiKorisnika, konekcija);
+			cmd1.ExecuteNonQuery();
 
 			string brisiTipAktivnosti = @"DELETE FROM tipoviaktivnosti WHERE id = " + id;
 			SQLiteCommand cmd2 = new SQLiteCommand(brisiTipAktivnosti, konekcija);

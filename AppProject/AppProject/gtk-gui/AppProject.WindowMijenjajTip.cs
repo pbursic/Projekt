@@ -63,7 +63,6 @@ namespace AppProject
 			w1.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();
-			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.labelNaziv = new global::Gtk.Label();
@@ -104,9 +103,6 @@ namespace AppProject
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.comboboxJedinicaMjereTipaAktivnosti = global::Gtk.ComboBox.NewText();
 			this.comboboxJedinicaMjereTipaAktivnosti.AppendText("");
-			this.comboboxJedinicaMjereTipaAktivnosti.AppendText(global::Mono.Unix.Catalog.GetString("m"));
-			this.comboboxJedinicaMjereTipaAktivnosti.AppendText(global::Mono.Unix.Catalog.GetString("km"));
-			this.comboboxJedinicaMjereTipaAktivnosti.AppendText(global::Mono.Unix.Catalog.GetString("km/h"));
 			this.comboboxJedinicaMjereTipaAktivnosti.AppendText(global::Mono.Unix.Catalog.GetString("min"));
 			this.comboboxJedinicaMjereTipaAktivnosti.AppendText(global::Mono.Unix.Catalog.GetString("h"));
 			this.comboboxJedinicaMjereTipaAktivnosti.Name = "comboboxJedinicaMjereTipaAktivnosti";

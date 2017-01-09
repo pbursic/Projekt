@@ -194,7 +194,6 @@ public partial class MainWindow : Gtk.Window
 				}
 			}
 			d.Destroy();
-			
 		}
 
 	}
@@ -232,10 +231,10 @@ public partial class MainWindow : Gtk.Window
 		korisnikPresenter.Dodaj(Baza.DbUcitajKorisnike());
 		tipPresenter.Clear();
 		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
-		if (labelKorisnikId.Text != "")
+		if (labelKorisnikIdAkt.Text != "")
 		{
 			aktKorisnikPresenter.Clear();
-			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));	
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikIdAkt.Text)));	
 		}
 	}
 

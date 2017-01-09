@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gtk;
-using System.Globalization;
 
 namespace AppProject
 {
@@ -56,7 +55,6 @@ namespace AppProject
 		{
 			List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
 			listaTipova = Baza.DbUcitajTipAktivnosti();
-			comboboxTipovi.AppendText ("");
 			foreach (var x in listaTipova)
 			{
 				comboboxTipovi.AppendText(x.Naziv);
@@ -94,17 +92,34 @@ namespace AppProject
 
 		public void PopuniJedinicuMjere()
 		{
+			DateTime datum = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText));
+			DateTime vrijeme_p = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText),
+											  Int32.Parse(comboboxSatPocetak.ActiveText), Int32.Parse(comboboxMinPocetak.ActiveText),
+											  Int32.Parse(comboboxSecPocetak.ActiveText));
+			DateTime vrijeme_k = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText),
+											  Int32.Parse(comboboxSatKraj.ActiveText), Int32.Parse(comboboxMinKraj.ActiveText),
+											  Int32.Parse(comboboxSecKraj.ActiveText));
+			TimeSpan tot_vrijeme = vrijeme_k - vrijeme_p;
+
+
 			List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
 			listaTipova = Baza.DbUcitajTipAktivnosti();
 			foreach (var x in listaTipova)
 			{
 				if (x.Naziv == comboboxTipovi.ActiveText)
 				{
-					labelJedinicaMjere.LabelProp = x.JedinicaMjere;
 					labelTipId.LabelProp = x.Id.ToString();
-				}
-				else {
-					labelJedinicaMjere.LabelProp = "";
+
+					if (x.JedinicaMjere == "min")
+					{
+						double minuti = tot_vrijeme.Hours * 60 + tot_vrijeme.Minutes;
+						labelPotrosnjaKcal.Text = (minuti * x.KcalPoJediniciMjere).ToString();
+					}
+					else if (x.JedinicaMjere == "h")
+					{
+						double sati = tot_vrijeme.Hours;
+						labelPotrosnjaKcal.Text = (sati * x.KcalPoJediniciMjere).ToString();
+					}
 				}
 			}
 		}
@@ -143,8 +158,8 @@ namespace AppProject
 											  Int32.Parse(comboboxSatPocetak.ActiveText), Int32.Parse(comboboxMinPocetak.ActiveText),
 											  Int32.Parse(comboboxSecPocetak.ActiveText));
 			DateTime vrijeme_k = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText),
-			                                  Int32.Parse(comboboxSatKraj.ActiveText), Int32.Parse(comboboxMinKraj.ActiveText),
-			                                  Int32.Parse(comboboxSecKraj.ActiveText));
+											  Int32.Parse(comboboxSatKraj.ActiveText), Int32.Parse(comboboxMinKraj.ActiveText),
+											  Int32.Parse(comboboxSecKraj.ActiveText));
 			TimeSpan tot_vrijeme = vrijeme_k - vrijeme_p;
 
 			//Naziv aktivnosti ne smije biti prazan
@@ -168,18 +183,44 @@ namespace AppProject
 				d.Run();
 				d.Destroy();
 			}
+			else if (vrijeme_k <= vrijeme_p)
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Odaberite valjano vrijeme aktivnosti.");
+				d.Run();
+				d.Destroy();
+			}
 			//Spremi podatke u bazu i zatvori prozor
 			else {
+				
+				List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
+				listaTipova = Baza.DbUcitajTipAktivnosti();
+				foreach (var x in listaTipova)
+				{
+					if (x.Naziv == comboboxTipovi.ActiveText)
+					{
+						if (x.JedinicaMjere == "min")
+						{
+							double minuti = tot_vrijeme.Hours * 60 + tot_vrijeme.Minutes;
+							labelPotrosnjaKcal.Text = (minuti * x.KcalPoJediniciMjere).ToString();
+						}
+						else if (x.JedinicaMjere == "h")
+						{
+							double sati = tot_vrijeme.Hours;
+							labelPotrosnjaKcal.Text = (sati * x.KcalPoJediniciMjere).ToString();
+						}
+					}
+				}
+
 				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Naziv: " + entryNaziv.Text + "\nDatum: "
-				                                 + datum.Date.ToString("d") + "\nVrijeme početka: " + vrijeme_p.ToString("T") + "\nVrijeme kraj: "
-				                                 + vrijeme_k.ToString("T") + "\nTrajanje " + tot_vrijeme.ToString("c") + "\nPotrosnja: "
-				                                 + entryPotrosnja.Text + labelJedinicaMjere.Text);
+												 + datum.Date.ToString("d") + "\nVrijeme početka: " + vrijeme_p.ToString("T") + "\nVrijeme kraj: "
+												 + vrijeme_k.ToString("T") + "\nTrajanje " + tot_vrijeme.ToString("c") + "\nPotrosnja: "
+												 + labelPotrosnjaKcal.Text);
 				var response = (ResponseType)d.Run();
 				if (response == ResponseType.Ok)
 				{
 					AktivnostKorisnika novaAktivnostKorisnika = new AktivnostKorisnika(0, Int32.Parse(labelKorisnikId.Text), Int32.Parse(labelTipId.Text),
-					                                                                   entryNaziv.Text,datum, vrijeme_p,vrijeme_k,
-					                                                                   Double.Parse(entryPotrosnja.Text));
+																					   entryNaziv.Text, datum, vrijeme_p, vrijeme_k,
+																					   Double.Parse(labelPotrosnjaKcal.Text));
 					Baza.DbSpremiAktivnostKorisnika(novaAktivnostKorisnika);
 					d.Destroy();
 					this.Destroy();

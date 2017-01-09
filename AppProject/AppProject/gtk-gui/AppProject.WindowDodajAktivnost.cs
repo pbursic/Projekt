@@ -58,19 +58,13 @@ namespace AppProject
 
 		private global::Gtk.ComboBox comboboxSecKraj;
 
-		private global::Gtk.HBox hbox9;
-
-		private global::Gtk.Label label7;
-
-		private global::Gtk.Entry entryPotrosnja;
-
-		private global::Gtk.Label labelJedinicaMjere;
-
 		private global::Gtk.HBox hbox10;
 
 		private global::Gtk.Button buttonSpremi;
 
 		private global::Gtk.Button buttonOdustani;
+
+		private global::Gtk.Label labelPotrosnjaKcal;
 
 		protected virtual void Build()
 		{
@@ -136,7 +130,6 @@ namespace AppProject
 			w5.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();
-			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.labelKorisnikId = new global::Gtk.Label();
@@ -301,42 +294,6 @@ namespace AppProject
 			w25.Expand = false;
 			w25.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
-			this.hbox9 = new global::Gtk.HBox();
-			this.hbox9.Name = "hbox9";
-			this.hbox9.Spacing = 6;
-			// Container child hbox9.Gtk.Box+BoxChild
-			this.label7 = new global::Gtk.Label();
-			this.label7.Name = "label7";
-			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("Potrošnja:");
-			this.hbox9.Add(this.label7);
-			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.label7]));
-			w26.Position = 0;
-			w26.Expand = false;
-			w26.Fill = false;
-			// Container child hbox9.Gtk.Box+BoxChild
-			this.entryPotrosnja = new global::Gtk.Entry();
-			this.entryPotrosnja.CanFocus = true;
-			this.entryPotrosnja.Name = "entryPotrosnja";
-			this.entryPotrosnja.IsEditable = true;
-			this.entryPotrosnja.InvisibleChar = '●';
-			this.hbox9.Add(this.entryPotrosnja);
-			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.entryPotrosnja]));
-			w27.Position = 1;
-			w27.Expand = false;
-			// Container child hbox9.Gtk.Box+BoxChild
-			this.labelJedinicaMjere = new global::Gtk.Label();
-			this.labelJedinicaMjere.Name = "labelJedinicaMjere";
-			this.hbox9.Add(this.labelJedinicaMjere);
-			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox9[this.labelJedinicaMjere]));
-			w28.Position = 2;
-			w28.Expand = false;
-			w28.Fill = false;
-			this.vbox5.Add(this.hbox9);
-			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox9]));
-			w29.Position = 6;
-			w29.Expand = false;
-			w29.Fill = false;
-			// Container child vbox5.Gtk.Box+BoxChild
 			this.hbox10 = new global::Gtk.HBox();
 			this.hbox10.Name = "hbox10";
 			this.hbox10.Spacing = 6;
@@ -347,10 +304,10 @@ namespace AppProject
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbox10.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
-			w30.Position = 0;
-			w30.Expand = false;
-			w30.Fill = false;
+			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
+			w26.Position = 0;
+			w26.Expand = false;
+			w26.Fill = false;
 			// Container child hbox10.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.CanFocus = true;
@@ -358,15 +315,23 @@ namespace AppProject
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox10.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
-			w31.Position = 2;
-			w31.Expand = false;
-			w31.Fill = false;
+			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
+			w27.Position = 2;
+			w27.Expand = false;
+			w27.Fill = false;
 			this.vbox5.Add(this.hbox10);
-			global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
-			w32.Position = 7;
-			w32.Expand = false;
-			w32.Fill = false;
+			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
+			w28.Position = 6;
+			w28.Expand = false;
+			w28.Fill = false;
+			// Container child vbox5.Gtk.Box+BoxChild
+			this.labelPotrosnjaKcal = new global::Gtk.Label();
+			this.labelPotrosnjaKcal.Name = "labelPotrosnjaKcal";
+			this.vbox5.Add(this.labelPotrosnjaKcal);
+			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.labelPotrosnjaKcal]));
+			w29.Position = 7;
+			w29.Expand = false;
+			w29.Fill = false;
 			this.eventboxDodajAktivnost.Add(this.vbox5);
 			this.Add(this.eventboxDodajAktivnost);
 			if ((this.Child != null))
@@ -377,6 +342,7 @@ namespace AppProject
 			this.DefaultHeight = 452;
 			this.labelKorisnikId.Hide();
 			this.labelTipId.Hide();
+			this.labelPotrosnjaKcal.Hide();
 			this.Show();
 			this.calendarAktivnosti.PrevMonth += new global::System.EventHandler(this.UpdateDate);
 			this.calendarAktivnosti.PrevYear += new global::System.EventHandler(this.UpdateDate);
