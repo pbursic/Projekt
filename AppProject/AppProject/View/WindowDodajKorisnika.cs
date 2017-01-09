@@ -59,7 +59,6 @@ namespace AppProject
 		//Klikom na Spremi, korisnik se sprema u bazu podataka
 		protected void SpremiKorisnika(object sender, EventArgs e)
 		{
-			
 			DateTime datum = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active+1), Int32.Parse(comboboxDan.ActiveText));
 
 			//Ime ne smije biti prazno

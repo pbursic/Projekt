@@ -7,7 +7,7 @@ namespace AppProject
 {
 	public partial class WindowDodajAktivnost : Gtk.Window
 	{
-		public WindowDodajAktivnost() :
+		public WindowDodajAktivnost(int id) :
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
@@ -20,6 +20,7 @@ namespace AppProject
 			PopuniDatum();
 			PopuniTipove();
 			PopuniVrijeme();
+			labelKorisnikId.Text = id.ToString();
 		}
 
 		//Postavljanje liste u comboboxevima te odabran datum s kalendara (danas)
@@ -65,12 +66,6 @@ namespace AppProject
 		//Postavljanje liste sa satovima, minutama i sekundama (početak i kraj)
 		public void PopuniVrijeme()
 		{
-			comboboxSatPocetak.AppendText("");
-			comboboxMinPocetak.AppendText("");
-			comboboxSecPocetak.AppendText("");
-			comboboxSatKraj.AppendText("");
-			comboboxMinKraj.AppendText("");
-			comboboxSecKraj.AppendText("");
 			for (int i = 0; i < 24; i++)
 			{
 				comboboxSatPocetak.AppendText(i.ToString("00"));
@@ -88,6 +83,13 @@ namespace AppProject
 				comboboxSecPocetak.AppendText(i.ToString("00"));
 				comboboxSecKraj.AppendText(i.ToString("00"));
 			}
+
+			comboboxSatPocetak.Active = 0;
+			comboboxSatKraj.Active = 0;
+			comboboxMinPocetak.Active = 0;
+			comboboxMinKraj.Active = 0;
+			comboboxSecPocetak.Active = 0;
+			comboboxSecKraj.Active = 0;
 		}
 
 		public void PopuniJedinicuMjere()
@@ -99,6 +101,7 @@ namespace AppProject
 				if (x.Naziv == comboboxTipovi.ActiveText)
 				{
 					labelJedinicaMjere.LabelProp = x.JedinicaMjere;
+					labelTipId.LabelProp = x.Id.ToString();
 				}
 				else {
 					labelJedinicaMjere.LabelProp = "";
@@ -135,6 +138,57 @@ namespace AppProject
 
 		protected void SpremiClicked(object sender, EventArgs e)
 		{
+			DateTime datum = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText));
+			DateTime vrijeme_p = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText),
+											  Int32.Parse(comboboxSatPocetak.ActiveText), Int32.Parse(comboboxMinPocetak.ActiveText),
+											  Int32.Parse(comboboxSecPocetak.ActiveText));
+			DateTime vrijeme_k = new DateTime(Int32.Parse(comboboxGodina.ActiveText), (int)(comboboxMjesec.Active + 1), Int32.Parse(comboboxDan.ActiveText),
+			                                  Int32.Parse(comboboxSatKraj.ActiveText), Int32.Parse(comboboxMinKraj.ActiveText),
+			                                  Int32.Parse(comboboxSecKraj.ActiveText));
+			TimeSpan tot_vrijeme = vrijeme_k - vrijeme_p;
+
+			//Naziv aktivnosti ne smije biti prazan
+			if (entryNaziv.Text == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Naziv ne može biti prazan.");
+				d.Run();
+				d.Destroy();
+			}
+			//Datum rodjenja ne smije biti > danas
+			else if (datum > DateTime.Today)
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Odaberite valjani datum.");
+				d.Run();
+				d.Destroy();
+			}
+			//Tip aktivnosti mora biti odabran
+			else if (comboboxTipovi.ActiveText == "")
+			{
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Odaberite tip aktivnosti.");
+				d.Run();
+				d.Destroy();
+			}
+			//Spremi podatke u bazu i zatvori prozor
+			else {
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Naziv: " + entryNaziv.Text + "\nDatum: "
+				                                 + datum.Date.ToString("d") + "\nVrijeme početka: " + vrijeme_p.ToString("T") + "\nVrijeme kraj: "
+				                                 + vrijeme_k.ToString("T") + "\nTrajanje " + tot_vrijeme.ToString("c") + "\nPotrosnja: "
+				                                 + entryPotrosnja.Text + labelJedinicaMjere.Text);
+				var response = (ResponseType)d.Run();
+				if (response == ResponseType.Ok)
+				{
+					AktivnostKorisnika novaAktivnostKorisnika = new AktivnostKorisnika(0, Int32.Parse(labelKorisnikId.Text), Int32.Parse(labelTipId.Text),
+					                                                                   entryNaziv.Text,datum, vrijeme_p,vrijeme_k,
+					                                                                   Double.Parse(entryPotrosnja.Text));
+					Baza.DbSpremiAktivnostKorisnika(novaAktivnostKorisnika);
+					d.Destroy();
+					this.Destroy();
+				}
+				else
+				{
+					d.Destroy();
+				}
+			}
 		}
 	}
 }

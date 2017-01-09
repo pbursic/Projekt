@@ -56,8 +56,11 @@ public partial class MainWindow : Gtk.Window
 		nodeviewAktivnostiKorisnika.AppendColumn("Vrijeme Kraja", new Gtk.CellRendererText(), "text", 4);
 		nodeviewAktivnostiKorisnika.AppendColumn("Potrošnja", new Gtk.CellRendererText(), "text", 5);
 
-		//aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));
-		//nodeviewAktivnostiKorisnika.NodeSelection.Changed += this.RowSelected;
+		if (labelKorisnikId.Text != "")
+		{
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));
+		}
+		nodeviewAktivnostiKorisnika.NodeSelection.Changed += this.RowSelected;
 
 		nodeviewTip.AppendColumn("Naziv Tipa", new Gtk.CellRendererText(), "text", 0);
 		nodeviewTip.AppendColumn("Tip", new Gtk.CellRendererText(), "text", 1);
@@ -79,7 +82,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		var selectedKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
 		var selectedTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
-		var selectedAktivnostKorisnika = (AktivnostKorisnika)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
+		var selectedAktivnostKorisnika = (AktKorisnikaNode)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
 	}
 
 	protected void dodajKorisnika(object sender, EventArgs e)
@@ -89,7 +92,7 @@ public partial class MainWindow : Gtk.Window
 
 	protected void dodajAktivnost(object sender, EventArgs e)
 	{
-		var dodajAktivnostWin = new WindowDodajAktivnost();
+		var dodajAktivnostWin = new WindowDodajAktivnost(Int32.Parse(labelKorisnikIdAkt.Text));
 	}
 
 	protected void dodajTip(object sender, EventArgs e)
@@ -220,6 +223,7 @@ public partial class MainWindow : Gtk.Window
 	protected void ShowTipAktivnosti(object sender, EventArgs e)
 	{
 		notebookGlavni.CurrentPage = 3;
+		notebookMenu.CurrentPage = 1;
 	}
 
 	protected void UpdateLists(object sender, EventArgs e)
@@ -228,13 +232,54 @@ public partial class MainWindow : Gtk.Window
 		korisnikPresenter.Dodaj(Baza.DbUcitajKorisnike());
 		tipPresenter.Clear();
 		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
-		//aktKorisnikPresenter.Clear();
-		//aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));
+		if (labelKorisnikId.Text != "")
+		{
+			aktKorisnikPresenter.Clear();
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikId.Text)));	
+		}
 	}
 
 	protected void MenuClicked(object sender, EventArgs e)
 	{
 		notebookMenu.CurrentPage = 0;
 		notebookGlavni.CurrentPage = 0;
+	}
+
+	protected void AktivnostiKorisnika(object sender, EventArgs e)
+	{
+		var selectedKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
+		if (selectedKorisnik != null)
+		{
+			string ime_korisnika = selectedKorisnik.ime + " " + selectedKorisnik.prezime;
+			labelCurrentKorisnik.Text = ime_korisnika;
+			labelKorisnikIdAkt.Text = selectedKorisnik.id.ToString();
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(selectedKorisnik.ID));
+			notebookMenu.CurrentPage = 3;
+			notebookGlavni.CurrentPage = 2;
+		}
+	}
+
+	protected void StatistikaClicked(object sender, EventArgs e)
+	{
+		var selectedKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
+		if (selectedKorisnik != null)
+		{
+			string ime_korisnika = selectedKorisnik.ime + " " + selectedKorisnik.prezime;
+			labelCurrentKorisnik1.Text = ime_korisnika;
+			labelKorisnikId1.Text = selectedKorisnik.ID.ToString();
+			notebookMenu.CurrentPage = 4;
+			notebookGlavni.CurrentPage = 4;
+		}
+	}
+
+	protected void StatistikaAktivnostClicked(object sender, EventArgs e)
+	{
+		if (labelKorisnikIdAkt.Text != "")
+		{
+			labelCurrentKorisnik1.Text = labelCurrentKorisnik.Text;
+			labelKorisnikIdAkt1.Text = labelKorisnikId.Text;
+			notebookMenu.CurrentPage = 4;
+			notebookGlavni.CurrentPage = 4;
+		}
 	}
 }

@@ -129,14 +129,13 @@ namespace AppProject
 			}
 		}
 
-		public AktivnostKorisnika(int id,int k_id, int ta_id, string naziv, string tip, DateTime datum, DateTime vrijeme_pocetka, 
+		public AktivnostKorisnika(int id,int k_id, int ta_id, string naziv, DateTime datum, DateTime vrijeme_pocetka, 
 		                          DateTime vrijeme_kraja, double potrosnja)
 		{
 			this.Id = id;
 			this.K_id = k_id;
 			this.Ta_id = ta_id;
 			this.Naziv = naziv;
-			this.Tip = tip;
 			this.Datum = datum;
 			this.Vrijeme_pocetka = vrijeme_pocetka;
 			this.Vrijeme_kraja = vrijeme_kraja;

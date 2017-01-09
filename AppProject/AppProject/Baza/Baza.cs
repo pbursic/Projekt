@@ -255,9 +255,9 @@ namespace AppProject
 		public static void DbSpremiAktivnostKorisnika(AktivnostKorisnika ak)
 		{
 			konekcija.Open();
-			string unesiAktivnostKorisnika = @"INSERT INTO aktivnostikorisnika (naziv,datum,vrijeme_pocetka,vrijeme_kraja,potrosnja) VALUES ('" +
-				ak.Naziv + "','" + ak.Datum.ToFileTime() + ak.Vrijeme_pocetka.ToFileTime() + "'," + "," + ak.Vrijeme_kraja.ToFileTime() + "," + 
-			      ak.Potrosnja + ")";
+			string unesiAktivnostKorisnika = @"INSERT INTO aktivnostikorisnika (k_id,ta_id,naziv,datum,vrijeme_pocetka,vrijeme_kraja,potrosnja) VALUES ("
+				+ ak.K_id + "," + ak.Ta_id + ",'" + ak.Naziv + "'," + ak.Datum.ToFileTime() + "," + ak.Vrijeme_pocetka.ToFileTime() + "," + 
+			              ak.Vrijeme_kraja.ToFileTime() + "," + ak.Potrosnja + ")";
 			SQLiteCommand createcmd = new SQLiteCommand(unesiAktivnostKorisnika, konekcija);
 			createcmd.ExecuteNonQuery();
 
@@ -266,21 +266,9 @@ namespace AppProject
 			var id = cmdId.ExecuteScalar();
 			ak.Id = Int32.Parse(id.ToString());
 
-			string getKId = @"SELECT last_insert_rowid() as k_id FROM aktivnostikorisnika";
-			SQLiteCommand cmdKId = new SQLiteCommand(getKId, konekcija);
-			var k_id = cmdId.ExecuteScalar();
-			ak.K_id= Int32.Parse(k_id.ToString());
-
-			string getTaId = @"SELECT last_insert_rowid() as ta_id FROM aktivnostikorisnika";
-			SQLiteCommand cmdTaId = new SQLiteCommand(getTaId, konekcija);
-			var ta_id = cmdId.ExecuteScalar();
-			ak.Ta_id= Int32.Parse(ta_id.ToString());
-
 			konekcija.Close();
 			createcmd.Dispose();
 			cmdId.Dispose();
-			cmdKId.Dispose();
-			cmdTaId.Dispose();
 		}
 
 		//Učitavanje aktivnosti korisnika sa baze po pripadajucem id-u
@@ -292,14 +280,14 @@ namespace AppProject
 			SQLiteDataReader reader = createcmd.ExecuteReader();
 			List<AktivnostKorisnika> listaAktivnostiKorisnika = new List<AktivnostKorisnika>();
 
-			string getTip = @"SELECT naziv FROM tipoviaktivnosti WHERE id=aktivnostikorisnika.ta_id AND aktivnostikorisnika.id=" + id;
+			string getTip = @"SELECT tipoviaktivnosti.naziv FROM tipoviaktivnosti, aktivnostikorisnika WHERE tipoviaktivnosti.id = aktivnostikorisnika.ta_id AND aktivnostikorisnika.id=" + id;
 			SQLiteCommand getTipCmd = new SQLiteCommand(getTip, konekcija);
-			var tip = getTipCmd.ExecuteScalar().ToString();
+			var tip = getTipCmd.ExecuteNonQuery().ToString();
 
 			while (reader.Read())
 			{
 				
-				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0),reader.GetInt32(1),reader.GetInt32(2),reader.GetString(3),tip,
+				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0),reader.GetInt32(1),reader.GetInt32(2),reader.GetString(3),
 				                                               DateTime.FromFileTime(reader.GetInt64(4)),DateTime.FromFileTime(reader.GetInt64(5)),
 				                                               DateTime.FromFileTime(reader.GetInt64(6)),reader.GetDouble(7));
 				listaAktivnostiKorisnika.Add(ak);
