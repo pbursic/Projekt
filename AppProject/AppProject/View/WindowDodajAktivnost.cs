@@ -212,8 +212,8 @@ namespace AppProject
 				}
 
 				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Other, ButtonsType.OkCancel, "Naziv: " + entryNaziv.Text + "\nDatum: "
-												 + datum.Date.ToString("d") + "\nVrijeme početka: " + vrijeme_p.ToString("T") + "\nVrijeme kraj: "
-												 + vrijeme_k.ToString("T") + "\nTrajanje " + tot_vrijeme.ToString("c") + "\nPotrosnja: "
+				                                 + datum.Date.ToString("d") + "\nVrijeme početka: " + vrijeme_p.ToString("HH:mm:ss") + "\nVrijeme kraj: "
+												 + vrijeme_k.ToString("HH:mm:ss") + "\nTrajanje " + tot_vrijeme.ToString("c") + "\nPotrosnja: "
 												 + labelPotrosnjaKcal.Text);
 				var response = (ResponseType)d.Run();
 				if (response == ResponseType.Ok)

@@ -212,6 +212,7 @@ public partial class MainWindow
 		this.eventboxMain.Name = "eventboxMain";
 		// Container child eventboxMain.Gtk.Container+ContainerChild
 		this.hbox1 = new global::Gtk.HBox();
+		this.hbox1.Name = "hbox1";
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.notebookMenu = new global::Gtk.Notebook();
@@ -602,7 +603,7 @@ public partial class MainWindow
 		this.notebookGlavni = new global::Gtk.Notebook();
 		this.notebookGlavni.CanFocus = true;
 		this.notebookGlavni.Name = "notebookGlavni";
-		this.notebookGlavni.CurrentPage = 0;
+		this.notebookGlavni.CurrentPage = 2;
 		// Notebook tab
 		global::Gtk.Label w38 = new global::Gtk.Label();
 		w38.Visible = true;

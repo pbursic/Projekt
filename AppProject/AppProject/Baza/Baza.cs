@@ -305,7 +305,7 @@ namespace AppProject
 			string updateAktivnostKorisnika = @"UPDATE aktivnostikorisnika SET naziv='" + ak.Naziv + "', datum='" + ak.Datum.ToFileTime() 
 			                                                                                + "', vrijeme_pocetka= " + ak.Vrijeme_pocetka.ToFileTime() 
 			                                                                                + ", vrijeme_kraja=" + ak.Vrijeme_kraja.ToFileTime() 
-			                                                                                + " WHERE id=" + ak.Id;
+			                                                                                + ", potrosnja= " + ak.Potrosnja + " WHERE id=" + ak.Id;
 			SQLiteCommand cmd = new SQLiteCommand(updateAktivnostKorisnika, konekcija);
 			cmd.ExecuteNonQuery();
 			konekcija.Close();

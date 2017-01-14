@@ -34,8 +34,8 @@ namespace AppProject
 			this.naziv = aktKorisnika.Naziv;
 			this.tip = aktKorisnika.Tip;
 			this.datum = aktKorisnika.Datum.ToString("dd.MM.yyyy");
-			this.vrijeme_pocetka = aktKorisnika.Vrijeme_pocetka.ToString("hh:mm:ss");
-			this.vrijeme_kraja = aktKorisnika.Vrijeme_kraja.ToString("hh:mm:ss");
+			this.vrijeme_pocetka = aktKorisnika.Vrijeme_pocetka.ToString("HH:mm:ss");
+			this.vrijeme_kraja = aktKorisnika.Vrijeme_kraja.ToString("HH:mm:ss");
 			this.potrosnja = aktKorisnika.Potrosnja.ToString();
 		}
 	}

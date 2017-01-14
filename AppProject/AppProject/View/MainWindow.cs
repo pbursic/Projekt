@@ -108,12 +108,14 @@ public partial class MainWindow : Gtk.Window
 			var mijenjajKorisnikaWin = new WindowMijenjajKorisnika(selectedNodeKorisnik);
 		}
 	}
-	/*TODO:
-				Implementirati!!!
-	*/
+
 	protected void mijenjajAktivnost(object sender, EventArgs e)
 	{
-		var mijenjajAktivnostWin = new WindowMijenjajAktivnost();
+		var selectedAktivnostKorisnikaNode = (AktKorisnikaNode)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
+		if (selectedAktivnostKorisnikaNode != null)
+		{
+			var mijenjajAktivnostWin = new WindowMijenjajAktivnost(selectedAktivnostKorisnikaNode);
+		}
 	}
 
 	protected void mijenjajTip(object sender, EventArgs e)
