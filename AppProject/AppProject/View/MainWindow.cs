@@ -74,6 +74,7 @@ public partial class MainWindow : Gtk.Window
 	}
 
 	//Postavljanje liste tipova (svi unešeni tipovi)
+	//
 	public void PopuniTipove()
 	{
 		List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
