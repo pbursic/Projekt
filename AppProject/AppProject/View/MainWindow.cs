@@ -1,6 +1,7 @@
 ﻿using System;
 using Gtk;
 using AppProject;
+using System.Collections.Generic;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -70,6 +71,18 @@ public partial class MainWindow : Gtk.Window
 		nodeviewTip.NodeSelection.Changed += this.RowSelected;
 
 		calendarAktivnosti.Date = DateTime.Today.Date;
+	}
+
+	//Postavljanje liste tipova (svi unešeni tipovi)
+	public void PopuniTipove()
+	{
+		List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
+		listaTipova = Baza.DbUcitajTipAktivnosti();
+		comboboxTipovi.Clear();
+		foreach (var x in listaTipova)
+		{
+			comboboxTipovi.AppendText(x.Naziv);
+		}
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -282,5 +295,16 @@ public partial class MainWindow : Gtk.Window
 			notebookMenu.CurrentPage = 4;
 			notebookGlavni.CurrentPage = 4;
 		}
+	}
+
+	protected void StatTipClicked(object sender, EventArgs e)
+	{
+		notebookGlavni.CurrentPage = 5;
+		PopuniTipove();
+	}
+
+	protected void StatVrijemeClicked(object sender, EventArgs e)
+	{
+		notebookGlavni.CurrentPage = 6;
 	}
 }

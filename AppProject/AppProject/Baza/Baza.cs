@@ -322,5 +322,8 @@ namespace AppProject
 			konekcija.Close();
 			cmd.Dispose();
 		}
+
+		//
+
 	}
 }
