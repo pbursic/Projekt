@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{4D1BBC6B-4A7E-40F2-87CC-A0CD1FC8BC2C}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ActiveRuntime="MS.NET" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppProject\View\MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppProject Status">
     <Files>
-      <File FileName="AppProject\Baza\Baza.cs" Line="327" Column="3" />
-      <File FileName="AppProject\View\MainWindow.cs" Line="302" Column="34" />
+      <File FileName="AppProject\View\MainWindow.cs" Line="16" Column="3" />
+      <File FileName="AppProject\Baza\Baza.cs" Line="290" Column="38" />
+      <File FileName="AppProject\Presenter\Statistika.cs" Line="64" Column="51" />
+      <File FileName="AppProject Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.AppProject PreferredExecutionTarget="MonoDevelop.Default" />

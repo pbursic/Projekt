@@ -20,16 +20,10 @@ public partial class MainWindow : Gtk.Window
 
 		Gdk.Color colorPage = new Gdk.Color();
 		Gdk.Color.Parse("#14A4EF", ref colorPage);
-		eventboxKorisniciUp.ModifyBg(StateType.Normal, colorPage);
-		Add(eventboxKorisniciUp);
 		eventboxKorisniciDown.ModifyBg(StateType.Normal, colorPage);
 		Add(eventboxKorisniciDown);
-		eventboxAktivnostiUp.ModifyBg(StateType.Normal, colorPage);
-		Add(eventboxAktivnostiUp);
 		eventboxAktivnostiDown.ModifyBg(StateType.Normal, colorPage);
 		Add(eventboxAktivnostiDown);
-		eventboxTipUp.ModifyBg(StateType.Normal, colorPage);
-		Add(eventboxTipUp);
 		eventboxTipDown.ModifyBg(StateType.Normal, colorPage);
 		Add(eventboxTipDown);
 
@@ -64,26 +58,13 @@ public partial class MainWindow : Gtk.Window
 		nodeviewAktivnostiKorisnika.NodeSelection.Changed += this.RowSelected;
 
 		nodeviewTip.AppendColumn("Naziv Tipa", new Gtk.CellRendererText(), "text", 0);
-		nodeviewTip.AppendColumn("Tip", new Gtk.CellRendererText(), "text", 1);
+		nodeviewTip.AppendColumn("Jedinica mjere", new Gtk.CellRendererText(), "text", 1);
 		nodeviewTip.AppendColumn("Jedinica", new Gtk.CellRendererText(), "text", 2);
 
 		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
 		nodeviewTip.NodeSelection.Changed += this.RowSelected;
 
 		calendarAktivnosti.Date = DateTime.Today.Date;
-	}
-
-	//Postavljanje liste tipova (svi unešeni tipovi)
-	//
-	public void PopuniTipove()
-	{
-		List<TipAktivnosti> listaTipova = new List<TipAktivnosti>();
-		listaTipova = Baza.DbUcitajTipAktivnosti();
-		comboboxTipovi.Clear();
-		foreach (var x in listaTipova)
-		{
-			comboboxTipovi.AppendText(x.Naziv);
-		}
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -97,6 +78,7 @@ public partial class MainWindow : Gtk.Window
 		var selectedKorisnik = (KorisnikNode)nodeviewKorisnici.NodeSelection.SelectedNode;
 		var selectedTipAktivnosti = (TipAktivnostiNode)nodeviewTip.NodeSelection.SelectedNode;
 		var selectedAktivnostKorisnika = (AktKorisnikaNode)nodeviewAktivnostiKorisnika.NodeSelection.SelectedNode;
+		var selectedTipAktStat = (TipAktivnostiNode)nodeviewTipStatistika.NodeSelection.SelectedNode;
 	}
 
 	protected void dodajKorisnika(object sender, EventArgs e)
@@ -268,7 +250,7 @@ public partial class MainWindow : Gtk.Window
 			string ime_korisnika = selectedKorisnik.ime + " " + selectedKorisnik.prezime;
 			labelCurrentKorisnik.Text = ime_korisnika;
 			labelKorisnikIdAkt.Text = selectedKorisnik.id.ToString();
-			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(selectedKorisnik.ID));
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(selectedKorisnik.id));
 			notebookMenu.CurrentPage = 3;
 			notebookGlavni.CurrentPage = 2;
 		}
@@ -281,7 +263,7 @@ public partial class MainWindow : Gtk.Window
 		{
 			string ime_korisnika = selectedKorisnik.ime + " " + selectedKorisnik.prezime;
 			labelCurrentKorisnik1.Text = ime_korisnika;
-			labelKorisnikId1.Text = selectedKorisnik.ID.ToString();
+			labelKorisnikIdStat.Text = selectedKorisnik.id.ToString();
 			notebookMenu.CurrentPage = 4;
 			notebookGlavni.CurrentPage = 4;
 		}
@@ -292,7 +274,7 @@ public partial class MainWindow : Gtk.Window
 		if (labelKorisnikIdAkt.Text != "")
 		{
 			labelCurrentKorisnik1.Text = labelCurrentKorisnik.Text;
-			labelKorisnikIdAkt1.Text = labelKorisnikId.Text;
+			labelKorisnikIdStat.Text = labelKorisnikIdAkt.Text;
 			notebookMenu.CurrentPage = 4;
 			notebookGlavni.CurrentPage = 4;
 		}
@@ -301,11 +283,73 @@ public partial class MainWindow : Gtk.Window
 	protected void StatTipClicked(object sender, EventArgs e)
 	{
 		notebookGlavni.CurrentPage = 5;
-		PopuniTipove();
+		nodeviewTipStatistika.NodeStore = tipPresenter;
+		nodeviewTipStatistika.AppendColumn("Naziv Tipa", new Gtk.CellRendererText(), "text", 0);
+		nodeviewTipStatistika.AppendColumn("Jedinica mjere", new Gtk.CellRendererText(), "text", 1);
+		nodeviewTipStatistika.AppendColumn("Jedinica", new Gtk.CellRendererText(), "text", 2);
+		tipPresenter.Dodaj(Baza.DbUcitajTipAktivnosti());
+		nodeviewTipStatistika.NodeSelection.Changed += this.RowSelected;
 	}
 
 	protected void StatVrijemeClicked(object sender, EventArgs e)
 	{
 		notebookGlavni.CurrentPage = 6;
+	}
+
+	private void ClearVbox(VBox v)
+	{
+		var elementi = v.AllChildren;
+		foreach (Widget x in elementi)
+		{
+			v.Remove(x);
+		}
+	}
+
+	protected void PrikaziByDatumClicked(object sender, EventArgs e)
+	{
+		ClearVbox(vboxStatistikaDatum);
+		vboxStatistikaDatum.Add(Statistika.StatistikaDatum(Baza.StatistikaRazdobljaPoDatumu
+		                                                   (calendarDatumOd.Date, calendarDatumDo.Date, 
+		                                                    Int32.Parse(labelKorisnikIdStat.Text)),calendarDatumOd.Date, 
+		                                                   calendarDatumDo.Date));
+		vboxStatistikaDatum.ShowAll();
+	}
+
+	protected void PrikaziByPotrosnjaClicked(object sender, EventArgs e)
+	{
+		ClearVbox(vboxStatistikaDatum);
+		vboxStatistikaDatum.Add(Statistika.StatistikaDatum(Baza.StatistikaRazdobljaPoPotrosnji
+														   (calendarDatumOd.Date, calendarDatumDo.Date,
+															Int32.Parse(labelKorisnikIdStat.Text)), calendarDatumOd.Date,
+														   calendarDatumDo.Date));
+		vboxStatistikaDatum.ShowAll();
+	}
+
+	protected void PrikaziByTip(object sender, EventArgs e)
+	{
+		var selectedTipStat = (TipAktivnostiNode)nodeviewTipStatistika.NodeSelection.SelectedNode;
+		if (selectedTipStat != null)
+		{
+			ClearVbox(vboxStatistikaTip);
+			vboxStatistikaTip.Add(Statistika.StatistikaTip(Baza.StatistikaRazdobljaPoTipu(selectedTipStat.id,Int32.Parse(labelKorisnikIdStat.Text)),
+			                                               selectedTipStat.naziv));
+			vboxStatistikaTip.ShowAll();
+		}
+
+
+	}
+
+	protected void PromjenaDatuma(object sender, EventArgs e)
+	{
+		if (calendarAktivnosti.Date <= DateTime.Today && labelKorisnikIdAkt.Text != "")
+		{
+			aktKorisnikPresenter.Clear();
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnikaPoDatumu(Int32.Parse(labelKorisnikIdAkt.Text), calendarAktivnosti.Date));
+		}
+		else if(labelKorisnikIdAkt.Text != "")
+		{
+			aktKorisnikPresenter.Clear();
+			aktKorisnikPresenter.Dodaj(Baza.DbUcitajAktivnostiKorisnika(Int32.Parse(labelKorisnikIdAkt.Text)));
+		}
 	}
 }

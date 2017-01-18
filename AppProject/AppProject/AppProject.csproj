@@ -65,6 +65,8 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Fitlist_Icon_10241.png" />
+    <EmbeddedResource Include="Resources\Statistics.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="gtk-gui\AppProject.WindowMijenjajTip.cs" />
     <Compile Include="Baza\Baza.cs" />
     <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Presenter\Statistika.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

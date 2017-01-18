@@ -277,6 +277,35 @@ namespace AppProject
 			return listaAktivnostiKorisnika;
 		}
 
+		//Učitavanje aktivnosti korisnika sa baze po pripadajucem id-u i datumu
+		public static List<AktivnostKorisnika> DbUcitajAktivnostiKorisnikaPoDatumu(int id, DateTime datum)
+		{
+			konekcija.Open();
+			string ucitajAktivnostiKorisnika = "SELECT * FROM aktivnostikorisnika WHERE k_id =" + id + " AND datum = " + datum.ToFileTime();
+			SQLiteCommand createcmd = new SQLiteCommand(ucitajAktivnostiKorisnika, konekcija);
+			SQLiteDataReader reader = createcmd.ExecuteReader();
+			List<AktivnostKorisnika> listaAktivnostiKorisnika = new List<AktivnostKorisnika>();
+
+			string getTip = @"SELECT tipoviaktivnosti.naziv FROM tipoviaktivnosti, aktivnostikorisnika WHERE tipoviaktivnosti.id = aktivnostikorisnika.ta_id 
+			AND aktivnostikorisnika.id=" + id;
+			SQLiteCommand getTipCmd = new SQLiteCommand(getTip, konekcija);
+			var tip = getTipCmd.ExecuteNonQuery().ToString();
+
+			while (reader.Read())
+			{
+
+				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3),
+															   DateTime.FromFileTime(reader.GetInt64(4)), DateTime.FromFileTime(reader.GetInt64(5)),
+															   DateTime.FromFileTime(reader.GetInt64(6)), reader.GetDouble(7));
+				listaAktivnostiKorisnika.Add(ak);
+			}
+			konekcija.Close();
+
+			createcmd.Dispose();
+
+			return listaAktivnostiKorisnika;
+		}
+
 		//Provjera postojanja aktivnosti korisnika u bazi po Id-u
 		public static bool DbProvjeriIdAktivnostiKorisnika(int id)
 		{
@@ -323,7 +352,90 @@ namespace AppProject
 			cmd.Dispose();
 		}
 
-		//
+		// Statistika
 
+		// Statistika za razdoblje po datumu
+
+		public static List<AktivnostKorisnika> StatistikaRazdobljaPoDatumu(DateTime datumOd, DateTime datumDo, int id)
+		{
+			datumDo.AddHours(23);
+			datumDo.AddMinutes(59);
+			datumDo.AddSeconds(59);
+			konekcija.Open();
+			string statistikaRazdoblja = @"SELECT * FROM aktivnostikorisnika WHERE k_id=" + id + " AND datum>=" + 
+				datumOd.ToFileTime() + " AND datum<=" + datumDo.ToFileTime() +  " ORDER BY datum";
+			SQLiteCommand cmd = new SQLiteCommand(statistikaRazdoblja, konekcija);
+			SQLiteDataReader reader = cmd.ExecuteReader();
+
+			List<AktivnostKorisnika> listaAktivnostiKorisnika = new List<AktivnostKorisnika>();
+			while (reader.Read())
+			{
+
+				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3),
+															   DateTime.FromFileTime(reader.GetInt64(4)), DateTime.FromFileTime(reader.GetInt64(5)),
+															   DateTime.FromFileTime(reader.GetInt64(6)), reader.GetDouble(7));
+				listaAktivnostiKorisnika.Add(ak);
+			}
+			konekcija.Close();
+
+			cmd.Dispose();
+
+			return listaAktivnostiKorisnika;
+		}
+
+		// Statistika za razdoblje po potrosnji
+
+		public static List<AktivnostKorisnika> StatistikaRazdobljaPoPotrosnji(DateTime datumOd, DateTime datumDo, int id)
+		{
+			datumDo.AddHours(23);
+			datumDo.AddMinutes(59);
+			datumDo.AddSeconds(59);
+			konekcija.Open();
+			string statistikaRazdoblja = @"SELECT * FROM aktivnostikorisnika WHERE k_id=" + id + " AND datum>=" +
+				datumOd.ToFileTime() + " AND datum<=" + datumDo.ToFileTime() + " ORDER BY potrosnja";
+			SQLiteCommand cmd = new SQLiteCommand(statistikaRazdoblja, konekcija);
+			SQLiteDataReader reader = cmd.ExecuteReader();
+
+			List<AktivnostKorisnika> listaAktivnostiKorisnika = new List<AktivnostKorisnika>();
+			while (reader.Read())
+			{
+
+				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3),
+															   DateTime.FromFileTime(reader.GetInt64(4)), DateTime.FromFileTime(reader.GetInt64(5)),
+															   DateTime.FromFileTime(reader.GetInt64(6)), reader.GetDouble(7));
+				listaAktivnostiKorisnika.Add(ak);
+			}
+			konekcija.Close();
+
+			cmd.Dispose();
+
+			return listaAktivnostiKorisnika;
+		}
+
+		// Statistika po tipu aktivnosti
+
+		public static List<AktivnostKorisnika> StatistikaRazdobljaPoTipu(int tip_id, int id)
+		{
+			konekcija.Open();
+			string statistikaTipa = @"SELECT * FROM aktivnostikorisnika WHERE k_id=" + id + " AND ta_id = " + tip_id
+				+ " ORDER BY potrosnja";
+			SQLiteCommand cmd = new SQLiteCommand(statistikaTipa, konekcija);
+			SQLiteDataReader reader = cmd.ExecuteReader();
+
+			List<AktivnostKorisnika> listaAktivnostiKorisnika = new List<AktivnostKorisnika>();
+			while (reader.Read())
+			{
+
+				AktivnostKorisnika ak = new AktivnostKorisnika(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3),
+															   DateTime.FromFileTime(reader.GetInt64(4)), DateTime.FromFileTime(reader.GetInt64(5)),
+															   DateTime.FromFileTime(reader.GetInt64(6)), reader.GetDouble(7));
+				listaAktivnostiKorisnika.Add(ak);
+			}
+			konekcija.Close();
+
+			cmd.Dispose();
+
+			return listaAktivnostiKorisnika;
+		}
 	}
 }

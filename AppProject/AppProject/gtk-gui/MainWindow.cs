@@ -79,7 +79,7 @@ public partial class MainWindow
 
 	private global::Gtk.Label labelCurrentKorisnik1;
 
-	private global::Gtk.Label labelKorisnikIdAkt1;
+	private global::Gtk.Label labelKorisnikIdStat;
 
 	private global::Gtk.HBox hbox2;
 
@@ -101,17 +101,11 @@ public partial class MainWindow
 
 	private global::Gtk.Notebook notebookGlavni;
 
+	private global::Gtk.Image imageLogo;
+
 	private global::Gtk.Label label1;
 
 	private global::Gtk.VBox vbox3;
-
-	private global::Gtk.EventBox eventboxKorisniciUp;
-
-	private global::Gtk.HBox hbox6;
-
-	private global::Gtk.Entry entry4;
-
-	private global::Gtk.Button button4;
 
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 
@@ -136,14 +130,6 @@ public partial class MainWindow
 	private global::Gtk.Label labelViewKorisnici;
 
 	private global::Gtk.VBox vbox4;
-
-	private global::Gtk.EventBox eventboxAktivnostiUp;
-
-	private global::Gtk.HBox hbox5;
-
-	private global::Gtk.Entry entry3;
-
-	private global::Gtk.Button button3;
 
 	private global::Gtk.ScrolledWindow GtkScrolledWindow1;
 
@@ -173,14 +159,6 @@ public partial class MainWindow
 
 	private global::Gtk.VBox vbox5;
 
-	private global::Gtk.EventBox eventboxTipUp;
-
-	private global::Gtk.HBox hbox7;
-
-	private global::Gtk.Entry entry5;
-
-	private global::Gtk.Button button5;
-
 	private global::Gtk.ScrolledWindow GtkScrolledWindow2;
 
 	private global::Gtk.NodeView nodeviewTip;
@@ -207,17 +185,27 @@ public partial class MainWindow
 
 	private global::Gtk.Label labelTitle;
 
+	private global::Gtk.Image image3;
+
 	private global::Gtk.Label labelStatistika;
 
 	private global::Gtk.VBox vbox20;
 
-	private global::Gtk.Label labelTitle1;
+	private global::Gtk.VBox vbox22;
 
-	private global::Gtk.HBox hbox16;
+	private global::Gtk.VBox vboxStatistikaTip;
+
+	private global::Gtk.HBox hbox6;
 
 	private global::Gtk.Label labelTipAkt;
 
-	private global::Gtk.ComboBox comboboxTipovi;
+	private global::Gtk.ScrolledWindow GtkScrolledWindow3;
+
+	private global::Gtk.NodeView nodeviewTipStatistika;
+
+	private global::Gtk.HBox hbox16;
+
+	private global::Gtk.Button button4;
 
 	private global::Gtk.Fixed fixed1;
 
@@ -225,7 +213,23 @@ public partial class MainWindow
 
 	private global::Gtk.VBox vbox21;
 
-	private global::Gtk.Label labelTitle2;
+	private global::Gtk.VBox vboxStatistikaDatum;
+
+	private global::Gtk.HBox hbox17;
+
+	private global::Gtk.Label label2;
+
+	private global::Gtk.Calendar calendarDatumOd;
+
+	private global::Gtk.Label label7;
+
+	private global::Gtk.Calendar calendarDatumDo;
+
+	private global::Gtk.HBox hbox5;
+
+	private global::Gtk.Button button1;
+
+	private global::Gtk.Button button2;
 
 	private global::Gtk.Label label6;
 
@@ -242,7 +246,6 @@ public partial class MainWindow
 		this.eventboxMain.Name = "eventboxMain";
 		// Container child eventboxMain.Gtk.Container+ContainerChild
 		this.hbox1 = new global::Gtk.HBox();
-		this.hbox1.Name = "hbox1";
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.notebookMenu = new global::Gtk.Notebook();
@@ -565,10 +568,10 @@ public partial class MainWindow
 		w30.Expand = false;
 		w30.Fill = false;
 		// Container child vbox18.Gtk.Box+BoxChild
-		this.labelKorisnikIdAkt1 = new global::Gtk.Label();
-		this.labelKorisnikIdAkt1.Name = "labelKorisnikIdAkt1";
-		this.vbox18.Add(this.labelKorisnikIdAkt1);
-		global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.vbox18[this.labelKorisnikIdAkt1]));
+		this.labelKorisnikIdStat = new global::Gtk.Label();
+		this.labelKorisnikIdStat.Name = "labelKorisnikIdStat";
+		this.vbox18.Add(this.labelKorisnikIdStat);
+		global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.vbox18[this.labelKorisnikIdStat]));
 		w31.Position = 1;
 		w31.Expand = false;
 		w31.Fill = false;
@@ -663,52 +666,21 @@ public partial class MainWindow
 		this.notebookGlavni.CanFocus = true;
 		this.notebookGlavni.Name = "notebookGlavni";
 		this.notebookGlavni.CurrentPage = 4;
+		// Container child notebookGlavni.Gtk.Notebook+NotebookChild
+		this.imageLogo = new global::Gtk.Image();
+		this.imageLogo.Name = "imageLogo";
+		this.imageLogo.Pixbuf = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.Fitlist_Icon_10241.png");
+		this.notebookGlavni.Add(this.imageLogo);
 		// Notebook tab
-		global::Gtk.Label w41 = new global::Gtk.Label();
-		w41.Visible = true;
-		this.notebookGlavni.Add(w41);
 		this.label1 = new global::Gtk.Label();
 		this.label1.Name = "label1";
 		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("Menu");
-		this.notebookGlavni.SetTabLabel(w41, this.label1);
+		this.notebookGlavni.SetTabLabel(this.imageLogo, this.label1);
 		this.label1.ShowAll();
 		// Container child notebookGlavni.Gtk.Notebook+NotebookChild
 		this.vbox3 = new global::Gtk.VBox();
 		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.eventboxKorisniciUp = new global::Gtk.EventBox();
-		this.eventboxKorisniciUp.Name = "eventboxKorisniciUp";
-		// Container child eventboxKorisniciUp.Gtk.Container+ContainerChild
-		this.hbox6 = new global::Gtk.HBox();
-		this.hbox6.Name = "hbox6";
-		this.hbox6.Spacing = 6;
-		// Container child hbox6.Gtk.Box+BoxChild
-		this.entry4 = new global::Gtk.Entry();
-		this.entry4.CanFocus = true;
-		this.entry4.Name = "entry4";
-		this.entry4.IsEditable = true;
-		this.entry4.InvisibleChar = '●';
-		this.hbox6.Add(this.entry4);
-		global::Gtk.Box.BoxChild w42 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.entry4]));
-		w42.Position = 0;
-		// Container child hbox6.Gtk.Box+BoxChild
-		this.button4 = new global::Gtk.Button();
-		this.button4.CanFocus = true;
-		this.button4.Name = "button4";
-		this.button4.UseUnderline = true;
-		this.button4.Label = global::Mono.Unix.Catalog.GetString("Pretraži");
-		this.hbox6.Add(this.button4);
-		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.button4]));
-		w43.Position = 1;
-		w43.Expand = false;
-		w43.Fill = false;
-		this.eventboxKorisniciUp.Add(this.hbox6);
-		this.vbox3.Add(this.eventboxKorisniciUp);
-		global::Gtk.Box.BoxChild w45 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.eventboxKorisniciUp]));
-		w45.Position = 0;
-		w45.Expand = false;
-		w45.Fill = false;
 		// Container child vbox3.Gtk.Box+BoxChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
@@ -719,8 +691,8 @@ public partial class MainWindow
 		this.nodeviewKorisnici.Name = "nodeviewKorisnici";
 		this.GtkScrolledWindow.Add(this.nodeviewKorisnici);
 		this.vbox3.Add(this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w47 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.GtkScrolledWindow]));
-		w47.Position = 1;
+		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.GtkScrolledWindow]));
+		w43.Position = 0;
 		// Container child vbox3.Gtk.Box+BoxChild
 		this.eventboxKorisniciDown = new global::Gtk.EventBox();
 		this.eventboxKorisniciDown.Name = "eventboxKorisniciDown";
@@ -739,15 +711,15 @@ public partial class MainWindow
 		this.buttonNoviKorisnik.UseUnderline = true;
 		this.buttonNoviKorisnik.Label = global::Mono.Unix.Catalog.GetString("Dodaj Novog Korisnika");
 		this.vbox9.Add(this.buttonNoviKorisnik);
-		global::Gtk.Box.BoxChild w48 = ((global::Gtk.Box.BoxChild)(this.vbox9[this.buttonNoviKorisnik]));
-		w48.Position = 0;
-		w48.Expand = false;
-		w48.Fill = false;
+		global::Gtk.Box.BoxChild w44 = ((global::Gtk.Box.BoxChild)(this.vbox9[this.buttonNoviKorisnik]));
+		w44.Position = 0;
+		w44.Expand = false;
+		w44.Fill = false;
 		this.hbox3.Add(this.vbox9);
-		global::Gtk.Box.BoxChild w49 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox9]));
-		w49.Position = 0;
-		w49.Expand = false;
-		w49.Fill = false;
+		global::Gtk.Box.BoxChild w45 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox9]));
+		w45.Position = 0;
+		w45.Expand = false;
+		w45.Fill = false;
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.vbox10 = new global::Gtk.VBox();
 		this.vbox10.Name = "vbox10";
@@ -760,15 +732,15 @@ public partial class MainWindow
 		this.buttonMijenjajKorisnika.FocusOnClick = false;
 		this.buttonMijenjajKorisnika.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Korisnika");
 		this.vbox10.Add(this.buttonMijenjajKorisnika);
-		global::Gtk.Box.BoxChild w50 = ((global::Gtk.Box.BoxChild)(this.vbox10[this.buttonMijenjajKorisnika]));
-		w50.Position = 0;
-		w50.Expand = false;
-		w50.Fill = false;
+		global::Gtk.Box.BoxChild w46 = ((global::Gtk.Box.BoxChild)(this.vbox10[this.buttonMijenjajKorisnika]));
+		w46.Position = 0;
+		w46.Expand = false;
+		w46.Fill = false;
 		this.hbox3.Add(this.vbox10);
-		global::Gtk.Box.BoxChild w51 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox10]));
-		w51.Position = 1;
-		w51.Expand = false;
-		w51.Fill = false;
+		global::Gtk.Box.BoxChild w47 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox10]));
+		w47.Position = 1;
+		w47.Expand = false;
+		w47.Fill = false;
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.vbox11 = new global::Gtk.VBox();
 		this.vbox11.Name = "vbox11";
@@ -781,22 +753,22 @@ public partial class MainWindow
 		this.buttonObrisiKorisnika.FocusOnClick = false;
 		this.buttonObrisiKorisnika.Label = global::Mono.Unix.Catalog.GetString("Obriši Korisnika");
 		this.vbox11.Add(this.buttonObrisiKorisnika);
-		global::Gtk.Box.BoxChild w52 = ((global::Gtk.Box.BoxChild)(this.vbox11[this.buttonObrisiKorisnika]));
-		w52.Position = 0;
-		w52.Expand = false;
-		w52.Fill = false;
+		global::Gtk.Box.BoxChild w48 = ((global::Gtk.Box.BoxChild)(this.vbox11[this.buttonObrisiKorisnika]));
+		w48.Position = 0;
+		w48.Expand = false;
+		w48.Fill = false;
 		this.hbox3.Add(this.vbox11);
-		global::Gtk.Box.BoxChild w53 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox11]));
-		w53.Position = 2;
-		w53.Expand = false;
-		w53.Fill = false;
+		global::Gtk.Box.BoxChild w49 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox11]));
+		w49.Position = 2;
+		w49.Expand = false;
+		w49.Fill = false;
 		this.eventboxKorisniciDown.Add(this.hbox3);
 		this.vbox3.Add(this.eventboxKorisniciDown);
-		global::Gtk.Box.BoxChild w55 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.eventboxKorisniciDown]));
-		w55.Position = 2;
+		global::Gtk.Box.BoxChild w51 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.eventboxKorisniciDown]));
+		w51.Position = 1;
 		this.notebookGlavni.Add(this.vbox3);
-		global::Gtk.Notebook.NotebookChild w56 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox3]));
-		w56.Position = 1;
+		global::Gtk.Notebook.NotebookChild w52 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox3]));
+		w52.Position = 1;
 		// Notebook tab
 		this.labelViewKorisnici = new global::Gtk.Label();
 		this.labelViewKorisnici.Name = "labelViewKorisnici";
@@ -808,39 +780,6 @@ public partial class MainWindow
 		this.vbox4.Name = "vbox4";
 		this.vbox4.Spacing = 6;
 		// Container child vbox4.Gtk.Box+BoxChild
-		this.eventboxAktivnostiUp = new global::Gtk.EventBox();
-		this.eventboxAktivnostiUp.Name = "eventboxAktivnostiUp";
-		// Container child eventboxAktivnostiUp.Gtk.Container+ContainerChild
-		this.hbox5 = new global::Gtk.HBox();
-		this.hbox5.Name = "hbox5";
-		this.hbox5.Spacing = 6;
-		// Container child hbox5.Gtk.Box+BoxChild
-		this.entry3 = new global::Gtk.Entry();
-		this.entry3.CanFocus = true;
-		this.entry3.Name = "entry3";
-		this.entry3.IsEditable = true;
-		this.entry3.InvisibleChar = '●';
-		this.hbox5.Add(this.entry3);
-		global::Gtk.Box.BoxChild w57 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.entry3]));
-		w57.Position = 0;
-		// Container child hbox5.Gtk.Box+BoxChild
-		this.button3 = new global::Gtk.Button();
-		this.button3.CanFocus = true;
-		this.button3.Name = "button3";
-		this.button3.UseUnderline = true;
-		this.button3.Label = global::Mono.Unix.Catalog.GetString("Pretraži");
-		this.hbox5.Add(this.button3);
-		global::Gtk.Box.BoxChild w58 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.button3]));
-		w58.Position = 1;
-		w58.Expand = false;
-		w58.Fill = false;
-		this.eventboxAktivnostiUp.Add(this.hbox5);
-		this.vbox4.Add(this.eventboxAktivnostiUp);
-		global::Gtk.Box.BoxChild w60 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.eventboxAktivnostiUp]));
-		w60.Position = 0;
-		w60.Expand = false;
-		w60.Fill = false;
-		// Container child vbox4.Gtk.Box+BoxChild
 		this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
 		this.GtkScrolledWindow1.ShadowType = ((global::Gtk.ShadowType)(1));
@@ -850,8 +789,8 @@ public partial class MainWindow
 		this.nodeviewAktivnostiKorisnika.Name = "nodeviewAktivnostiKorisnika";
 		this.GtkScrolledWindow1.Add(this.nodeviewAktivnostiKorisnika);
 		this.vbox4.Add(this.GtkScrolledWindow1);
-		global::Gtk.Box.BoxChild w62 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.GtkScrolledWindow1]));
-		w62.Position = 1;
+		global::Gtk.Box.BoxChild w54 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.GtkScrolledWindow1]));
+		w54.Position = 0;
 		// Container child vbox4.Gtk.Box+BoxChild
 		this.eventboxAktivnostiDown = new global::Gtk.EventBox();
 		this.eventboxAktivnostiDown.Name = "eventboxAktivnostiDown";
@@ -870,15 +809,15 @@ public partial class MainWindow
 		this.buttonNovaAktivnost.UseUnderline = true;
 		this.buttonNovaAktivnost.Label = global::Mono.Unix.Catalog.GetString("Dodaj Novu Aktivnost");
 		this.vbox6.Add(this.buttonNovaAktivnost);
-		global::Gtk.Box.BoxChild w63 = ((global::Gtk.Box.BoxChild)(this.vbox6[this.buttonNovaAktivnost]));
-		w63.Position = 0;
-		w63.Expand = false;
-		w63.Fill = false;
+		global::Gtk.Box.BoxChild w55 = ((global::Gtk.Box.BoxChild)(this.vbox6[this.buttonNovaAktivnost]));
+		w55.Position = 0;
+		w55.Expand = false;
+		w55.Fill = false;
 		this.hbox4.Add(this.vbox6);
-		global::Gtk.Box.BoxChild w64 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox6]));
-		w64.Position = 0;
-		w64.Expand = false;
-		w64.Fill = false;
+		global::Gtk.Box.BoxChild w56 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox6]));
+		w56.Position = 0;
+		w56.Expand = false;
+		w56.Fill = false;
 		// Container child hbox4.Gtk.Box+BoxChild
 		this.vbox7 = new global::Gtk.VBox();
 		this.vbox7.Name = "vbox7";
@@ -891,15 +830,15 @@ public partial class MainWindow
 		this.buttonMijenjajAktivnost.FocusOnClick = false;
 		this.buttonMijenjajAktivnost.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Aktivnost");
 		this.vbox7.Add(this.buttonMijenjajAktivnost);
-		global::Gtk.Box.BoxChild w65 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.buttonMijenjajAktivnost]));
-		w65.Position = 0;
-		w65.Expand = false;
-		w65.Fill = false;
+		global::Gtk.Box.BoxChild w57 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.buttonMijenjajAktivnost]));
+		w57.Position = 0;
+		w57.Expand = false;
+		w57.Fill = false;
 		this.hbox4.Add(this.vbox7);
-		global::Gtk.Box.BoxChild w66 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox7]));
-		w66.Position = 1;
-		w66.Expand = false;
-		w66.Fill = false;
+		global::Gtk.Box.BoxChild w58 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox7]));
+		w58.Position = 1;
+		w58.Expand = false;
+		w58.Fill = false;
 		// Container child hbox4.Gtk.Box+BoxChild
 		this.vbox8 = new global::Gtk.VBox();
 		this.vbox8.Name = "vbox8";
@@ -912,41 +851,41 @@ public partial class MainWindow
 		this.buttonObrisiAktivnost.FocusOnClick = false;
 		this.buttonObrisiAktivnost.Label = global::Mono.Unix.Catalog.GetString("Obriši Aktivnost");
 		this.vbox8.Add(this.buttonObrisiAktivnost);
-		global::Gtk.Box.BoxChild w67 = ((global::Gtk.Box.BoxChild)(this.vbox8[this.buttonObrisiAktivnost]));
-		w67.Position = 0;
-		w67.Expand = false;
-		w67.Fill = false;
+		global::Gtk.Box.BoxChild w59 = ((global::Gtk.Box.BoxChild)(this.vbox8[this.buttonObrisiAktivnost]));
+		w59.Position = 0;
+		w59.Expand = false;
+		w59.Fill = false;
 		this.hbox4.Add(this.vbox8);
-		global::Gtk.Box.BoxChild w68 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox8]));
-		w68.Position = 2;
-		w68.Expand = false;
-		w68.Fill = false;
+		global::Gtk.Box.BoxChild w60 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.vbox8]));
+		w60.Position = 2;
+		w60.Expand = false;
+		w60.Fill = false;
 		// Container child hbox4.Gtk.Box+BoxChild
 		this.fixed3 = new global::Gtk.Fixed();
 		this.fixed3.Name = "fixed3";
 		this.fixed3.HasWindow = false;
 		this.hbox4.Add(this.fixed3);
-		global::Gtk.Box.BoxChild w69 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.fixed3]));
-		w69.Position = 3;
+		global::Gtk.Box.BoxChild w61 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.fixed3]));
+		w61.Position = 3;
 		// Container child hbox4.Gtk.Box+BoxChild
 		this.calendarAktivnosti = new global::Gtk.Calendar();
 		this.calendarAktivnosti.CanFocus = true;
 		this.calendarAktivnosti.Name = "calendarAktivnosti";
 		this.calendarAktivnosti.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
 		this.hbox4.Add(this.calendarAktivnosti);
-		global::Gtk.Box.BoxChild w70 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.calendarAktivnosti]));
-		w70.Position = 4;
-		w70.Expand = false;
-		w70.Fill = false;
+		global::Gtk.Box.BoxChild w62 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.calendarAktivnosti]));
+		w62.Position = 4;
+		w62.Expand = false;
+		w62.Fill = false;
 		this.eventboxAktivnostiDown.Add(this.hbox4);
 		this.vbox4.Add(this.eventboxAktivnostiDown);
-		global::Gtk.Box.BoxChild w72 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.eventboxAktivnostiDown]));
-		w72.Position = 2;
-		w72.Expand = false;
-		w72.Fill = false;
+		global::Gtk.Box.BoxChild w64 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.eventboxAktivnostiDown]));
+		w64.Position = 1;
+		w64.Expand = false;
+		w64.Fill = false;
 		this.notebookGlavni.Add(this.vbox4);
-		global::Gtk.Notebook.NotebookChild w73 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox4]));
-		w73.Position = 2;
+		global::Gtk.Notebook.NotebookChild w65 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox4]));
+		w65.Position = 2;
 		// Notebook tab
 		this.labelViewAktivnostiKorisnika = new global::Gtk.Label();
 		this.labelViewAktivnostiKorisnika.Name = "labelViewAktivnostiKorisnika";
@@ -958,39 +897,6 @@ public partial class MainWindow
 		this.vbox5.Name = "vbox5";
 		this.vbox5.Spacing = 6;
 		// Container child vbox5.Gtk.Box+BoxChild
-		this.eventboxTipUp = new global::Gtk.EventBox();
-		this.eventboxTipUp.Name = "eventboxTipUp";
-		// Container child eventboxTipUp.Gtk.Container+ContainerChild
-		this.hbox7 = new global::Gtk.HBox();
-		this.hbox7.Name = "hbox7";
-		this.hbox7.Spacing = 6;
-		// Container child hbox7.Gtk.Box+BoxChild
-		this.entry5 = new global::Gtk.Entry();
-		this.entry5.CanFocus = true;
-		this.entry5.Name = "entry5";
-		this.entry5.IsEditable = true;
-		this.entry5.InvisibleChar = '●';
-		this.hbox7.Add(this.entry5);
-		global::Gtk.Box.BoxChild w74 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.entry5]));
-		w74.Position = 0;
-		// Container child hbox7.Gtk.Box+BoxChild
-		this.button5 = new global::Gtk.Button();
-		this.button5.CanFocus = true;
-		this.button5.Name = "button5";
-		this.button5.UseUnderline = true;
-		this.button5.Label = global::Mono.Unix.Catalog.GetString("Pretraži");
-		this.hbox7.Add(this.button5);
-		global::Gtk.Box.BoxChild w75 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.button5]));
-		w75.Position = 1;
-		w75.Expand = false;
-		w75.Fill = false;
-		this.eventboxTipUp.Add(this.hbox7);
-		this.vbox5.Add(this.eventboxTipUp);
-		global::Gtk.Box.BoxChild w77 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.eventboxTipUp]));
-		w77.Position = 0;
-		w77.Expand = false;
-		w77.Fill = false;
-		// Container child vbox5.Gtk.Box+BoxChild
 		this.GtkScrolledWindow2 = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow2.Name = "GtkScrolledWindow2";
 		this.GtkScrolledWindow2.ShadowType = ((global::Gtk.ShadowType)(1));
@@ -1000,8 +906,8 @@ public partial class MainWindow
 		this.nodeviewTip.Name = "nodeviewTip";
 		this.GtkScrolledWindow2.Add(this.nodeviewTip);
 		this.vbox5.Add(this.GtkScrolledWindow2);
-		global::Gtk.Box.BoxChild w79 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.GtkScrolledWindow2]));
-		w79.Position = 1;
+		global::Gtk.Box.BoxChild w67 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.GtkScrolledWindow2]));
+		w67.Position = 0;
 		// Container child vbox5.Gtk.Box+BoxChild
 		this.eventboxTipDown = new global::Gtk.EventBox();
 		this.eventboxTipDown.Name = "eventboxTipDown";
@@ -1020,15 +926,15 @@ public partial class MainWindow
 		this.buttonNoviTip.UseUnderline = true;
 		this.buttonNoviTip.Label = global::Mono.Unix.Catalog.GetString("Dodaj Novi Tip");
 		this.vbox12.Add(this.buttonNoviTip);
-		global::Gtk.Box.BoxChild w80 = ((global::Gtk.Box.BoxChild)(this.vbox12[this.buttonNoviTip]));
-		w80.Position = 0;
-		w80.Expand = false;
-		w80.Fill = false;
+		global::Gtk.Box.BoxChild w68 = ((global::Gtk.Box.BoxChild)(this.vbox12[this.buttonNoviTip]));
+		w68.Position = 0;
+		w68.Expand = false;
+		w68.Fill = false;
 		this.hbox8.Add(this.vbox12);
-		global::Gtk.Box.BoxChild w81 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox12]));
-		w81.Position = 0;
-		w81.Expand = false;
-		w81.Fill = false;
+		global::Gtk.Box.BoxChild w69 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox12]));
+		w69.Position = 0;
+		w69.Expand = false;
+		w69.Fill = false;
 		// Container child hbox8.Gtk.Box+BoxChild
 		this.vbox13 = new global::Gtk.VBox();
 		this.vbox13.Name = "vbox13";
@@ -1041,15 +947,15 @@ public partial class MainWindow
 		this.buttonMijenjajTip.FocusOnClick = false;
 		this.buttonMijenjajTip.Label = global::Mono.Unix.Catalog.GetString("Mijenjaj Tip");
 		this.vbox13.Add(this.buttonMijenjajTip);
-		global::Gtk.Box.BoxChild w82 = ((global::Gtk.Box.BoxChild)(this.vbox13[this.buttonMijenjajTip]));
-		w82.Position = 0;
-		w82.Expand = false;
-		w82.Fill = false;
+		global::Gtk.Box.BoxChild w70 = ((global::Gtk.Box.BoxChild)(this.vbox13[this.buttonMijenjajTip]));
+		w70.Position = 0;
+		w70.Expand = false;
+		w70.Fill = false;
 		this.hbox8.Add(this.vbox13);
-		global::Gtk.Box.BoxChild w83 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox13]));
-		w83.Position = 1;
-		w83.Expand = false;
-		w83.Fill = false;
+		global::Gtk.Box.BoxChild w71 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox13]));
+		w71.Position = 1;
+		w71.Expand = false;
+		w71.Fill = false;
 		// Container child hbox8.Gtk.Box+BoxChild
 		this.vbox14 = new global::Gtk.VBox();
 		this.vbox14.Name = "vbox14";
@@ -1062,22 +968,22 @@ public partial class MainWindow
 		this.buttonObrisiTip.FocusOnClick = false;
 		this.buttonObrisiTip.Label = global::Mono.Unix.Catalog.GetString("Obriši Tip");
 		this.vbox14.Add(this.buttonObrisiTip);
-		global::Gtk.Box.BoxChild w84 = ((global::Gtk.Box.BoxChild)(this.vbox14[this.buttonObrisiTip]));
-		w84.Position = 0;
-		w84.Expand = false;
-		w84.Fill = false;
+		global::Gtk.Box.BoxChild w72 = ((global::Gtk.Box.BoxChild)(this.vbox14[this.buttonObrisiTip]));
+		w72.Position = 0;
+		w72.Expand = false;
+		w72.Fill = false;
 		this.hbox8.Add(this.vbox14);
-		global::Gtk.Box.BoxChild w85 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox14]));
-		w85.Position = 2;
-		w85.Expand = false;
-		w85.Fill = false;
+		global::Gtk.Box.BoxChild w73 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.vbox14]));
+		w73.Position = 2;
+		w73.Expand = false;
+		w73.Fill = false;
 		this.eventboxTipDown.Add(this.hbox8);
 		this.vbox5.Add(this.eventboxTipDown);
-		global::Gtk.Box.BoxChild w87 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.eventboxTipDown]));
-		w87.Position = 2;
+		global::Gtk.Box.BoxChild w75 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.eventboxTipDown]));
+		w75.Position = 1;
 		this.notebookGlavni.Add(this.vbox5);
-		global::Gtk.Notebook.NotebookChild w88 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox5]));
-		w88.Position = 3;
+		global::Gtk.Notebook.NotebookChild w76 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox5]));
+		w76.Position = 3;
 		// Notebook tab
 		this.labelTipoviAktivnosti = new global::Gtk.Label();
 		this.labelTipoviAktivnosti.Name = "labelTipoviAktivnosti";
@@ -1094,13 +1000,20 @@ public partial class MainWindow
 		this.labelTitle.Name = "labelTitle";
 		this.labelTitle.LabelProp = global::Mono.Unix.Catalog.GetString("Statistika");
 		this.vbox19.Add(this.labelTitle);
-		global::Gtk.Box.BoxChild w89 = ((global::Gtk.Box.BoxChild)(this.vbox19[this.labelTitle]));
-		w89.Position = 0;
-		w89.Expand = false;
-		w89.Fill = false;
+		global::Gtk.Box.BoxChild w77 = ((global::Gtk.Box.BoxChild)(this.vbox19[this.labelTitle]));
+		w77.Position = 0;
+		w77.Expand = false;
+		w77.Fill = false;
+		// Container child vbox19.Gtk.Box+BoxChild
+		this.image3 = new global::Gtk.Image();
+		this.image3.Name = "image3";
+		this.image3.Pixbuf = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.Statistics.png");
+		this.vbox19.Add(this.image3);
+		global::Gtk.Box.BoxChild w78 = ((global::Gtk.Box.BoxChild)(this.vbox19[this.image3]));
+		w78.Position = 1;
 		this.notebookGlavni.Add(this.vbox19);
-		global::Gtk.Notebook.NotebookChild w90 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox19]));
-		w90.Position = 4;
+		global::Gtk.Notebook.NotebookChild w79 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox19]));
+		w79.Position = 4;
 		// Notebook tab
 		this.labelStatistika = new global::Gtk.Label();
 		this.labelStatistika.Name = "labelStatistika";
@@ -1112,52 +1025,84 @@ public partial class MainWindow
 		this.vbox20.Name = "vbox20";
 		this.vbox20.Spacing = 6;
 		// Container child vbox20.Gtk.Box+BoxChild
-		this.labelTitle1 = new global::Gtk.Label();
-		this.labelTitle1.HeightRequest = 55;
-		this.labelTitle1.Name = "labelTitle1";
-		this.labelTitle1.LabelProp = global::Mono.Unix.Catalog.GetString("Statistika");
-		this.vbox20.Add(this.labelTitle1);
-		global::Gtk.Box.BoxChild w91 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.labelTitle1]));
-		w91.Position = 0;
-		w91.Expand = false;
-		w91.Fill = false;
+		this.vbox22 = new global::Gtk.VBox();
+		this.vbox22.Name = "vbox22";
+		this.vbox22.Spacing = 6;
+		// Container child vbox22.Gtk.Box+BoxChild
+		this.vboxStatistikaTip = new global::Gtk.VBox();
+		this.vboxStatistikaTip.Name = "vboxStatistikaTip";
+		this.vboxStatistikaTip.Spacing = 6;
+		this.vbox22.Add(this.vboxStatistikaTip);
+		global::Gtk.Box.BoxChild w80 = ((global::Gtk.Box.BoxChild)(this.vbox22[this.vboxStatistikaTip]));
+		w80.Position = 0;
+		// Container child vbox22.Gtk.Box+BoxChild
+		this.hbox6 = new global::Gtk.HBox();
+		this.hbox6.HeightRequest = 100;
+		this.hbox6.Name = "hbox6";
+		this.hbox6.Spacing = 6;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.labelTipAkt = new global::Gtk.Label();
+		this.labelTipAkt.Name = "labelTipAkt";
+		this.labelTipAkt.LabelProp = global::Mono.Unix.Catalog.GetString("Tip aktivnosti: ");
+		this.hbox6.Add(this.labelTipAkt);
+		global::Gtk.Box.BoxChild w81 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.labelTipAkt]));
+		w81.Position = 0;
+		w81.Fill = false;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.GtkScrolledWindow3 = new global::Gtk.ScrolledWindow();
+		this.GtkScrolledWindow3.Name = "GtkScrolledWindow3";
+		this.GtkScrolledWindow3.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow3.Gtk.Container+ContainerChild
+		this.nodeviewTipStatistika = new global::Gtk.NodeView();
+		this.nodeviewTipStatistika.CanFocus = true;
+		this.nodeviewTipStatistika.Name = "nodeviewTipStatistika";
+		this.GtkScrolledWindow3.Add(this.nodeviewTipStatistika);
+		this.hbox6.Add(this.GtkScrolledWindow3);
+		global::Gtk.Box.BoxChild w83 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.GtkScrolledWindow3]));
+		w83.PackType = ((global::Gtk.PackType)(1));
+		w83.Position = 1;
+		this.vbox22.Add(this.hbox6);
+		global::Gtk.Box.BoxChild w84 = ((global::Gtk.Box.BoxChild)(this.vbox22[this.hbox6]));
+		w84.Position = 1;
+		w84.Expand = false;
+		w84.Padding = ((uint)(15));
+		this.vbox20.Add(this.vbox22);
+		global::Gtk.Box.BoxChild w85 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.vbox22]));
+		w85.Position = 0;
 		// Container child vbox20.Gtk.Box+BoxChild
 		this.hbox16 = new global::Gtk.HBox();
 		this.hbox16.Name = "hbox16";
 		this.hbox16.Spacing = 6;
 		// Container child hbox16.Gtk.Box+BoxChild
-		this.labelTipAkt = new global::Gtk.Label();
-		this.labelTipAkt.Name = "labelTipAkt";
-		this.labelTipAkt.LabelProp = global::Mono.Unix.Catalog.GetString("Tip aktivnosti: ");
-		this.hbox16.Add(this.labelTipAkt);
-		global::Gtk.Box.BoxChild w92 = ((global::Gtk.Box.BoxChild)(this.hbox16[this.labelTipAkt]));
-		w92.Position = 0;
-		w92.Fill = false;
-		// Container child hbox16.Gtk.Box+BoxChild
-		this.comboboxTipovi = global::Gtk.ComboBox.NewText();
-		this.comboboxTipovi.Name = "comboboxTipovi";
-		this.hbox16.Add(this.comboboxTipovi);
-		global::Gtk.Box.BoxChild w93 = ((global::Gtk.Box.BoxChild)(this.hbox16[this.comboboxTipovi]));
-		w93.Position = 1;
+		this.button4 = new global::Gtk.Button();
+		this.button4.WidthRequest = 0;
+		this.button4.Name = "button4";
+		this.button4.UseUnderline = true;
+		this.button4.FocusOnClick = false;
+		this.button4.Label = global::Mono.Unix.Catalog.GetString("Prikazi");
+		this.hbox16.Add(this.button4);
+		global::Gtk.Box.BoxChild w86 = ((global::Gtk.Box.BoxChild)(this.hbox16[this.button4]));
+		w86.Position = 0;
+		w86.Fill = false;
 		this.vbox20.Add(this.hbox16);
-		global::Gtk.Box.BoxChild w94 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.hbox16]));
-		w94.Position = 2;
-		w94.Expand = false;
-		w94.Fill = false;
+		global::Gtk.Box.BoxChild w87 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.hbox16]));
+		w87.Position = 1;
+		w87.Expand = false;
+		w87.Fill = false;
 		// Container child vbox20.Gtk.Box+BoxChild
 		this.fixed1 = new global::Gtk.Fixed();
 		this.fixed1.HeightRequest = 35;
 		this.fixed1.Name = "fixed1";
 		this.fixed1.HasWindow = false;
 		this.vbox20.Add(this.fixed1);
-		global::Gtk.Box.BoxChild w95 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.fixed1]));
-		w95.PackType = ((global::Gtk.PackType)(1));
-		w95.Position = 3;
-		w95.Expand = false;
-		w95.Fill = false;
+		global::Gtk.Box.BoxChild w88 = ((global::Gtk.Box.BoxChild)(this.vbox20[this.fixed1]));
+		w88.PackType = ((global::Gtk.PackType)(1));
+		w88.Position = 2;
+		w88.Expand = false;
+		w88.Fill = false;
 		this.notebookGlavni.Add(this.vbox20);
-		global::Gtk.Notebook.NotebookChild w96 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox20]));
-		w96.Position = 5;
+		global::Gtk.Notebook.NotebookChild w89 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox20]));
+		w89.Position = 5;
 		// Notebook tab
 		this.label4 = new global::Gtk.Label();
 		this.label4.Name = "label4";
@@ -1169,18 +1114,90 @@ public partial class MainWindow
 		this.vbox21.Name = "vbox21";
 		this.vbox21.Spacing = 6;
 		// Container child vbox21.Gtk.Box+BoxChild
-		this.labelTitle2 = new global::Gtk.Label();
-		this.labelTitle2.HeightRequest = 55;
-		this.labelTitle2.Name = "labelTitle2";
-		this.labelTitle2.LabelProp = global::Mono.Unix.Catalog.GetString("Statistika");
-		this.vbox21.Add(this.labelTitle2);
-		global::Gtk.Box.BoxChild w97 = ((global::Gtk.Box.BoxChild)(this.vbox21[this.labelTitle2]));
-		w97.Position = 0;
-		w97.Expand = false;
+		this.vboxStatistikaDatum = new global::Gtk.VBox();
+		this.vboxStatistikaDatum.Name = "vboxStatistikaDatum";
+		this.vboxStatistikaDatum.Spacing = 6;
+		this.vbox21.Add(this.vboxStatistikaDatum);
+		global::Gtk.Box.BoxChild w90 = ((global::Gtk.Box.BoxChild)(this.vbox21[this.vboxStatistikaDatum]));
+		w90.Position = 0;
+		// Container child vbox21.Gtk.Box+BoxChild
+		this.hbox17 = new global::Gtk.HBox();
+		this.hbox17.Name = "hbox17";
+		this.hbox17.Spacing = 6;
+		// Container child hbox17.Gtk.Box+BoxChild
+		this.label2 = new global::Gtk.Label();
+		this.label2.Name = "label2";
+		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("Datum od: ");
+		this.hbox17.Add(this.label2);
+		global::Gtk.Box.BoxChild w91 = ((global::Gtk.Box.BoxChild)(this.hbox17[this.label2]));
+		w91.Position = 0;
+		w91.Fill = false;
+		// Container child hbox17.Gtk.Box+BoxChild
+		this.calendarDatumOd = new global::Gtk.Calendar();
+		this.calendarDatumOd.CanFocus = true;
+		this.calendarDatumOd.Name = "calendarDatumOd";
+		this.calendarDatumOd.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
+		this.hbox17.Add(this.calendarDatumOd);
+		global::Gtk.Box.BoxChild w92 = ((global::Gtk.Box.BoxChild)(this.hbox17[this.calendarDatumOd]));
+		w92.Position = 1;
+		w92.Fill = false;
+		// Container child hbox17.Gtk.Box+BoxChild
+		this.label7 = new global::Gtk.Label();
+		this.label7.Name = "label7";
+		this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("Datum do: ");
+		this.hbox17.Add(this.label7);
+		global::Gtk.Box.BoxChild w93 = ((global::Gtk.Box.BoxChild)(this.hbox17[this.label7]));
+		w93.Position = 2;
+		w93.Fill = false;
+		// Container child hbox17.Gtk.Box+BoxChild
+		this.calendarDatumDo = new global::Gtk.Calendar();
+		this.calendarDatumDo.CanFocus = true;
+		this.calendarDatumDo.Name = "calendarDatumDo";
+		this.calendarDatumDo.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
+		this.hbox17.Add(this.calendarDatumDo);
+		global::Gtk.Box.BoxChild w94 = ((global::Gtk.Box.BoxChild)(this.hbox17[this.calendarDatumDo]));
+		w94.Position = 3;
+		w94.Fill = false;
+		this.vbox21.Add(this.hbox17);
+		global::Gtk.Box.BoxChild w95 = ((global::Gtk.Box.BoxChild)(this.vbox21[this.hbox17]));
+		w95.Position = 1;
+		w95.Expand = false;
+		w95.Fill = false;
+		// Container child vbox21.Gtk.Box+BoxChild
+		this.hbox5 = new global::Gtk.HBox();
+		this.hbox5.Name = "hbox5";
+		this.hbox5.Spacing = 6;
+		// Container child hbox5.Gtk.Box+BoxChild
+		this.button1 = new global::Gtk.Button();
+		this.button1.WidthRequest = 0;
+		this.button1.CanFocus = true;
+		this.button1.Name = "button1";
+		this.button1.UseUnderline = true;
+		this.button1.Label = global::Mono.Unix.Catalog.GetString("Prikazi po po datumu");
+		this.hbox5.Add(this.button1);
+		global::Gtk.Box.BoxChild w96 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.button1]));
+		w96.Position = 0;
+		w96.Fill = false;
+		// Container child hbox5.Gtk.Box+BoxChild
+		this.button2 = new global::Gtk.Button();
+		this.button2.WidthRequest = 0;
+		this.button2.CanFocus = true;
+		this.button2.Name = "button2";
+		this.button2.UseUnderline = true;
+		this.button2.Label = global::Mono.Unix.Catalog.GetString("Prikazi po potrosnji");
+		this.hbox5.Add(this.button2);
+		global::Gtk.Box.BoxChild w97 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.button2]));
+		w97.Position = 1;
 		w97.Fill = false;
+		this.vbox21.Add(this.hbox5);
+		global::Gtk.Box.BoxChild w98 = ((global::Gtk.Box.BoxChild)(this.vbox21[this.hbox5]));
+		w98.Position = 2;
+		w98.Expand = false;
+		w98.Fill = false;
+		w98.Padding = ((uint)(15));
 		this.notebookGlavni.Add(this.vbox21);
-		global::Gtk.Notebook.NotebookChild w98 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox21]));
-		w98.Position = 6;
+		global::Gtk.Notebook.NotebookChild w99 = ((global::Gtk.Notebook.NotebookChild)(this.notebookGlavni[this.vbox21]));
+		w99.Position = 6;
 		// Notebook tab
 		this.label6 = new global::Gtk.Label();
 		this.label6.Name = "label6";
@@ -1188,23 +1205,23 @@ public partial class MainWindow
 		this.notebookGlavni.SetTabLabel(this.vbox21, this.label6);
 		this.label6.ShowAll();
 		this.vbox2.Add(this.notebookGlavni);
-		global::Gtk.Box.BoxChild w99 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.notebookGlavni]));
-		w99.Position = 0;
+		global::Gtk.Box.BoxChild w100 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.notebookGlavni]));
+		w100.Position = 0;
 		this.hbox1.Add(this.vbox2);
-		global::Gtk.Box.BoxChild w100 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox2]));
-		w100.Position = 1;
+		global::Gtk.Box.BoxChild w101 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox2]));
+		w101.Position = 1;
 		this.eventboxMain.Add(this.hbox1);
 		this.Add(this.eventboxMain);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 1050;
-		this.DefaultHeight = 578;
+		this.DefaultWidth = 886;
+		this.DefaultHeight = 577;
 		this.labelKorisnikId.Hide();
 		this.labelKorisnikIdAkt.Hide();
 		this.labelKorisnikId1.Hide();
-		this.labelKorisnikIdAkt1.Hide();
+		this.labelKorisnikIdStat.Hide();
 		this.labelKorisnikId2.Hide();
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
@@ -1222,6 +1239,7 @@ public partial class MainWindow
 		this.button11.Clicked += new global::System.EventHandler(this.MenuClicked);
 		this.buttonIzlaz3.Clicked += new global::System.EventHandler(this.showQuestionIzlaz);
 		this.buttonTip.Clicked += new global::System.EventHandler(this.StatTipClicked);
+		this.buttonVrijeme.Clicked += new global::System.EventHandler(this.StatVrijemeClicked);
 		this.button12.Clicked += new global::System.EventHandler(this.MenuClicked);
 		this.buttonIzlaz4.Clicked += new global::System.EventHandler(this.showQuestionIzlaz);
 		this.notebookGlavni.FocusTab += new global::Gtk.FocusTabHandler(this.UpdateLists);
@@ -1231,8 +1249,12 @@ public partial class MainWindow
 		this.buttonNovaAktivnost.Clicked += new global::System.EventHandler(this.dodajAktivnost);
 		this.buttonMijenjajAktivnost.Clicked += new global::System.EventHandler(this.mijenjajAktivnost);
 		this.buttonObrisiAktivnost.Clicked += new global::System.EventHandler(this.showQuestionAktivnost);
+		this.calendarAktivnosti.DaySelected += new global::System.EventHandler(this.PromjenaDatuma);
 		this.buttonNoviTip.Clicked += new global::System.EventHandler(this.dodajTip);
 		this.buttonMijenjajTip.Clicked += new global::System.EventHandler(this.mijenjajTip);
 		this.buttonObrisiTip.Clicked += new global::System.EventHandler(this.showQuestionTip);
+		this.button4.Clicked += new global::System.EventHandler(this.PrikaziByTip);
+		this.button1.Clicked += new global::System.EventHandler(this.PrikaziByDatumClicked);
+		this.button2.Clicked += new global::System.EventHandler(this.PrikaziByPotrosnjaClicked);
 	}
 }

@@ -222,6 +222,7 @@ namespace AppProject
 																					   entryNaziv.Text, datum, vrijeme_p, vrijeme_k,
 																					   Double.Parse(labelPotrosnjaKcal.Text));
 					Baza.DbSpremiAktivnostKorisnika(novaAktivnostKorisnika);
+					labelPotrosnjaKcal.Text = "";
 					d.Destroy();
 					this.Destroy();
 				}
