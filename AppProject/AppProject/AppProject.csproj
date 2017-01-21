@@ -67,6 +67,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Fitlist_Icon_10241.png" />
     <EmbeddedResource Include="Resources\Statistics.png" />
+    <EmbeddedResource Include="Resources\title.png" />
+    <EmbeddedResource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />

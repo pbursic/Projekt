@@ -220,7 +220,8 @@ namespace AppProject
 						else if (x.JedinicaMjere == "h")
 						{
 							double sati = tot_vrijeme.Hours;
-							labelPotrosnjaKcal.Text = (sati * x.KcalPoJediniciMjere).ToString();
+							double minuti = tot_vrijeme.Minutes;
+							labelPotrosnjaKcal.Text = (sati * x.KcalPoJediniciMjere + minuti / 60 * x.KcalPoJediniciMjere).ToString();
 						}
 					}
 				}

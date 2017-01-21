@@ -1,7 +1,6 @@
 ﻿using System;
 using Gtk;
 using AppProject;
-using System.Collections.Generic;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -307,12 +306,21 @@ public partial class MainWindow : Gtk.Window
 
 	protected void PrikaziByDatumClicked(object sender, EventArgs e)
 	{
-		ClearVbox(vboxStatistikaDatum);
-		vboxStatistikaDatum.Add(Statistika.StatistikaDatum(Baza.StatistikaRazdobljaPoDatumu
-		                                                   (calendarDatumOd.Date, calendarDatumDo.Date, 
-		                                                    Int32.Parse(labelKorisnikIdStat.Text)),calendarDatumOd.Date, 
-		                                                   calendarDatumDo.Date));
-		vboxStatistikaDatum.ShowAll();
+		if (calendarDatumOd.Date <= calendarDatumDo.Date)
+		{
+			ClearVbox(vboxStatistikaDatum);
+			vboxStatistikaDatum.Add(Statistika.StatistikaDatum(Baza.StatistikaRazdobljaPoDatumu
+															   (calendarDatumOd.Date, calendarDatumDo.Date,
+																Int32.Parse(labelKorisnikIdStat.Text)), calendarDatumOd.Date,
+															   calendarDatumDo.Date));
+			vboxStatistikaDatum.ShowAll();
+		}
+		else 
+		{
+			Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Odaberite valjane datume za prikaz statistike.");
+			d.Run();
+			d.Destroy();
+		}
 	}
 
 	protected void PrikaziByPotrosnjaClicked(object sender, EventArgs e)

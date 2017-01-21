@@ -58,6 +58,8 @@ namespace AppProject
 
 		private global::Gtk.ComboBox comboboxSecKraj;
 
+		private global::Gtk.Fixed fixed12;
+
 		private global::Gtk.HBox hbox10;
 
 		private global::Gtk.Button buttonSpremi;
@@ -72,7 +74,8 @@ namespace AppProject
 			// Widget AppProject.WindowDodajAktivnost
 			this.Name = "AppProject.WindowDodajAktivnost";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajAktivnost");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
+			this.Modal = true;
 			// Container child AppProject.WindowDodajAktivnost.Gtk.Container+ContainerChild
 			this.eventboxDodajAktivnost = new global::Gtk.EventBox();
 			this.eventboxDodajAktivnost.Name = "eventboxDodajAktivnost";
@@ -146,7 +149,6 @@ namespace AppProject
 			this.hbox1.Add(this.calendarAktivnosti);
 			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.calendarAktivnosti]));
 			w7.Position = 1;
-			w7.Expand = false;
 			w7.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.labelTipId = new global::Gtk.Label();
@@ -295,6 +297,14 @@ namespace AppProject
 			w25.Expand = false;
 			w25.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
+			this.fixed12 = new global::Gtk.Fixed();
+			this.fixed12.Name = "fixed12";
+			this.fixed12.HasWindow = false;
+			this.vbox5.Add(this.fixed12);
+			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.fixed12]));
+			w26.Position = 6;
+			w26.Fill = false;
+			// Container child vbox5.Gtk.Box+BoxChild
 			this.hbox10 = new global::Gtk.HBox();
 			this.hbox10.Name = "hbox10";
 			this.hbox10.Spacing = 6;
@@ -305,10 +315,9 @@ namespace AppProject
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbox10.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
-			w26.Position = 0;
-			w26.Expand = false;
-			w26.Fill = false;
+			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonSpremi]));
+			w27.Position = 1;
+			w27.Fill = false;
 			// Container child hbox10.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.CanFocus = true;
@@ -316,23 +325,22 @@ namespace AppProject
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox10.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
-			w27.Position = 2;
-			w27.Expand = false;
-			w27.Fill = false;
-			this.vbox5.Add(this.hbox10);
-			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
-			w28.Position = 6;
-			w28.Expand = false;
+			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.buttonOdustani]));
+			w28.Position = 2;
 			w28.Fill = false;
+			this.vbox5.Add(this.hbox10);
+			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hbox10]));
+			w29.Position = 7;
+			w29.Expand = false;
+			w29.Fill = false;
 			// Container child vbox5.Gtk.Box+BoxChild
 			this.labelPotrosnjaKcal = new global::Gtk.Label();
 			this.labelPotrosnjaKcal.Name = "labelPotrosnjaKcal";
 			this.vbox5.Add(this.labelPotrosnjaKcal);
-			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.labelPotrosnjaKcal]));
-			w29.Position = 7;
-			w29.Expand = false;
-			w29.Fill = false;
+			global::Gtk.Box.BoxChild w30 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.labelPotrosnjaKcal]));
+			w30.PackType = ((global::Gtk.PackType)(1));
+			w30.Position = 8;
+			w30.Fill = false;
 			this.eventboxDodajAktivnost.Add(this.vbox5);
 			this.Add(this.eventboxDodajAktivnost);
 			if ((this.Child != null))
@@ -340,7 +348,7 @@ namespace AppProject
 				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 561;
-			this.DefaultHeight = 452;
+			this.DefaultHeight = 455;
 			this.labelKorisnikId.Hide();
 			this.labelTipId.Hide();
 			this.labelPotrosnjaKcal.Hide();

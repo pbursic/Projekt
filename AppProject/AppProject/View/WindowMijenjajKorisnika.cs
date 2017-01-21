@@ -12,7 +12,7 @@ namespace AppProject
 
 			Gdk.Color colorLightBlue = new Gdk.Color();
 			Gdk.Color.Parse("#3FB2F0", ref colorLightBlue);
-			eventboxMijenjajKorisnika.ModifyBg(Gtk.StateType.Normal, colorLightBlue);
+			eventboxMijenjajKorisnika.ModifyBg(StateType.Normal, colorLightBlue);
 			Add(eventboxMijenjajKorisnika);
 
 			labelID.Text = k.id.ToString();

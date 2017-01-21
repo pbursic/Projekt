@@ -30,6 +30,8 @@ namespace AppProject
 
 		private global::Gtk.Label labelJedinicaMjere;
 
+		private global::Gtk.Fixed fixed9;
+
 		private global::Gtk.HBox hbox4;
 
 		private global::Gtk.Button buttonOk;
@@ -42,13 +44,13 @@ namespace AppProject
 			// Widget AppProject.WindowDodajTip
 			this.Name = "AppProject.WindowDodajTip";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajTip");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
+			this.Modal = true;
 			// Container child AppProject.WindowDodajTip.Gtk.Container+ContainerChild
 			this.eventboxDodajTip = new global::Gtk.EventBox();
 			this.eventboxDodajTip.Name = "eventboxDodajTip";
 			// Container child eventboxDodajTip.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
-			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.labelTitle = new global::Gtk.Label();
@@ -61,6 +63,7 @@ namespace AppProject
 			w1.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();
+			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.labelNaziv = new global::Gtk.Label();
@@ -147,6 +150,15 @@ namespace AppProject
 			w11.Expand = false;
 			w11.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
+			this.fixed9 = new global::Gtk.Fixed();
+			this.fixed9.Name = "fixed9";
+			this.fixed9.HasWindow = false;
+			this.vbox1.Add(this.fixed9);
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.fixed9]));
+			w12.Position = 5;
+			w12.Expand = false;
+			w12.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox4 = new global::Gtk.HBox();
 			this.hbox4.Name = "hbox4";
 			this.hbox4.Spacing = 6;
@@ -157,10 +169,9 @@ namespace AppProject
 			this.buttonOk.UseUnderline = true;
 			this.buttonOk.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbox4.Add(this.buttonOk);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonOk]));
-			w12.Position = 0;
-			w12.Expand = false;
-			w12.Fill = false;
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonOk]));
+			w13.Position = 1;
+			w13.Fill = false;
 			// Container child hbox4.Gtk.Box+BoxChild
 			this.buttonCancel = new global::Gtk.Button();
 			this.buttonCancel.CanFocus = true;
@@ -168,15 +179,15 @@ namespace AppProject
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox4.Add(this.buttonCancel);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonCancel]));
-			w13.Position = 1;
-			w13.Expand = false;
-			w13.Fill = false;
-			this.vbox1.Add(this.hbox4);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox4]));
-			w14.Position = 5;
-			w14.Expand = false;
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonCancel]));
+			w14.Position = 2;
 			w14.Fill = false;
+			this.vbox1.Add(this.hbox4);
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox4]));
+			w15.PackType = ((global::Gtk.PackType)(1));
+			w15.Position = 6;
+			w15.Expand = false;
+			w15.Fill = false;
 			this.eventboxDodajTip.Add(this.vbox1);
 			this.Add(this.eventboxDodajTip);
 			if ((this.Child != null))
