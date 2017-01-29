@@ -43,7 +43,8 @@ namespace AppProject
 			global::Stetic.Gui.Initialize(this);
 			// Widget AppProject.WindowDodajTip
 			this.Name = "AppProject.WindowDodajTip";
-			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodajTip");
+			this.Title = global::Mono.Unix.Catalog.GetString("Tip aktivnosti");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.icon.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			this.Modal = true;
 			// Container child AppProject.WindowDodajTip.Gtk.Container+ContainerChild
@@ -51,6 +52,7 @@ namespace AppProject
 			this.eventboxDodajTip.Name = "eventboxDodajTip";
 			// Container child eventboxDodajTip.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
+			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.labelTitle = new global::Gtk.Label();

@@ -120,7 +120,6 @@ C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProje
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\glib-sharp.dll
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\gtk-sharp.dll
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\Mono.Posix.dll
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\mscorlib.dll
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\pango-sharp.dll
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.dll
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\System.Data.SQLite.EF6.dll
@@ -131,11 +130,6 @@ C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProje
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\pango-sharp.pdb
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\atk-sharp.pdb
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\glade-sharp.pdb
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\normidna.nlp
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfc.nlp
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfd.nlp
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfkc.nlp
-C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\normnfkd.nlp
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.csprojResolveAssemblyReference.cache
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.exe
 C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\obj\x86\Debug\AppProject.pdb
@@ -168,3 +162,10 @@ C:\Users\Maurizio\Documents\Projects\Projekt\AppProject\AppProject\bin\Debug\Oxy
 C:\Users\Maurizio\Documents\Projects\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.xml
 C:\Users\Maurizio\Documents\Projects\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.GtkSharp.pdb
 C:\Users\Maurizio\Documents\Projects\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.GtkSharp.xml
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.dll
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.GtkSharp.dll
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\Mono.Cairo.dll
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.pdb
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.xml
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.GtkSharp.pdb
+C:\Users\Maurizio\Documents\Projects\Projekt\pbursic\Projekt\AppProject\AppProject\bin\Debug\OxyPlot.GtkSharp.xml

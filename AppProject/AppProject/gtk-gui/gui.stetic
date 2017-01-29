@@ -32,6 +32,7 @@
                 <property name="CanFocus">True</property>
                 <property name="CurrentPage">4</property>
                 <property name="TabPos">Left</property>
+                <property name="ShowTabs">False</property>
                 <child>
                   <widget class="Gtk.VBox" id="vbox16">
                     <property name="MemberName" />
@@ -767,7 +768,8 @@
                   <widget class="Gtk.Notebook" id="notebookGlavni">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="CurrentPage">5</property>
+                    <property name="CurrentPage">6</property>
+                    <property name="ShowTabs">False</property>
                     <signal name="FocusTab" handler="UpdateLists" />
                     <child>
                       <widget class="Gtk.Image" id="imageLogo">
@@ -1508,7 +1510,7 @@
                                 <property name="WidthRequest">0</property>
                                 <property name="CanFocus">True</property>
                                 <property name="Type">TextOnly</property>
-                                <property name="Label" translatable="yes">Prikazi po po datumu</property>
+                                <property name="Label" translatable="yes">Prikazi po datumu</property>
                                 <property name="UseUnderline">True</property>
                                 <signal name="Clicked" handler="PrikaziByDatumClicked" />
                               </widget>
@@ -2373,7 +2375,8 @@ prosinac</property>
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowDodajTip" design-size="398 240">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowDodajTip</property>
+    <property name="Title" translatable="yes">Tip aktivnosti</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
     <child>
@@ -3394,9 +3397,12 @@ prosinac</property>
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowMijenjajTip" design-size="397 260">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowMijenjajTip</property>
+    <property name="Title" translatable="yes">Tip aktivnosti</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxMijenjajTip">
         <property name="MemberName" />

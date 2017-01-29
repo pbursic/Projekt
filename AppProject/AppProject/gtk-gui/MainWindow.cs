@@ -288,6 +288,7 @@ public partial class MainWindow
 		this.notebookMenu.Name = "notebookMenu";
 		this.notebookMenu.CurrentPage = 4;
 		this.notebookMenu.TabPos = ((global::Gtk.PositionType)(0));
+		this.notebookMenu.ShowTabs = false;
 		// Container child notebookMenu.Gtk.Notebook+NotebookChild
 		this.vbox16 = new global::Gtk.VBox();
 		this.vbox16.Name = "vbox16";
@@ -443,6 +444,7 @@ public partial class MainWindow
 		this.labelTipAktivnosti.ShowAll();
 		// Container child notebookMenu.Gtk.Notebook+NotebookChild
 		this.vbox1 = new global::Gtk.VBox();
+		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.imageTitle2 = new global::Gtk.Image();
@@ -811,7 +813,8 @@ public partial class MainWindow
 		this.notebookGlavni = new global::Gtk.Notebook();
 		this.notebookGlavni.CanFocus = true;
 		this.notebookGlavni.Name = "notebookGlavni";
-		this.notebookGlavni.CurrentPage = 5;
+		this.notebookGlavni.CurrentPage = 6;
+		this.notebookGlavni.ShowTabs = false;
 		// Container child notebookGlavni.Gtk.Notebook+NotebookChild
 		this.imageLogo = new global::Gtk.Image();
 		this.imageLogo.Name = "imageLogo";
@@ -1304,7 +1307,7 @@ public partial class MainWindow
 		this.button1.CanFocus = true;
 		this.button1.Name = "button1";
 		this.button1.UseUnderline = true;
-		this.button1.Label = global::Mono.Unix.Catalog.GetString("Prikazi po po datumu");
+		this.button1.Label = global::Mono.Unix.Catalog.GetString("Prikazi po datumu");
 		this.hbox5.Add(this.button1);
 		global::Gtk.Box.BoxChild w111 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.button1]));
 		w111.Position = 0;

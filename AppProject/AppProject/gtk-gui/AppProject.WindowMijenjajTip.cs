@@ -45,14 +45,18 @@ namespace AppProject
 			global::Stetic.Gui.Initialize(this);
 			// Widget AppProject.WindowMijenjajTip
 			this.Name = "AppProject.WindowMijenjajTip";
-			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajTip");
+			this.Title = global::Mono.Unix.Catalog.GetString("Tip aktivnosti");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.icon.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			this.Modal = true;
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child AppProject.WindowMijenjajTip.Gtk.Container+ContainerChild
 			this.eventboxMijenjajTip = new global::Gtk.EventBox();
 			this.eventboxMijenjajTip.Name = "eventboxMijenjajTip";
 			// Container child eventboxMijenjajTip.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
+			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.labelTitle = new global::Gtk.Label();
