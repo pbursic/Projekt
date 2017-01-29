@@ -71,14 +71,18 @@ namespace AppProject
 			global::Stetic.Gui.Initialize(this);
 			// Widget AppProject.WindowMijenjajKorisnika
 			this.Name = "AppProject.WindowMijenjajKorisnika";
-			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajKorisnika");
+			this.Title = global::Mono.Unix.Catalog.GetString("Korisnik");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.icon.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			this.Modal = true;
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child AppProject.WindowMijenjajKorisnika.Gtk.Container+ContainerChild
 			this.eventboxMijenjajKorisnika = new global::Gtk.EventBox();
 			this.eventboxMijenjajKorisnika.Name = "eventboxMijenjajKorisnika";
 			// Container child eventboxMijenjajKorisnika.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
+			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();

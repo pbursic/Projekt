@@ -1578,9 +1578,12 @@
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowDodajKorisnika" design-size="430 412">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowDodajKorisnika</property>
+    <property name="Title" translatable="yes">Korisnik</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxDodajKorisnika">
         <property name="MemberName" />
@@ -1971,9 +1974,12 @@ prosinac</property>
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowDodajAktivnost" design-size="561 455">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowDodajAktivnost</property>
+    <property name="Title" translatable="yes">Aktivnost</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxDodajAktivnost">
         <property name="MemberName" />
@@ -2379,6 +2385,8 @@ prosinac</property>
     <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxDodajTip">
         <property name="MemberName" />
@@ -2589,9 +2597,12 @@ h</property>
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowMijenjajKorisnika" design-size="431 415">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowMijenjajKorisnika</property>
+    <property name="Title" translatable="yes">Korisnik</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxMijenjajKorisnika">
         <property name="MemberName" />
@@ -2988,9 +2999,12 @@ prosinac</property>
   </widget>
   <widget class="Gtk.Window" id="AppProject.WindowMijenjajAktivnost" design-size="562 454">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">WindowMijenjajAktivnost</property>
+    <property name="Title" translatable="yes">Aktivnost</property>
+    <property name="Icon">resource:AppProject.Resources.icon.png</property>
     <property name="WindowPosition">Center</property>
     <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <child>
       <widget class="Gtk.EventBox" id="eventboxDodajAktivnost">
         <property name="MemberName" />

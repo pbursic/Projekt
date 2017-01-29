@@ -47,6 +47,8 @@ namespace AppProject
 			this.Icon = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.icon.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			this.Modal = true;
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child AppProject.WindowDodajTip.Gtk.Container+ContainerChild
 			this.eventboxDodajTip = new global::Gtk.EventBox();
 			this.eventboxDodajTip.Name = "eventboxDodajTip";

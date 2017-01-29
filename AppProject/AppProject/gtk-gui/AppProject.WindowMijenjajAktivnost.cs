@@ -75,9 +75,12 @@ namespace AppProject
 			global::Stetic.Gui.Initialize(this);
 			// Widget AppProject.WindowMijenjajAktivnost
 			this.Name = "AppProject.WindowMijenjajAktivnost";
-			this.Title = global::Mono.Unix.Catalog.GetString("WindowMijenjajAktivnost");
+			this.Title = global::Mono.Unix.Catalog.GetString("Aktivnost");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource("AppProject.Resources.icon.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			this.Modal = true;
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child AppProject.WindowMijenjajAktivnost.Gtk.Container+ContainerChild
 			this.eventboxDodajAktivnost = new global::Gtk.EventBox();
 			this.eventboxDodajAktivnost.Name = "eventboxDodajAktivnost";
